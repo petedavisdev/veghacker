@@ -34,5 +34,10 @@ const year2020week37 = {
     20200908: ["Cab", "Car", "Gar", "Oni", "Tom"], // 5
     20200909: ["Cuc", "GrB", "Mus", "Oni" "Pep", "Tom"], // 6
     20200910: ["Let", "Pot"], // 2
-    20200911: ["Car", "Cuc", "Let", "Tom"], 
+    20200911: ["Car", "Cuc", "GrB", "Let", "Tom"], // 5
+    20200912: ["Car", "Cor", "Gar","GrB", "Let", "Mus"], // 6
+    20200913: ["GrB", "Pot", "Squ"], //
+};
+const year2020week38 = {
+    20200914: [],
 };
