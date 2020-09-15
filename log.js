@@ -40,4 +40,5 @@ const year2020week37 = {
 };
 const year2020week38 = {
     20200914: ["GrB", "Pot", "Squ", "Cel", "Mus", "Oli", "Let", "Lee"], // 8
+    20200915: ["Pot", "Car", "GrB", "Oni", "Squ", "Cor"], // 6
 };
