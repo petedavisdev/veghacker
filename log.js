@@ -42,4 +42,5 @@ const year2020week38 = {
     20200914: ["GrB", "Pot", "Squ", "Cel", "Mus", "Oli", "Let", "Lee"], // 8
     20200915: ["Pot", "Car", "GrB", "Oni", "Squ", "Cor"], // 6
     20200916: ["Bea", "Car", "Cel", "Cou", "Gar", "Pep", "Cuc", "Let", "Tom", "Oli"], // 10
- };
+    20200917: ["Bea", "Cuc", "Oni", "Tom", "Pot", "Cha"], // 6
+};
