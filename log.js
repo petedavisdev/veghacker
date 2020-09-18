@@ -1,46 +1,32 @@
 const myData = {
     year2020: {
         week36: {
-            variety: [
-                "Avo",
-                "Bea",
-                "Cab",
-                "Car",
-                "Cuc",
-                "Gar",
-                "GrB",
-                "Lee",
-                "Mus",
-                "Oni",
-                "Pea",
-                "Tom",
-            ], // 12
-            median: 7,
-            max: 9,
+            variety: [ Avo, Bea, Cab, Car, Cuc, Gar, GrB, Lee, Mus, Oni, Pea, Tom, ], // 12
             dailyLog: year2020week36,
         },
     },
 };
 
 const year2020week36 = {
-    20200902: ["Avo", "Cab", "Car", "Cuc", "Gar", "GrB", "Lee", "Oni", "Tom"], // 9
-    20200903: ["Cab", "Gar", "GrB", "Oni", "Tom"], // 5
-    20200904: ["Bea", "Cab", "Cuc", "Gar", "Oni", "Tom", "Spr"], // 7
-    20200905: ["Bea", "Cab", "Car", "Gar", "Oni", "Pea", "Tom"], // 7
-    20200906: ["Bea", "Cab", "Car", "Gar", "Grb", "Mus", "Oni", "Pot", "Tom"], // 9
+    20200902: [ Avo, Cab, Car, Cuc, Gar, GrB, Lee, Oni, Tom ], // 9
+    20200903: [ Cab, Gar, GrB, Oni, Tom ], // 5
+    20200904: [ Bea, Cab, Cuc, Gar, Oni, Tom, Spr ], // 7
+    20200905: [ Bea, Cab, Car, Gar, Oni, Pea, Tom ], // 7
+    20200906: [ Bea, Cab, Car, Gar, Grb, Mus, Oni, Pot, Tom ] // 9
 };
 const year2020week37 = {
-    20200907: ["Bea", "Cab", "Car", "Cou", "Gar", "Oni", "Pea", "Tom"], // 8
-    20200908: ["Cab", "Car", "Gar", "Oni", "Tom"], // 5
-    20200909: ["Cuc", "GrB", "Mus", "Oni" "Pep", "Tom"], // 6
-    20200910: ["Let", "Pot"], // 2
-    20200911: ["Car", "Cuc", "GrB", "Let", "Tom"], // 5
-    20200912: ["Car", "Cor", "Gar", "GrB", "Let", "Mus"], // 6
-    20200913: ["Avo", "Car", "Cuc", "Gar", "GrB", "Let", "Pot", "Squ"], // 8
+    20200907: [ Bea, Cab, Car, Cou, Gar, Oni, Pea, Tom ], // 8
+    20200908: [ Cab, Car, Gar, Oni, Tom ], // 5
+    20200909: [ Cuc, GrB, Mus, Oni, Pep, Tom ], // 6
+    20200910: [ Let, Pot ], // 2
+    20200911: [ Car, Cuc, GrB, Let, Tom ], // 5
+    20200912: [ Car, Cor, Gar, GrB, Let, Mus ], // 6
+    20200913: [ Avo, Car, Cuc, Gar, GrB, Let, Pot, Squ ] // 8
 };
 const year2020week38 = {
-    20200914: ["GrB", "Pot", "Squ", "Cel", "Mus", "Oli", "Let", "Lee"], // 8
-    20200915: ["Pot", "Car", "GrB", "Oni", "Squ", "Cor"], // 6
-    20200916: ["Bea", "Car", "Cel", "Cou", "Gar", "Pep", "Cuc", "Let", "Tom", "Oli"], // 10
-    20200917: ["Bea", "Cuc", "Oni", "Tom", "Pot", "Cha"], // 6
+    20200914: [ GrB, Pot, Squ, Cel, Mus, Oli, Let, Lee ], // 8
+    20200915: [ Pot, Car, GrB, Oni, Squ, Cor ], // 6
+    20200916: [ Bea, Car, Cel, Cou, Gar, Pep, Cuc, Let, Tom, Oli ], // 10
+    20200917: [ Bea, Cuc, Oni, Tom, Pot, Cha ], // 6
+    20200918: [ Pot, Lee, Cou, Cel ],
 };
