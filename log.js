@@ -30,4 +30,8 @@ const year2020week38 = {
     20200917: [ Bea, Cuc, Oni, Tom, Pot, Cha ], // 6
     20200918: [ Pot, Lee, Cou, Cel, Cha ], // 5
     20200919: [ Pot, Lee, Cou, Cel, Tom, Let, Bea, Oli, Car, Cuc ], // 10
+    20200920: [ Cuc, Oli, Car, Bea, Let, Avo, Tom ] // 7
 };
+const year2002week39 = {
+    20200921: [  ]
+}
