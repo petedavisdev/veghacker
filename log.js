@@ -33,5 +33,5 @@ const year2020week38 = {
     20200920: [ Cuc, Oli, Car, Bea, Let, Avo, Tom ] // 7
 };
 const year2002week39 = {
-    20200921: [  ]
+    20200921: [ Oni, Car, Pot, Squ ]
 }
