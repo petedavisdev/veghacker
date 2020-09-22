@@ -34,5 +34,6 @@ const year2020week38 = {
 };
 const year2002week39 = {
     20200921: [ Oni, Car, Pot, Squ, Let, Oli, Avo, Tom ], // 8
-    20200922: [],
+    20200922: [ Oni, Car, Pot, Squ, Cou, Gar, Tom, Mus, Let, Oli ], // 10
+    20200923: [  ],
 }
