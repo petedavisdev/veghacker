@@ -38,5 +38,6 @@ const year2002week39 = {
     20200923: [ Tom, Car, Cou, Oni, Gar, Pot, Squ, Let ], // 8
     20200924: [ Let, Bro, Tom, Oni, Gar, Cou, Car ], // 7
     20200925: [ Mus, Let, Bro, Avo, Pep, Pot, Pea, Tom, Grab, Mus, Oni ], // 11
-    20200926: [ Pot, Tom, Oni, Bea ]
+    20200926: [ Pot, Tom, Oni, Bea, Avo, Car ] // 6,
+    20200927: [  ]
 }
