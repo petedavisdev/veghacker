@@ -45,5 +45,6 @@ const year2020week40 = {
     20200928: [ Pot, Cou, Pep, Oni, Lee, Car ], // 6
     20200929: [ Tom, Oni, Gar, Oli, Pot, Car ], // 6
     20200930: [ Tom, Oni, Gar, Oli, Pot, Bea, Car, Let, Avo ], // 9
-    20201001: [  ], //
+    20201001: [ Let, Avo, Oni, Gar ], // 4
+    20201002: [  ] // 
 }
