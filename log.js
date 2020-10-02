@@ -15,36 +15,38 @@ const year2020week36 = {
     20200906: [ Bea, Cab, Car, Gar, Grb, Mus, Oni, Pot, Tom ] // 9
 };
 const year2020week37 = {
-    20200907: [ Bea, Cab, Car, Cou, Gar, Oni, Pea, Tom ], // 8
-    20200908: [ Cab, Car, Gar, Oni, Tom ], // 5
-    20200909: [ Cuc, GrB, Mus, Oni, Pep, Tom ], // 6
-    20200910: [ Let, Pot ], // 2
-    20200911: [ Car, Cuc, GrB, Let, Tom ], // 5
-    20200912: [ Car, Cor, Gar, GrB, Let, Mus ], // 6
-    20200913: [ Avo, Car, Cuc, Gar, GrB, Let, Pot, Squ ] // 8
+    20200907: [ Bea, Cab, Car, Cou, Gar, Oni, Pea, Tom ],           //  8
+    20200908: [ Cab, Car, Gar, Oni, Tom ],                          //  5
+    20200909: [ Cuc, GrB, Mus, Oni, Pep, Tom ],                     //  6
+    20200910: [ Let, Pot ],                                         //  2
+    20200911: [ Car, Cuc, GrB, Let, Tom ],                          //  5
+    20200912: [ Car, Cor, Gar, GrB, Let, Mus ],                     //  6
+    20200913: [ Avo, Car, Cuc, Gar, GrB, Let, Pot, Squ ]            //  8
 };
 const year2020week38 = {
-    20200914: [ GrB, Pot, Squ, Cel, Mus, Oli, Let, Lee ], // 8
-    20200915: [ Pot, Car, GrB, Oni, Squ, Cor ], // 6
+    20200914: [ GrB, Pot, Squ, Cel, Mus, Oli, Let, Lee ],           //  8
+    20200915: [ Pot, Car, GrB, Oni, Squ, Cor ],                     //  6
     20200916: [ Bea, Car, Cel, Cou, Gar, Pep, Cuc, Let, Tom, Oli ], // 10
-    20200917: [ Bea, Cuc, Oni, Tom, Pot, Cha ], // 6
-    20200918: [ Pot, Lee, Cou, Cel, Cha ], // 5
+    20200917: [ Bea, Cuc, Oni, Tom, Pot, Cha ],                     //  6
+    20200918: [ Pot, Lee, Cou, Cel, Cha ],                          //  5
     20200919: [ Pot, Lee, Cou, Cel, Tom, Let, Bea, Oli, Car, Cuc ], // 10
     20200920: [ Cuc, Oli, Car, Bea, Let, Avo, Tom ] // 7
 };
 const year2020week39 = {
-    20200921: [ Oni, Car, Pot, Squ, Let, Oli, Avo, Tom ], // 8
+    20200921: [ Oni, Car, Pot, Squ, Let, Oli, Avo, Tom ],           //  8
     20200922: [ Oni, Car, Pot, Squ, Cou, Gar, Tom, Mus, Let, Oli ], // 10
-    20200923: [ Tom, Car, Cou, Oni, Gar, Pot, Squ, Let ], // 8
-    20200924: [ Let, Bro, Tom, Oni, Gar, Cou, Car ], // 7
+    20200923: [ Tom, Car, Cou, Oni, Gar, Pot, Squ, Let ],           //  8
+    20200924: [ Let, Bro, Tom, Oni, Gar, Cou, Car ],                //  7
     20200925: [ Mus, Let, Bro, Avo, Pep, Pot, Pea, Tom, GrB, Oni ], // 10
-    20200926: [ Pot, Tom, Oni, Bea, Avo, Car ], // 6,
-    20200927: [ Pot, Cou, Pep, Lee, Car ] // 5
+    20200926: [ Pot, Tom, Oni, Bea, Avo, Car ],                     //  6
+    20200927: [ Pot, Cou, Pep, Lee, Car ]                           //  5
 }
 const year2020week40 = {
-    20200928: [ Pot, Cou, Pep, Oni, Lee, Car ], // 6
-    20200929: [ Tom, Oni, Gar, Oli, Pot, Car ], // 6
-    20200930: [ Tom, Oni, Gar, Oli, Pot, Bea, Car, Let, Avo ], // 9
-    20201001: [ Let, Avo, Oni, Gar ], // 4
-    20201002: [  ] // 
+    20200928: [ Pot, Cou, Pep, Oni, Lee, Car ],                     //  6
+    20200929: [ Tom, Oni, Gar, Oli, Pot, Car ],                     //  6
+    20200930: [ Tom, Oni, Gar, Oli, Pot, Bea, Car, Let, Avo ],      //  9
+    20201001: [ Let, Avo, Oni, Gar ],                               //  4
+    20201002: [ Avo, Let, Car, Oni, Gar, Oli ],                     //  6
+    20201003: [  ], //
+    20201004: [  ] //
 }
