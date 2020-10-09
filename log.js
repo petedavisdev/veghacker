@@ -55,4 +55,5 @@ const year2020week41 = {
     20201006: [ Avo, Pot, Squ, Lee, Car, Let, Oli, Oni, Mus, Tom ], // 10
     20201007: [ Pot, Car, Squ, Lee, Oni, Gin, Gar, Cel ], //  8
     20201008: [ Oli, Let, Car, Lee, Pot ]  //  5
+    20201009: [ Let, Car, Pot, Lee, Gar, Cau ] // 6
 }
