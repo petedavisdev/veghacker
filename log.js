@@ -65,4 +65,5 @@ const year2020week42 = {
     20201014: [ Avo, Let, Oli, Squ, Pot, BrS ],  //  6
     20201015: [ Avo, Let, Oni, Squ, Gar, Tom, Oli ],  //  7
     20201016: [ Avo, Let, Tom, Pot, Cou, Oni ],  //  6
+    20201017: [ Tom, Car, Let, Oni, Pep, Oli ],  //  
 }
