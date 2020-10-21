@@ -42,7 +42,7 @@ const year2020week40 = {
     2020-10-04: [ Squ, Car, Oni, Cab, Pot, Let, Tom, Oli ]            //  8
 }
 const year2020week41 = {
-    2020-10-05: [ Tom, Gar, Oni, Oli, Pep, Let, Mus, Cel, Lee, Pot, Car, Cou, Spr, Cab ], // 14
+    2020-10-05: [ Tom, Gar, Oni, Oli, Pep, Let, Mus, Cel, Lee, Pot, Car, Cou, SpO, Cab ], // 14
     2020-10-06: [ Avo, Pot, Squ, Lee, Car, Let, Oli, Oni, Mus, Tom ], // 10
     2020-10-07: [ Pot, Car, Squ, Lee, Oni, Gin, Gar, Cel ],           //  8
     2020-10-08: [ Oli, Let, Car, Lee, Pot ],                          //  5
@@ -57,10 +57,10 @@ const year2020week42 = {
     2020-10-15: [ Avo, Let, Oni, Squ, Gar, Tom, Oli ],                //  7
     2020-10-16: [ Avo, Let, Tom, Pot, Cou, Oni ],                     //  6
     2020-10-17: [ Tom, Car, Let, Oni, Pep, Oli, Pot ],                //  7
-    2020-10-18: [ Tom, Avo, Oli, Oni, Pep, Car, Gar, Cel, Pot, Lee ], // 10
+    2020-10-18: [ Tom, Avo, Oli, Oni, Pep, Car, Gar, Cel, Pot, Lee, SeW ], // 10
 }
 const year2020week43 = {
     2020-10-19: [ Oni, Car, Gar, Cel, Pot, Lee, Cab ],                //  7
     2020-10-20: [ Oni, Gar, Pot, Car, Cel, Lee, Cab, Squ ],           //  8 
-    2020-10-20: [  ],  
+    2020-10-20: [ SpO, Car, SeW, Pot, Squ, Cab ],  
 }
