@@ -70,4 +70,10 @@ const year2020week43 = {
 }
 const year2020week44 = {
     "2020-10-26": [ Car, Swe, Par, Gar, Oni, Squ, Kal, Let, Oli, SpO ],  // 10
-    "2020-10-27": [ Pep, SpO, Kal, Oli, Car,  ]
+    "2020-10-27": [ Pep, SpO, Kal, Oli, Car, Col, Gar ],  //  7
+    "2020-10-28": [ Car, SpO, Oni, Pot ],  //  4
+    "2020-10-29": [  ],  //  
+    "2020-10-30": [  ],  //  
+    "2020-10-31": [  ],  //  
+    "2020-11-01": [  ]  //   
+}
