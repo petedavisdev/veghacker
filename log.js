@@ -74,6 +74,6 @@ const year2020week44 = {
     "2020-10-28": [ Car, SpO, Oni, Pot ],                                 //  4
     "2020-10-29": [ Oni, Pot, Gar, Tom, Car, Avo ],                       //  6
     "2020-10-30": [ Car, Cab, Pot, Tom, Gar, Oni, Avo ],                  //  7
-    "2020-10-31": [ SpO, Cau, Squ, Oni, Gar ],  //  
-    "2020-11-01": [  ]  //   
+    "2020-10-31": [ SpO, Cau, Squ, Oni, Gar, Car, Can, Pot ],             //  8
+    "2020-11-01": [ Oni, Gar, Squ, Cau, Pea, Car, Let, Oli ],             //  8
 }
