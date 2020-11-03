@@ -79,5 +79,5 @@ const year2020week44 = {
 }
 const year2020week45 = {
     "2020-11-02": [ Let, Squ, Cab, Car, Pea, Oli ],                       //  6
-    "2020-11-03": [  ],  //  
+    "2020-11-03": [ Let, Squ, Oni, Gar, Tom, Car ],                       //  6
 }
