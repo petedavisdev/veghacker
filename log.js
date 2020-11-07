@@ -16,7 +16,7 @@ const year2020week37 = {
 };
 const year2020week38 = {
     "2020-09-14": [ GrB, Pot, Squ, Cel, Mus, Oli, Let, Lee ],           //  8
-    '2020-09-15": [ Pot, Car, GrB, Oni, Squ, Cor ],                     //  6
+    "2020-09-15": [ Pot, Car, GrB, Oni, Squ, Cor ],                     //  6
     "2020-09-16": [ Bea, Car, Cel, Cou, Gar, Pep, Cuc, Let, Tom, Oli ], // 10
     "2020-09-17": [ Bea, Cuc, Oni, Tom, Pot, Cha ],                     //  6
     "2020-09-18": [ Pot, Lee, Cou, Cel, Cha ],                          //  5
@@ -83,4 +83,5 @@ const year2020week45 = {
     "2020-11-04": [ Cel, Oni, Gar, Mus, Tom, Pea, Squ ],                  //  7
     "2020-11-05": [ SpO, Car, Oli, Cel, Oni, Mus, Pea, Squ ],             //  8
     "2020-11-06": [ Car, Oli, Cab, BeS, Oni, Gar, Bro, Pum ],             //  8
+    "2020-11-07": [ Car, Cab, Gin, Kal, Oni, Sea, BeS ],                  //  7 
 }
