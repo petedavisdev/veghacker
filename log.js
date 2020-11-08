@@ -83,5 +83,6 @@ const year2020week45 = {
     "2020-11-04": [ Cel, Oni, Gar, Mus, Tom, Pea, Squ ],                  //  7
     "2020-11-05": [ SpO, Car, Oli, Cel, Oni, Mus, Pea, Squ ],             //  8
     "2020-11-06": [ Car, Oli, Cab, BeS, Oni, Gar, Bro, Pum ],             //  8
-    "2020-11-07": [ Car, Cab, Gin, Kal, Oni, Sea, BeS ],                  //  7 
+    "2020-11-07": [ Car, Cab, Gin, Kal, Oni, Sea, BeS ],                  //  7
+    "2020-11-08": [ Car, Cab, SpO, Gar, Oni, Cou, Kal, Squ,  ],
 }
