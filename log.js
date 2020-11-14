@@ -92,6 +92,6 @@ const year2020week44 = {
     "2020-11-11": [ Cel, Oni, Gar, Gin, Mus, Car, Cau, Let, Oli, Avo, Pot, Cuc ],  // 12
     "2020-11-12": [ Cab, Oni, Par, Let, Car, Oli, GrB, Avo, Gin ],  //  9
     "2020-11-13": [ Cab, Car, Par, Let, Oli, Avo, GrB, Oni, Lee, Cel, Mus ],  // 11
-    "2020-11-14": [ Cel, Lee, Mus, Cag, Car, Avo, Let, Oli,  ],  // 
+    "2020-11-14": [ Cel, Lee, Mus, Cab, Car, Avo, Let, Oli, Pep, Oni, Gar, Bea, Pot ],  // 13
     "2020-11-15": [  ],  // 
 }
