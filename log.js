@@ -86,7 +86,7 @@ const year2020week45 = {
     "2020-11-07": [ Car, Cab, Gin, Kal, Oni, Sea, BeS ],                  //  7
     "2020-11-08": [ Car, Cab, SpO, Gar, Oni, Cou, Kal, Squ, Lee, Swe, Cel, Pot ],  // 12
 }
-const year2020week44 = {
+const year2020week46 = {
     "2020-11-09": [ Car, Cab, BeS, Oli, Kal, SwP, Oni, Gar, Lee, Swe, Cel, Pot ],  // 12
     "2020-11-10": [ Cel, Gin, Oni, Cou, Mus, Gar, Oli, BrS, Pot, Car, Avo ],  // 11
     "2020-11-11": [ Cel, Oni, Gar, Gin, Mus, Car, Cau, Let, Oli, Avo, Pot, Cuc ],  // 12
@@ -94,4 +94,7 @@ const year2020week44 = {
     "2020-11-13": [ Cab, Car, Par, Let, Oli, Avo, GrB, Oni, Lee, Cel, Mus ],  // 11
     "2020-11-14": [ Cel, Lee, Mus, Cab, Car, Avo, Let, Oli, Pep, Oni, Gar, Bea, Pot ],  // 13
     "2020-11-15": [ Car, Cab, Pot, Bea, Pep, Oni, Gar, Avo, Let, Gin, Oli ],  // 11
+}
+const year2020week47 = {
+    "2020-11-16": [ Squ, Oni, Car, Let, Avo ]
 }
