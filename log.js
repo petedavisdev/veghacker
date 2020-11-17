@@ -96,5 +96,6 @@ const year2020week46 = {
     "2020-11-15": [ Car, Cab, Pot, Bea, Pep, Oni, Gar, Avo, Let, Gin, Oli ],  // 11
 }
 const year2020week47 = {
-    "2020-11-16": [ Squ, Oni, Car, Let, Avo ]
+    "2020-11-16": [ Squ, Oni, Car, Let, Avo ],  //  5
+    "2020-11-17": [ Car, Cab, Gar, Mus, Cel, Oni, Oli, Squ, Par ],  //  9
 }
