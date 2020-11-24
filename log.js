@@ -105,5 +105,6 @@ const year2020week47 = {
     "2020-11-22": [ Her, Kal, Tom, Gar, Oni, Cel, Avo, Car, Lee, Par, Pot, Cau ], // 12
 }
 const year2020week48 = {
-    "2020-11-23": [ Tom, Oni, Gar, Car, Cel, Cau, Pot, Spi, Mus ],  // 9
+    "2020-11-23": [ Tom, Oni, Gar, Car, Cel, Cau, Pot, Spi, Mus ],  //  9
+    "2020-11-24": [ Her, Oni, Car, Cau, Avo, Tom, Let, Oli ],  //  8
 }
