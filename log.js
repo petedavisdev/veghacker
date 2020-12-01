@@ -115,4 +115,5 @@ const year2020week48 = {
 }
 const year2020week49 = {
     "2020-11-30": [ Cab, Squ, Par, Oni, Gar, Avo, Car ],  //  7
+    "2020-12-01": [ Car, Pea, Sea, Oni, Cab ], //  5
 }
