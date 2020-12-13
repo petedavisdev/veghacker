@@ -128,4 +128,6 @@ const year2020week50 = {
     "2020-12-09": [ Car, Cab, Pot, SwP, Kal ]  //  5
     "2020-12-10": [ Let, Car, Avo ],  //  3
     "2020-12-11": [ Car, Cab, Avo, Pot, Let ], //  5
+    "2020-12-12": [ Gin, Oni, Gar, Cau, Pot, Car, Cou ], //  7
+    "2020-12-13": [ Car, Cab, Par, Pot, Cau, Oni, Gar, Gin ],  //  8
 }
