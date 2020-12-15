@@ -1,0 +1,16 @@
+[
+    {
+        "code": "CUC",
+        "family": [
+            "cucumber", "gherkin", "pickle"
+        ],
+        "colorLight": "green"
+    },
+    {
+        "code": "CAR",
+        "family": [
+            "carrot"
+        ],
+        "colorLight": "orange"
+    }
+]
