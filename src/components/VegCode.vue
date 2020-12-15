@@ -5,12 +5,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
     props: {
         colorLight: String,
         code: String
+    },
+    setup(props) {
+        const color = computed(() => props.colorLight || "LimeGreen")
+
+        return {
+            color,
+        }
     }
 })
 </script>
@@ -18,7 +25,7 @@ export default defineComponent({
 <style scoped>
 
 span {
-    color: v-bind(colorLight)
+    color: v-bind(color)
 }
 
 </style>

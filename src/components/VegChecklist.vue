@@ -44,8 +44,14 @@ export default defineComponent({
             family: string[]
         }
 
-        const today = ref(props.vegetables.filter( (veg: Veg) => props.log && props.log.includes(veg.code)))
-        const vegCodes = computed(() => today.value.map( (veg: Veg) => veg.code ))
+        const today = ref(props.vegetables.filter( (veg: Veg) => {
+            return props.log && props.log.includes(veg.code)
+        }))
+
+        const vegCodes = computed(() => {
+            return today.value.map( (veg: Veg) => veg.code )
+        })
+
         watch(vegCodes, () => emit("update:log", vegCodes))
 
         return {

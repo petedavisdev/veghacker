@@ -5,7 +5,7 @@
   </h1>
 
   <p>
-    The <em>object</em> is to eat an <em>array</em> of vegetables every week.
+    The <em>object</em> of being a veghacker is to eat an <em>array</em> of vegetables every week.
   </p>
   
   <p>
