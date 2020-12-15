@@ -525,8 +525,7 @@
     "family": [
       "Peas",
       "Mange tout",
-      "Petit pois",
-      "Snap pea"
+      "Petit pois"
     ],
     "familyUS": ""
   },
@@ -582,8 +581,8 @@
     "seasonStart": 30,
     "seasonEnd": 45,
     "family": [
-      "Onions",
-      "Chalots"
+      "Onion",
+      "Shallot"
     ],
     "familyUS": ""
   },

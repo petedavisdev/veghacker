@@ -3,8 +3,15 @@
         today = 
         <VegArray :veggies="today" />
     </p>
+
+    <input
+        @input="keyword = $event.target.value"
+        type="search"
+        placeholder="search"
+    />
+
     <ul>
-        <li v-for="veg in vegetables" :key="veg.key">
+        <li v-for="veg in filteredVeg" :key="veg.key">
             <input
                 v-model="today"
                 type="checkbox"
@@ -40,7 +47,7 @@ export default defineComponent({
     setup (props, { emit }) {
         interface Veg {
             code: string
-            colorLight: string
+            colorLight?: string
             family: string[]
         }
 
@@ -52,10 +59,49 @@ export default defineComponent({
             return today.value.map( (veg: Veg) => veg.code )
         })
 
+        const keyword = ref("")
+
+        const filteredVeg = computed(() => {
+            if (!keyword.value) return props.vegetables
+
+            const term = keyword.value.toUpperCase()
+            const isCode = code => code === term
+            const isCodeStart = code => code.startsWith(term)
+            const isCodePart = code => code.includes(term)
+            const isFamilyPart = family => family.toString().toUpperCase().includes(term)
+
+            const topResult = props.vegetables.filter((veg: Veg) => {
+                return isCode(veg.code)
+            })
+
+            const greatResults = props.vegetables.filter((veg: Veg) => {
+                return !isCode(veg.code)
+                    && isCodeStart(veg.code)
+            })
+
+            const goodResults = props.vegetables.filter((veg: Veg) => {
+                return !isCode(veg.code)
+                    && !isCodeStart(veg.code)
+                    && isCodePart(veg.code)
+            })
+
+
+            const otherResults = props.vegetables.filter((veg: Veg) => {
+                return !isCode(veg.code)
+                    && !isCodeStart(veg.code)
+                    && !isCodePart(veg.code)
+                    && isFamilyPart(veg.family)
+            })
+
+            return [...topResult, ...greatResults, ...goodResults, ...otherResults]
+        })
+
         watch(vegCodes, () => emit("update:log", vegCodes))
 
         return {
             today,
+            keyword,
+            filteredVeg,
             vegCodes,
         }
     },
@@ -69,6 +115,29 @@ export default defineComponent({
     color: gray;
 }
 
+[type="search"] {
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: inherit;
+    background-color: inherit;
+    color: inherit;
+    width: 15ch;
+}
+
+[type="search"]::placeholder {
+    text-transform: lowercase;
+}
+
+label {
+    display: inline-block;
+    max-width: 60ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.2em;
+    background-color: #000919;
+}
+
 :checked + label {
     background-color: midnightblue;
 }
@@ -78,4 +147,13 @@ ul {
     padding: 0;
 }
 
+li {
+    display: flex;
+    align-items: baseline;
+    margin-block: 0.1em;
+}
+
+p {
+    font-size: large;
+}
 </style>

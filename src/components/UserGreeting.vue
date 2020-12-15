@@ -12,7 +12,7 @@
     Your immune system is depending on you!
   </p>
 
-  <h2>What vegetables did you eat today?</h2>
+  <h2>What vegetables have you eaten today?</h2>
 </template>
 
 <script lang="ts">
