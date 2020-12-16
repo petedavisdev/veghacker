@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #012;
+  color: hotpink;
+}
+
+#app {
+  padding: 2em;
+}
+
+input {
+  border: solid 2px midnightblue;
+  border-radius: 0.2em;
+}
