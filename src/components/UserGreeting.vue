@@ -4,15 +4,11 @@
     <input type="text" :value="username" @input="$emit('update:username', $event.target.value)" />
   </h1>
 
+  <p>Your immune system needs your help!</p>
+
   <p>
     The <em>object</em> of being a veghacker is to eat an <em>array</em> of vegetables every week.
   </p>
-  
-  <p>
-    Your immune system is depending on you!
-  </p>
-
-  <h2>What vegetables have you eaten today?</h2>
 </template>
 
 <script lang="ts">
