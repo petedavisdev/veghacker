@@ -1,7 +1,7 @@
 <template>
   <a href="/">VEGHACKER v0.1</a>
   <UserGreeting v-model:username="user.name" />
-  <VegChecklist v-model:log="user[dateToday]" :vegetables="sortedVeg" />
+  <VegChecklist v-model:log="user[dateYesterday]" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
@@ -17,7 +17,9 @@ export default {
     VegChecklist,
   },
   setup() {
-    const dateToday = new Date().toISOString().split('T')[0]
+    //const dateToday = new Date().toISOString().split('T')[0]
+
+    const dateYesterday = "2020-12-15"
 
     const sortedVeg = computed(() => {
       return vegetables.sort(function(a, b){
@@ -37,7 +39,7 @@ export default {
     watch(user, () => localStorage.setItem("user", JSON.stringify(user)))
     
     return {
-      dateToday,
+      dateYesterday,
       sortedVeg,
       user,
     }
