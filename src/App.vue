@@ -1,13 +1,19 @@
 <template>
   <a href="/">VEGHACKER v0.1-alpha</a>
+
   <UserGreeting v-model:username="user.name" />
-  <VegChecklist v-model:log="user[dateYesterday]" :vegetables="sortedVeg" />
+
+  <h2>
+      What veg did you eat {{ activeDay }}?
+  </h2>
+
+  <VegChecklist v-model:log="user[activeDay]" :day="activeDay" :days="days" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
 import UserGreeting from "./components/UserGreeting.vue"
 import VegChecklist from "./components/VegChecklist.vue"
-import { computed, reactive, watch } from "vue"
+import { computed, reactive, ref, watch } from "vue"
 import { vegetables } from "./main"
 
 export default {
@@ -17,9 +23,13 @@ export default {
     VegChecklist,
   },
   setup() {
-    //const dateToday = new Date().toISOString().split('T')[0]
+    const days = [
+      "2020-12-14",
+      "2020-12-15",
+      "2020-12-16",
+    ];
 
-    const dateYesterday = "2020-12-15";
+    const activeDay = ref(days[1]);
 
     const sortedVeg = computed(() => {
       return vegetables.sort(function (a, b) {
@@ -35,16 +45,19 @@ export default {
       localUser || {
         name: "Veghacker" + Math.round(100 + 900 * Math.random()),
         created: new Date(),
-        updated: new Date()
       }
     );
 
-    watch(user, () => localStorage.setItem("user", JSON.stringify(user)));
+    watch(user, () => {
+      localStorage.setItem( "updated", new Date().toISOString() )
+      localStorage.setItem( "user", JSON.stringify(user) )
+    });
 
     return {
-      dateYesterday,
+      activeDay,
       sortedVeg,
       user,
+      days,
     };
   },
 };

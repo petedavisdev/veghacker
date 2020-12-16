@@ -1,10 +1,7 @@
 <template>
-    <h2>
-        What veg did you eat {{ activeDay.name }}?
-    </h2>
 
     <p>
-        {{ activeDay.name }} = 
+        {{ day }} = 
         <VegArray :veggies="yesterday" />
     </p>
 
@@ -19,7 +16,7 @@
             <input
                 v-model="yesterday"
                 type="checkbox"
-                :name="activeDay.iso"
+                :name="day"
                 :id="veg.code"
                 :value="veg"
             />
@@ -33,6 +30,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue'
+import { Veg } from '../types'
 import VegArray from "./VegArray.vue"
 import VegCode from "./VegCode.vue"
 
@@ -44,22 +42,13 @@ export default defineComponent({
     props: {
         log: Array,
         vegetables: Array,
+        day: String,
+        days: Array,
     },
     emits: [
         "update:log",
     ],
     setup (props, { emit }) {
-        interface Veg {
-            code: string
-            colorLight?: string
-            family: string[]
-        }
-
-        const activeDay = {
-            name: "yesterday",
-            iso: "2020-12-15",
-        }
-
         const yesterday = ref(props.vegetables.filter( (veg: Veg) => {
             return props.log && props.log.includes(veg.code)
         }))
@@ -108,7 +97,6 @@ export default defineComponent({
         watch(vegCodes, () => emit("update:log", vegCodes))
 
         return {
-            activeDay,
             yesterday,
             keyword,
             filteredVeg,
@@ -120,7 +108,7 @@ export default defineComponent({
 
 <style scoped>
 
-*:not(h2) {
+* {
     font-family: 'Courier New', Courier, monospace;
 }
 
