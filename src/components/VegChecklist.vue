@@ -1,7 +1,11 @@
 <template>
+    <h2>
+        What veg did you eat {{ activeDay.name }}?
+    </h2>
+
     <p>
-        today = 
-        <VegArray :veggies="today" />
+        {{ activeDay.name }} = 
+        <VegArray :veggies="yesterday" />
     </p>
 
     <input
@@ -13,9 +17,9 @@
     <ul>
         <li v-for="veg in filteredVeg" :key="veg.key">
             <input
-                v-model="today"
+                v-model="yesterday"
                 type="checkbox"
-                name="today"
+                :name="activeDay.iso"
                 :id="veg.code"
                 :value="veg"
             />
@@ -51,12 +55,17 @@ export default defineComponent({
             family: string[]
         }
 
-        const today = ref(props.vegetables.filter( (veg: Veg) => {
+        const activeDay = {
+            name: "yesterday",
+            iso: "2020-12-15",
+        }
+
+        const yesterday = ref(props.vegetables.filter( (veg: Veg) => {
             return props.log && props.log.includes(veg.code)
         }))
 
         const vegCodes = computed(() => {
-            return today.value.map( (veg: Veg) => veg.code )
+            return yesterday.value.map( (veg: Veg) => veg.code )
         })
 
         const keyword = ref("")
@@ -99,7 +108,8 @@ export default defineComponent({
         watch(vegCodes, () => emit("update:log", vegCodes))
 
         return {
-            today,
+            activeDay,
+            yesterday,
             keyword,
             filteredVeg,
             vegCodes,
