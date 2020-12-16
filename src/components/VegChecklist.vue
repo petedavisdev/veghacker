@@ -1,10 +1,4 @@
 <template>
-
-    <p>
-        {{ day }} = 
-        <VegArray :veggies="yesterday" />
-    </p>
-
     <input
         @input="keyword = $event.target.value"
         type="search"
@@ -14,9 +8,8 @@
     <ul>
         <li v-for="veg in filteredVeg" :key="veg.key">
             <input
-                v-model="yesterday"
+                v-model="checkedVeg"
                 type="checkbox"
-                :name="day"
                 :id="veg.code"
                 :value="veg"
             />
@@ -31,30 +24,25 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue'
 import { Veg } from '../types'
-import VegArray from "./VegArray.vue"
 import VegCode from "./VegCode.vue"
 
 export default defineComponent({
     components: {
-        VegArray,
         VegCode,
     },
     props: {
         log: Array,
         vegetables: Array,
-        day: String,
-        days: Array,
+        activeDay: String,
     },
     emits: [
         "update:log",
     ],
     setup (props, { emit }) {
-        const yesterday = ref(props.vegetables.filter( (veg: Veg) => {
-            return props.log && props.log.includes(veg.code)
-        }))
+        const checkedVeg = ref(props.log || [])
 
-        const vegCodes = computed(() => {
-            return yesterday.value.map( (veg: Veg) => veg.code )
+        watch(() => props.activeDay, (newVal, prev) => {
+            checkedVeg.value = props.log
         })
 
         const keyword = ref("")
@@ -94,13 +82,15 @@ export default defineComponent({
             return [...topResult, ...greatResults, ...goodResults, ...otherResults]
         })
 
-        watch(vegCodes, () => emit("update:log", vegCodes))
+        watch(checkedVeg, () => {
+            emit("update:log", checkedVeg.value)
+            keyword.value = ''
+        })
 
         return {
-            yesterday,
+            checkedVeg,
             keyword,
             filteredVeg,
-            vegCodes,
         }
     },
 })
@@ -149,13 +139,5 @@ ul {
 li {
     display: flex;
     align-items: baseline;
-}
-
-p {
-    font-size: large;
-    color: gray;
-    background-color: midnightblue;
-    padding: 0.5em 0.8em;
-    width: max-content;
 }
 </style>

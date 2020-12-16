@@ -7,12 +7,15 @@
       What veg did you eat {{ activeDay }}?
   </h2>
 
-  <VegChecklist v-model:log="user[activeDay]" :day="activeDay" :days="days" :vegetables="sortedVeg" />
+  <VegWeekdays v-model:active="activeDay" :weekdays="weekdays" :user="user" />
+
+  <VegChecklist v-model:log="user[activeDay]" :activeDay="activeDay" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
 import UserGreeting from "./components/UserGreeting.vue"
 import VegChecklist from "./components/VegChecklist.vue"
+import VegWeekdays from "./components/VegWeekdays.vue"
 import { computed, reactive, ref, watch } from "vue"
 import { vegetables } from "./main"
 
@@ -20,17 +23,10 @@ export default {
   name: "App",
   components: {
     UserGreeting,
+    VegWeekdays,
     VegChecklist,
   },
   setup() {
-    const days = [
-      "2020-12-14",
-      "2020-12-15",
-      "2020-12-16",
-    ];
-
-    const activeDay = ref(days[1]);
-
     const sortedVeg = computed(() => {
       return vegetables.sort(function (a, b) {
         if (a.code < b.code) return -1;
@@ -53,11 +49,19 @@ export default {
       localStorage.setItem( "user", JSON.stringify(user) )
     });
 
+    const weekdays = [
+      "2020-12-14",
+      "2020-12-15",
+      "2020-12-16",
+    ]
+
+    const activeDay = ref("2020-12-15");
+
     return {
       activeDay,
       sortedVeg,
       user,
-      days,
+      weekdays,
     };
   },
 };
