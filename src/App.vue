@@ -1,17 +1,17 @@
 <template>
-  <a href="/">VEGHACKER v0.1</a>
+  <a href="/">VEGHACKER v0.1-alpha</a>
   <UserGreeting v-model:username="user.name" />
   <VegChecklist v-model:log="user[dateYesterday]" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
-import vegetables from './data/vegetables.json'
-import UserGreeting from './components/UserGreeting.vue'
-import VegChecklist from './components/VegChecklist.vue'
-import { computed, reactive, watch } from 'vue'
+import UserGreeting from "./components/UserGreeting.vue"
+import VegChecklist from "./components/VegChecklist.vue"
+import { computed, reactive, watch } from "vue"
+import { vegetables } from "./main"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     UserGreeting,
     VegChecklist,
@@ -19,38 +19,39 @@ export default {
   setup() {
     //const dateToday = new Date().toISOString().split('T')[0]
 
-    const dateYesterday = "2020-12-15"
+    const dateYesterday = "2020-12-15";
 
     const sortedVeg = computed(() => {
-      return vegetables.sort(function(a, b){
-          if(a.code < b.code) return -1
-          if(a.code > b.code) return 1
-          return 0
-      })
+      return vegetables.sort(function (a, b) {
+        if (a.code < b.code) return -1;
+        if (a.code > b.code) return 1;
+        return 0;
+      });
     });
 
-    const localUser = JSON.parse(localStorage.getItem("user"))
+    const localUser = JSON.parse(localStorage.getItem("user"));
 
     const user = reactive(
       localUser || {
-      name: "Veghacker" + Math.round(100 + 900*Math.random())
-    })
+        name: "Veghacker" + Math.round(100 + 900 * Math.random()),
+        created: new Date(),
+        updated: new Date()
+      }
+    );
 
-    watch(user, () => localStorage.setItem("user", JSON.stringify(user)))
-    
+    watch(user, () => localStorage.setItem("user", JSON.stringify(user)));
+
     return {
       dateYesterday,
       sortedVeg,
       user,
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style scoped>
-
 a {
   text-decoration: none;
 }
-
 </style>

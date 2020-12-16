@@ -120,12 +120,12 @@ export default defineComponent({
 
 <style scoped>
 
-* {
+*:not(h2) {
     font-family: 'Courier New', Courier, monospace;
-    color: gray;
 }
 
 [type="search"] {
+    padding: 0.4em;
     text-transform: uppercase;
     font-size: large;
     font-weight: inherit;
@@ -140,12 +140,13 @@ export default defineComponent({
 
 label {
     display: inline-block;
-    max-width: 60ch;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.2em;
+    margin: 0.1em;
+    padding: 0.2em 0.5em;
     background-color: #000919;
+    color: gray;
 }
 
 :checked + label {
@@ -160,10 +161,13 @@ ul {
 li {
     display: flex;
     align-items: baseline;
-    margin-block: 0.1em;
 }
 
 p {
     font-size: large;
+    color: gray;
+    background-color: midnightblue;
+    padding: 0.5em 0.8em;
+    width: max-content;
 }
 </style>

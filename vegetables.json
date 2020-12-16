@@ -156,16 +156,15 @@
     ]
   },
   {
-    "code": "CAS",
+    "code": "ASP",
     "codeUS": "",
     "colorDark": "",
-    "colorLight": "Linen",
+    "colorLight": "",
     "week": 11,
-    "seasonStart": 1,
-    "seasonEnd": 52,
+    "seasonStart": 7,
+    "seasonEnd": 22,
     "family": [
-      "Cassava",
-      "Tapioca root"
+      "Asparagus"
     ],
     "familyUS": ""
   },
@@ -274,24 +273,11 @@
     "familyUS": ""
   },
   {
-    "code": "ASP",
-    "codeUS": "",
-    "colorDark": "",
-    "colorLight": "",
-    "week": 19,
-    "seasonStart": 7,
-    "seasonEnd": 22,
-    "family": [
-      "Asparagus"
-    ],
-    "familyUS": ""
-  },
-  {
     "code": "END",
     "codeUS": "",
     "colorDark": "",
     "colorLight": "",
-    "week": 20,
+    "week": 19,
     "seasonStart": 13,
     "seasonEnd": 24,
     "family": [
@@ -299,6 +285,26 @@
       "Escarole",
       "Chicory",
       "Radicchio"
+    ],
+    "familyUS": ""
+  },
+  {
+    "code": "SEA",
+    "codeUS": "",
+    "colorDark": "",
+    "colorLight": "OliveDrab",
+    "week": 20,
+    "seasonStart": 19,
+    "seasonEnd": 38,
+    "family": [
+      "Seaweed",
+      "Nori",
+      "Spirulina",
+      "Kelp",
+      "Wakame",
+      "Dulse",
+      "Arame",
+      "Kombu"
     ],
     "familyUS": ""
   },
@@ -790,11 +796,25 @@
     ]
   },
   {
+    "code": "CAS",
+    "codeUS": "",
+    "colorDark": "",
+    "colorLight": "Linen",
+    "week": 53,
+    "seasonStart": 1,
+    "seasonEnd": 52,
+    "family": [
+      "Cassava",
+      "Tapioca root"
+    ],
+    "familyUS": ""
+  },
+  {
     "code": "PLA",
     "codeUS": "",
     "colorDark": "",
     "colorLight": "Gold",
-    "week": 53,
+    "week": 54,
     "seasonStart": 1,
     "seasonEnd": 52,
     "family": [
