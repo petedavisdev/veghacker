@@ -2,10 +2,11 @@
     <ul>
         <li v-for="day in weekdays" :key="day.key" :id="'day' + day">
             <input
-                v-model="activeDay"
                 type="radio"
                 :id="day"
                 :value="day"
+                name="day"
+                @change="$emit('update:activeDay', $event.target.value)"
             />
             <label :for="day">
                 {{ day }} =
@@ -26,22 +27,11 @@ export default defineComponent({
     props: {
         weekdays: Array,
         log: Object,
-        active: String
+        activeDay: String
     },
     emits: [
-        "update:active",
+        "update:activeDay",
     ],
-    setup (props, { emit }) {
-        const activeDay = ref(props.active)
-
-        watch(activeDay, () => {
-            emit("update:active", activeDay.value)
-        })
-
-        return {
-            activeDay
-        }
-    }
 })
 </script>
 

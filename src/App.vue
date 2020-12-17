@@ -4,12 +4,12 @@
   <UserGreeting v-model:username="user.name" />
 
   <h2>
-      What veg did you eat {{ activeDay }}?
+      What veg did you eat {{ activeDay || 'this week' }}?
   </h2>
 
-  <VegWeekdays v-model:active="activeDay" :weekdays="weekdays" :log="log" />
+  <VegWeekdays v-model:activeDay="activeDay" :weekdays="weekdays" :log="log" />
 
-  <VegChecklist v-model:log="log[activeDay]" :activeDay="activeDay" :vegetables="sortedVeg" />
+  <VegChecklist v-model:dayLog="activeDayLog" :log="log" :activeDay="activeDay" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
@@ -54,7 +54,6 @@ export default {
 
       if (data) {
         Object.entries(data).forEach(([key, value]: any) => {
-          console.log(codesToVeg(value))
           log[key] = codesToVeg(value)
         })
       }
@@ -67,6 +66,7 @@ export default {
     )
 
     const vegToCodes = (veggies: Veg[]) => {
+      console.log(veggies)
       return veggies.map((veg) => veg.code)
     }
     
@@ -100,8 +100,15 @@ export default {
 
     const activeDay = ref()
 
+    const activeDayLog = ref([])
+    
+    watch(activeDayLog, () => {
+      log[activeDay.value] = activeDayLog
+    })
+
     return {
       activeDay,
+      activeDayLog,
       sortedVeg,
       user,
       log,

@@ -1,21 +1,22 @@
 <template>
-<teleport :to="'#day' + activeDay + ' .search-input-target'">
+<!-- <teleport :to="'#day' + activeDay + ' .search-input-target'"> -->
     <input
-        @input="keyword = $event.target.value"
+        v-show="activeDay"
         type="search"
         :value="keyword"
         placeholder="search"
-        @focus="showlist = true"
+        @input="keyword = $event.target.value"
     />
-</teleport>
+<!-- </teleport> -->
 
-    <ul v-show="showlist">
+    <ul v-show="activeDay">
         <li v-for="veg in filteredVeg" :key="veg.key">
             <input
                 v-model="checkedVeg"
                 type="checkbox"
                 :id="veg.code"
                 :value="veg"
+                @change="updateDayLog"
             />
 
             <label :for="veg.code">
@@ -35,30 +36,37 @@ export default defineComponent({
         VegCode,
     },
     props: {
-        log: Array,
+        dayLog: {
+            type: Array,
+            default: [],
+        },
+        log: Object,
         vegetables: Array,
         activeDay: String,
     },
     emits: [
-        "update:log",
+        "update:dayLog",
     ],
     setup (props, { emit }) {
-        const checkedVeg = ref(props.log || [])
-        const showlist = ref(false);
+        const checkedVeg = ref([])
+        const keyword = ref("")
         
-        const sortedCheckedVeg = computed(() => {
-            return checkedVeg.value.sort((a: Veg, b: Veg) => {
+        function sorted(items) {
+            return items.sort((a: Veg, b: Veg) => {
                 if (a.code < b.code) return -1
                 if (a.code > b.code) return 1
                 return 0;
-            });
-        });
+            })
+        }
 
-        watch(() => props.activeDay, (newVal, prev) => {
-            checkedVeg.value = props.log
+        function updateDayLog() {
+            emit("update:dayLog", sorted(checkedVeg.value))
+            keyword.value = ""
+        }
+
+        watch(() => props.activeDay, () => {
+            checkedVeg.value = props.log[props.activeDay]
         })
-
-        const keyword = ref("")
 
         const filteredVeg = computed(() => {
             if (!keyword.value) return props.vegetables
@@ -95,16 +103,11 @@ export default defineComponent({
             return [...topResult, ...greatResults, ...goodResults, ...otherResults]
         })
 
-        watch(checkedVeg, () => {
-            emit("update:log", sortedCheckedVeg.value)
-            keyword.value = ""
-        })
-
         return {
             checkedVeg,
             keyword,
             filteredVeg,
-            showlist,
+            updateDayLog,
         }
     },
 })
@@ -118,8 +121,8 @@ export default defineComponent({
 
 [type="search"] {
     display: block;
-    width: 10ch;
-    margin: 0.2em 0 0 13ch;
+    width: 16ch;
+    /* margin: 0.2em 0 0 13ch; */
     padding: 1ch;
     font-size: inherit;
     font-weight: inherit;
