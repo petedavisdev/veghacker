@@ -6,7 +6,9 @@
             :colorLight="veg.colorLight"
         />,
     </template>
+    
     ] // {{ veggies.length }}
+    <span class="search-input-target"></span>
 </template>
 
 <script lang="ts">

@@ -7,9 +7,9 @@
       What veg did you eat {{ activeDay }}?
   </h2>
 
-  <VegWeekdays v-model:active="activeDay" :weekdays="weekdays" :user="user" />
+  <VegWeekdays v-model:active="activeDay" :weekdays="weekdays" :log="log" />
 
-  <VegChecklist v-model:log="user[activeDay]" :activeDay="activeDay" :vegetables="sortedVeg" />
+  <VegChecklist v-model:log="log[activeDay]" :activeDay="activeDay" :vegetables="sortedVeg" />
 </template>
 
 <script lang="ts">
@@ -18,6 +18,7 @@ import VegChecklist from "./components/VegChecklist.vue"
 import VegWeekdays from "./components/VegWeekdays.vue"
 import { computed, reactive, ref, watch } from "vue"
 import { vegetables } from "./main"
+import { Veg } from './types'
 
 export default {
   name: "App",
@@ -28,39 +29,82 @@ export default {
   },
   setup() {
     const sortedVeg = computed(() => {
-      return vegetables.sort(function (a, b) {
-        if (a.code < b.code) return -1;
-        if (a.code > b.code) return 1;
+      return vegetables.sort(function (a: Veg, b: Veg) {
+        if (a.code < b.code) return -1
+        if (a.code > b.code) return 1
         return 0;
       });
     });
 
-    const localUser = JSON.parse(localStorage.getItem("user"));
+    const localUser = JSON.parse(localStorage.getItem("user"))
+    const localLog = JSON.parse(localStorage.getItem("log"))
+
+    const codesToVeg = (codes: String[]) => codes.map((code) => {
+      return vegetables.filter(veg => veg.code === code)[0]
+    })
 
     const user = reactive(
       localUser || {
-        name: "Veghacker" + Math.round(100 + 900 * Math.random()),
-        created: new Date(),
+        name: "Veghacker" + Math.round(100 + 900 * Math.random())
       }
     );
 
-    watch(user, () => {
-      localStorage.setItem( "updated", new Date().toISOString() )
-      localStorage.setItem( "user", JSON.stringify(user) )
-    });
+    function dataToLog(data) {
+      const log = {}
 
-    const weekdays = [
-      "2020-12-14",
-      "2020-12-15",
-      "2020-12-16",
-    ]
+      if (data) {
+        Object.entries(data).forEach(([key, value]: any) => {
+          console.log(codesToVeg(value))
+          log[key] = codesToVeg(value)
+        })
+      }
 
-    const activeDay = ref("2020-12-15");
+      return log
+    }
+
+    const log = reactive(
+      dataToLog(localLog)
+    )
+
+    const vegToCodes = (veggies: Veg[]) => {
+      return veggies.map((veg) => veg.code)
+    }
+    
+    const logData = computed(() => {
+      const data = {}
+
+      Object.entries(log).forEach(([key, value]: any) => {
+        data[key] = vegToCodes(value)
+      });
+
+      return data
+    })
+
+    watch(user, () => localStorage.setItem("user", JSON.stringify(user)))
+    watch(logData, () => localStorage.setItem("log", JSON.stringify(logData.value)))
+
+    function createDays(start: Date): String[] {
+      const days = []
+      let date = start
+
+      do {
+        days.push(date.toISOString().split("T")[0])
+        date.setDate(date.getDate() + 1)
+      }
+      while (date <= new Date())
+
+      return days
+    }
+
+    const weekdays = createDays(new Date("2020-12-14"))
+
+    const activeDay = ref()
 
     return {
       activeDay,
       sortedVeg,
       user,
+      log,
       weekdays,
     };
   },

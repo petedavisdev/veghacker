@@ -1,11 +1,15 @@
 <template>
+<teleport :to="'#day' + activeDay + ' .search-input-target'">
     <input
         @input="keyword = $event.target.value"
         type="search"
+        :value="keyword"
         placeholder="search"
+        @focus="showlist = true"
     />
+</teleport>
 
-    <ul>
+    <ul v-show="showlist">
         <li v-for="veg in filteredVeg" :key="veg.key">
             <input
                 v-model="checkedVeg"
@@ -40,6 +44,15 @@ export default defineComponent({
     ],
     setup (props, { emit }) {
         const checkedVeg = ref(props.log || [])
+        const showlist = ref(false);
+        
+        const sortedCheckedVeg = computed(() => {
+            return checkedVeg.value.sort((a: Veg, b: Veg) => {
+                if (a.code < b.code) return -1
+                if (a.code > b.code) return 1
+                return 0;
+            });
+        });
 
         watch(() => props.activeDay, (newVal, prev) => {
             checkedVeg.value = props.log
@@ -83,14 +96,15 @@ export default defineComponent({
         })
 
         watch(checkedVeg, () => {
-            emit("update:log", checkedVeg.value)
-            keyword.value = ''
+            emit("update:log", sortedCheckedVeg.value)
+            keyword.value = ""
         })
 
         return {
             checkedVeg,
             keyword,
             filteredVeg,
+            showlist,
         }
     },
 })
@@ -103,13 +117,16 @@ export default defineComponent({
 }
 
 [type="search"] {
-    padding: 0.4em;
-    text-transform: uppercase;
-    font-size: large;
+    display: block;
+    width: 10ch;
+    margin: 0.2em 0 0 13ch;
+    padding: 1ch;
+    font-size: inherit;
     font-weight: inherit;
     background-color: inherit;
-    color: inherit;
-    width: 15ch;
+    text-transform: uppercase;
+    color: hotpink;
+    border-color: hotpink;
 }
 
 [type="search"]::placeholder {

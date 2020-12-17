@@ -1,16 +1,15 @@
 <template>
     <ul>
-        <li v-for="day in weekdays" :key="day.key">
+        <li v-for="day in weekdays" :key="day.key" :id="'day' + day">
             <input
                 v-model="activeDay"
                 type="radio"
                 :id="day"
                 :value="day"
-                :checked="day === active"
             />
             <label :for="day">
                 {{ day }} =
-                <VegArray :veggies="user[day] || []" />
+                <VegArray :veggies="log[day] || []" />
             </label>
         </li>
     </ul>
@@ -26,7 +25,7 @@ export default defineComponent({
     },
     props: {
         weekdays: Array,
-        user: Object,
+        log: Object,
         active: String
     },
     emits: [
@@ -47,13 +46,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 label {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: max-content;
     margin: 0.1em;
-    padding: 0.2em 0.5em;
+    padding: 0.5em 0.5em;
     background-color: #000919;
     color: gray;
 }
@@ -65,10 +62,13 @@ label {
 ul {
     list-style: none;
     padding: 0;
+    font-size: large;
 }
 
 li {
     display: flex;
     align-items: baseline;
+    font-family: 'Courier New', Courier, monospace;
 }
+
 </style>
