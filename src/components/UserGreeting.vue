@@ -1,7 +1,7 @@
 <template>
   <h1>
     Greetings,
-    <input type="text" :value="username" @input="$emit('update:username', $event.target.value)" />
+    <input type="text" v-model="username" @input="saveUsername" />
   </h1>
 
   <p>Your immune system needs your help!</p>
@@ -12,20 +12,29 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  props: {
-    username: String,
-  },
-  emits: [
-    "update:username",
-  ],
+    setup() {
+        const localUsername = localStorage.getItem("username")
+
+        const username = ref(
+            localUsername || "Veghacker" + Math.round(100 + 900 * Math.random())
+        );
+
+        function saveUsername() {
+            localStorage.setItem("username", username.value)
+        }
+
+        return {
+            username,
+            saveUsername,
+        }
+    }
 })
 </script>
 
 <style scoped>
-
 input {
   font-size: inherit;
   font-weight: inherit;
@@ -33,5 +42,4 @@ input {
   color: inherit;
   width: 15ch;
 }
-
 </style>

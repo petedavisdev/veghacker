@@ -15,3 +15,7 @@ input {
   border: solid 2px midnightblue;
   border-radius: 0.2em;
 }
+
+a {
+  color: skyblue;
+}
