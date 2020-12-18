@@ -7,10 +7,6 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { computed, reactive, ref, watch } from "vue"
-</script>
-
 <style scoped>
 a {
   text-decoration: none;
