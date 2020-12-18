@@ -1,8 +1,27 @@
 <template>
-  <nav>
-    <router-link to="/">VEGHACKER v0.2-alpha</router-link>
-    <router-link to="/log">Daily log</router-link>
-  </nav>
+  <header>
+    <router-link to="/">
+      VEGHACKER v0.2-alpha
+    </router-link>
+
+    <nav>
+      <router-link to="/">
+        Today
+      </router-link>
+
+      &mdash;
+      
+      <router-link to="/log">
+        Days
+      </router-link>
+
+      &mdash;
+
+      <router-link to="/weeks">
+        Weeks
+      </router-link>
+    </nav>
+  </header>
 
   <router-view />
 </template>
@@ -12,7 +31,7 @@ a {
   text-decoration: none;
 }
 
-nav {
+header {
   display: flex;
   justify-content: space-between;
 }

@@ -19,3 +19,8 @@ input {
 a {
   color: skyblue;
 }
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: hotpink;
+}

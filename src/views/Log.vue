@@ -1,7 +1,12 @@
 <template>
-    <h1>Daily log</h1>
+    <h1>
+        Daily log
+    </h1>
+
     <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
-        <router-link :to="'/day/' + date">{{ nameDay(date) }}</router-link>
+        <router-link :to="'/day/' + date">
+            {{ nameDay(date) }}
+        </router-link>
     </VegArray>
 </template>
 
@@ -39,7 +44,6 @@ export default defineComponent({
 
             Object.entries(log)
                 .sort()
-                .reverse()
                 .forEach(([key, value]: any) => {
                 data[key] = codesToVeg(value)
             })
@@ -62,7 +66,14 @@ export default defineComponent({
 a {
     display: inline-block;
     min-width: 10ch;
-    text-align: right;
+}
+
+a:hover {
+    text-decoration-color: hotpink;
+}
+
+a::first-letter {
+    text-transform: uppercase;
 }
 
 </style>
