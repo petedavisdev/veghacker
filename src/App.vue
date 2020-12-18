@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/">VEGHACKER v0.2-alpha</router-link>
-    <router-link to="/log">Log</router-link>
+    <router-link to="/log">Daily log</router-link>
   </nav>
 
   <router-view />

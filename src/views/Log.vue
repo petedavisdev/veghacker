@@ -1,4 +1,5 @@
 <template>
+    <h1>Daily log</h1>
     <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
         <router-link :to="'/day/' + date">{{ nameDay(date) }}</router-link>
     </VegArray>
