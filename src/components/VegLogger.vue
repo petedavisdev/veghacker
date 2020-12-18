@@ -1,18 +1,21 @@
 <template>
-<!-- <teleport :to="'#day' + activeDay + ' .search-input-target'"> -->
+    <LogPrompt :dayName="dayName" />
+
+    
+
+    <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
+    
     <input
-        v-show="activeDay"
         type="search"
         :value="keyword"
         placeholder="search"
         @input="keyword = $event.target.value"
     />
-<!-- </teleport> -->
 
-    <ul v-show="activeDay">
+    <ul>
         <li v-for="veg in filteredVeg" :key="veg.key">
             <input
-                v-model="checkedVeg"
+                v-model="dayLog"
                 type="checkbox"
                 :id="veg.code"
                 :value="veg"
@@ -20,56 +23,53 @@
             />
 
             <label :for="veg.code">
-                <VegCode :code="veg.code" :colorLight="veg.colorLight" /> = {{ veg.family }}
+                <VegCode :colorLight="veg.colorLight">{{ veg.code }}</VegCode> = {{ veg.family }}
             </label>
         </li>
     </ul>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
+import { vegetables } from '../main'
 import { Veg } from '../types'
-import VegCode from "./VegCode.vue"
+import LogPrompt from './LogPrompt.vue'
+import VegArray from './VegArray.vue'
+import VegCode from './VegCode.vue'
 
 export default defineComponent({
     components: {
+        LogPrompt,
+        VegArray,
         VegCode,
     },
-    props: {
-        dayLog: {
-            type: Array,
-            default: [],
-        },
-        log: Object,
-        vegetables: Array,
-        activeDay: String,
-    },
-    emits: [
-        "update:dayLog",
-    ],
-    setup (props, { emit }) {
-        const checkedVeg = ref([])
-        const keyword = ref("")
+    setup () {
+        const route = useRoute()
+
+        const routeDay = route.params.date?.toString()
+
+        const day = routeDay ? new Date(routeDay) : new Date()
+
+        const dayName = formatDate(day)
+
+        const log = JSON.parse(localStorage.getItem("log")) || {}
+
+        const dayLog = ref(log && log[shortenDate(day)] && codesToVeg(log[shortenDate(day)]) || [])
+
+        const allVeg = sortVeg(vegetables)
         
-        function sorted(items) {
-            return items.sort((a: Veg, b: Veg) => {
-                if (a.code < b.code) return -1
-                if (a.code > b.code) return 1
-                return 0;
-            })
-        }
+        const keyword = ref("")
 
         function updateDayLog() {
-            emit("update:dayLog", sorted(checkedVeg.value))
+            log[shortenDate(day)] = vegToCodes(dayLog.value)
+            localStorage.setItem("log", JSON.stringify(log))
             keyword.value = ""
         }
-
-        watch(() => props.activeDay, () => {
-            checkedVeg.value = props.log[props.activeDay]
-        })
-
+        
         const filteredVeg = computed(() => {
-            if (!keyword.value) return props.vegetables
+            if (!keyword.value) return allVeg
 
             const term = keyword.value.toUpperCase()
             const isCode = code => code === term
@@ -77,23 +77,22 @@ export default defineComponent({
             const isCodePart = code => code.includes(term)
             const isFamilyPart = family => family.toString().toUpperCase().includes(term)
 
-            const topResult = props.vegetables.filter((veg: Veg) => {
+            const topResult = allVeg.filter((veg: Veg) => {
                 return isCode(veg.code)
             })
 
-            const greatResults = props.vegetables.filter((veg: Veg) => {
+            const greatResults = allVeg.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && isCodeStart(veg.code)
             })
-
-            const goodResults = props.vegetables.filter((veg: Veg) => {
+            
+            const goodResults = allVeg.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && !isCodeStart(veg.code)
                     && isCodePart(veg.code)
             })
 
-
-            const otherResults = props.vegetables.filter((veg: Veg) => {
+            const otherResults = allVeg.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && !isCodeStart(veg.code)
                     && !isCodePart(veg.code)
@@ -104,32 +103,35 @@ export default defineComponent({
         })
 
         return {
-            checkedVeg,
-            keyword,
+            allVeg,
+            dayLog,
+            dayName,
             filteredVeg,
+            keyword,
             updateDayLog,
         }
-    },
+    }
 })
 </script>
 
 <style scoped>
-
 * {
     font-family: 'Courier New', Courier, monospace;
 }
 
+h2 {
+    font-family: inherit;
+}
+
 [type="search"] {
     display: block;
-    width: 16ch;
-    /* margin: 0.2em 0 0 13ch; */
+    
     padding: 1ch;
     font-size: inherit;
     font-weight: inherit;
     background-color: inherit;
     text-transform: uppercase;
     color: hotpink;
-    border-color: hotpink;
 }
 
 [type="search"]::placeholder {
@@ -160,4 +162,5 @@ li {
     display: flex;
     align-items: baseline;
 }
+
 </style>
