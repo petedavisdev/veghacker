@@ -1,0 +1,27 @@
+type Account {
+  emailA: String! @unique
+  emailB: String! @unique
+  profile: Profile! @relation
+}
+
+type Profile {
+  name: String!
+  logs: [Log] @relation
+}
+
+type Log {
+  date: LogKey! @unique
+  items: [String!]
+}
+
+type LogKey @embedded {
+  profile: Profile!
+  year: Number!
+  week: Number!
+  day: Number!
+}
+
+type Mutation {
+  register(email: String!, password: String!): Account! @resolver
+  login(email: String!, password: String!): String! @resolver
+}
