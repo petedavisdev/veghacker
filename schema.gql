@@ -7,8 +7,9 @@ type Account @collection(name: "accounts") {
 type: Profile @collection(name: "profiles") {
   name: String!
   log: Log! @relation
-  member: [Group!]! @relation
-  owner: [Group!]! @relation
+  memberships: [Team!]! @relation
+  teams: [Team!]! @relation
+  leagues: [League]! @relation
 }
 
 type Log @collection(name: "logs") {
@@ -20,11 +21,21 @@ type Day @embedded {
   codes: [String!]!
 }
 
-type Group @collection(name: "groups") {
+type Team @collection(name: "teams") {
   name: String!
   intro: String!
   tags: [String!]!
   members: [Profile!]! @relation
+  owners: [Profile!]! @relation
+  league: League! @relation
+}
+
+type League @collection(name: "leagues") {
+  name: String!
+  domain: String!
+  intro: String!
+  tags: [String!]!
+  teams: [Team!]! @relation
   owners: [Profile!]! @relation
 }
 
