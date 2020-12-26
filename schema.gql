@@ -1,24 +1,31 @@
-type Account {
+type Account @collection(name: "accounts") {
   emailA: String! @unique
   emailB: String! @unique
   profile: Profile! @relation
 }
 
-type Profile {
+type: Profile @collection(name: "profiles") {
   name: String!
-  logs: [Log] @relation
+  log: Log! @relation
+  member: [Group!]! @relation
+  owner: [Group!]! @relation
 }
 
-type Log {
-  date: LogKey! @unique
-  items: [String!]
+type Log @collection(name: "logs") {
+  days: [Day!]!
 }
 
-type LogKey @embedded {
-  profile: Profile!
-  year: Number!
-  week: Number!
-  day: Number!
+type Day @embedded {
+  date: String! @unique
+  codes: [String!]!
+}
+
+type Group @collection(name: "groups") {
+  name: String!
+  intro: String!
+  tags: [String!]!
+  members: [Profile!]! @relation
+  owners: [Profile!]! @relation
 }
 
 type Mutation {
