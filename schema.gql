@@ -24,3 +24,8 @@ type Mutation {
   login(email: String!, password: String!): String! @resolver
   updateLog(date: String!, codes: [String!]!, log: Id!): Day!
 }
+
+type Query {
+  daysByProfile
+  allProfiles
+}
