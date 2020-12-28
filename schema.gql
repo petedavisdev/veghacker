@@ -22,5 +22,5 @@ type Day @embedded {
 type Mutation {
   register(email: String!, password: String!): Account! @resolver
   login(email: String!, password: String!): String! @resolver
-  createDay(date: String!, codes: [String!]!, log: Id!): Day!
+  updateLog(date: String!, codes: [String!]!, log: Id!): Day!
 }
