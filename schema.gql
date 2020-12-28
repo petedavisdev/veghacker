@@ -1,18 +1,16 @@
 type Account @collection(name: "accounts") {
-  emailA: String! @unique
-  emailB: String! @unique
+  email: String! @unique
   profile: Profile! @relation
 }
 
 type: Profile @collection(name: "profiles") {
   name: String!
+  account: Account! @relation
   log: Log! @relation
-  memberships: [Team!]! @relation
-  teams: [Team!]! @relation
-  leagues: [League]! @relation
 }
 
 type Log @collection(name: "logs") {
+  profile: Profile! @relation
   days: [Day!]!
 }
 
@@ -21,25 +19,8 @@ type Day @embedded {
   codes: [String!]!
 }
 
-type Team @collection(name: "teams") {
-  name: String!
-  intro: String!
-  tags: [String!]!
-  members: [Profile!]! @relation
-  owners: [Profile!]! @relation
-  league: League! @relation
-}
-
-type League @collection(name: "leagues") {
-  name: String!
-  domain: String!
-  intro: String!
-  tags: [String!]!
-  teams: [Team!]! @relation
-  owners: [Profile!]! @relation
-}
-
 type Mutation {
   register(email: String!, password: String!): Account! @resolver
   login(email: String!, password: String!): String! @resolver
+  createDay(date: String!, codes: [String!]!, log: Id!): Day!
 }
