@@ -6,7 +6,7 @@ type Account @collection(name: "accounts") {
 type: Profile @collection(name: "profiles") {
   name: String!
   account: Account! @relation
-  log: Log! @relation
+  log: Log @relation
 }
 
 type Log @collection(name: "logs") {
@@ -26,6 +26,6 @@ type Mutation {
 }
 
 type Query {
-  daysByProfile
-  allProfiles
+  daysByProfile(profile: Id!): [Day!]
+  allProfiles: [Profile!]
 }
