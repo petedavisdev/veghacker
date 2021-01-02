@@ -14,12 +14,6 @@
       <router-link to="/log">
         Days
       </router-link>
-
-      &mdash;
-
-      <router-link to="/weeks">
-        Weeks
-      </router-link>
     </nav>
   </header>
 
