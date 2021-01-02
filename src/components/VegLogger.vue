@@ -1,9 +1,5 @@
 <template>
     <LogPrompt :dayName="dayName" />
-
-    
-
-    <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
     
     <input
         type="search"
@@ -27,11 +23,16 @@
             </label>
         </li>
     </ul>
+
+    <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
+
+    <button>&#10003;</button>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { firestore } from '../firebase/config'
 import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
 import { vegetables } from '../main'
 import { Veg } from '../types'
@@ -100,6 +101,22 @@ export default defineComponent({
             })
 
             return [...topResult, ...greatResults, ...goodResults, ...otherResults]
+        })
+
+        onMounted(async () => {
+            const userID = "YWkoqnVkzefB5ycsZ7m4"
+            const userData = ref(null)
+
+            try {
+                const response = await firestore.collection('users').doc(userID).get()
+
+                userData.value = { id: response.id, ...response.data() }
+                
+                console.log(userData.value)
+            }
+            catch (error) {
+                console.error(error.message)
+            }
         })
 
         return {
