@@ -13,6 +13,7 @@ export default defineComponent({
     },
     setup(props) {
         const color = computed(() => props.colorLight || "LimeGreen")
+        
         return {
             color,
         }

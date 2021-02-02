@@ -1,24 +1,28 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from "./views/Home.vue"
+import { createRouter, createWebHistory } from 'vue-router'
 import Day from "./views/Day.vue"
 import Log from "./views/Log.vue"
+import Weeks from "./views/Weeks.vue"
 
 const routes = [
     {
         path: "/",
-        component: Home,
+        component: Day,
+    },
+    {
+        path: "/day/:date",
+        component: Day,
     },
     {
         path: "/log",
         component: Log,
     },
     {
-        path: "/day/:date",
-        component: Day,
+        path: "/weeks",
+        component: Weeks,
     }
 ]
 
 export const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(process.env.BASE_URL),
     routes,
 })

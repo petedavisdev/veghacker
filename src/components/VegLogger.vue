@@ -1,15 +1,12 @@
 <template>
     <LogPrompt :dayName="dayName" />
-
-    
-
-    <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
     
     <input
         type="search"
         :value="keyword"
         placeholder="search"
         @input="keyword = $event.target.value"
+        ref="searchinput"
     />
 
     <ul>
@@ -27,11 +24,20 @@
             </label>
         </li>
     </ul>
+
+    <footer>
+        <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
+
+        <router-link to="/log" class="button">
+            &#10003;
+        </router-link>
+    </footer>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref } from 'vue'
+import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { firestore } from '../firebase/config'
 import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
 import { vegetables } from '../main'
 import { Veg } from '../types'
@@ -62,10 +68,17 @@ export default defineComponent({
         
         const keyword = ref("")
 
+        const searchinput = ref(null);
+
         function updateDayLog() {
             log[shortenDate(day)] = vegToCodes(dayLog.value)
             localStorage.setItem("log", JSON.stringify(log))
-            keyword.value = ""
+            
+            if (keyword.value) {
+                keyword.value = ""
+                console.log(searchinput.value)
+                searchinput.value.focus()
+            }
         }
         
         const filteredVeg = computed(() => {
@@ -102,6 +115,22 @@ export default defineComponent({
             return [...topResult, ...greatResults, ...goodResults, ...otherResults]
         })
 
+        onMounted(async () => {
+            const userID = "YWkoqnVkzefB5ycsZ7m4"
+            const userData = ref(null)
+
+            try {
+                const response = await firestore.collection('users').doc(userID).get()
+
+                userData.value = { id: response.id, ...response.data() }
+                
+                console.log(userData.value)
+            }
+            catch (error) {
+                console.error(error.message)
+            }
+        })
+
         return {
             allVeg,
             dayLog,
@@ -109,6 +138,7 @@ export default defineComponent({
             filteredVeg,
             keyword,
             updateDayLog,
+            searchinput,
         }
     }
 })
@@ -125,13 +155,17 @@ h2 {
 
 [type="search"] {
     display: block;
-    
+    width: 100%;
+    position: sticky;
+    top: 0;
     padding: 1ch;
     font-size: inherit;
     font-weight: inherit;
     background-color: inherit;
     text-transform: uppercase;
     color: hotpink;
+    background-color: midnightblue;
+    border-radius: 0;
 }
 
 [type="search"]::placeholder {
@@ -161,6 +195,21 @@ ul {
 li {
     display: flex;
     align-items: baseline;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    width: 100vw;
+    margin-left: -1rem;
+    margin-bottom: -1rem;
+    background-color: midnightblue;
+    padding: 0 1ch;
 }
 
 </style>
