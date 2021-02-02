@@ -42,13 +42,23 @@ export default defineComponent({
         const vegLog = computed(() => {
             const data = weekdays
 
-            Object.entries(log)
-                .sort()
-                .forEach(([key, value]: any) => {
-                data[key] = codesToVeg(value)
-            })
+            // Object.entries(log)
+            //     .sort()
+            //     .forEach(([key, value]: any) => {
+            //     data[key] = codesToVeg(value)
+            // })
 
-            return data
+            const sortedData = Object.keys(data)
+                .sort()
+                .reverse()
+                .reduce((obj, key) => { 
+                    obj[key] = codesToVeg(log[key]); 
+                    return obj;
+                }, 
+                {}
+            )
+
+            return sortedData
         })
 
         const nameDay = (name) => formatDate(new Date(name))
