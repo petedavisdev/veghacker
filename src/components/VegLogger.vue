@@ -164,7 +164,7 @@ h2 {
     background-color: inherit;
     text-transform: uppercase;
     color: hotpink;
-    background-color: midnightblue;
+    background-color: #000919;
     border-radius: 0;
 }
 
@@ -189,7 +189,7 @@ label {
 
 ul {
     list-style: none;
-    padding: 0;
+    padding-left: 1ch;
 }
 
 li {
