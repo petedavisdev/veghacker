@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Day from "./views/Day.vue"
 import Log from "./views/Log.vue"
 import Weeks from "./views/Weeks.vue"
@@ -23,6 +23,6 @@ const routes = [
 ]
 
 export const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHashHistory(),
     routes,
 })
