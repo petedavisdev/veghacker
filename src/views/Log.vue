@@ -37,29 +37,20 @@ export default defineComponent({
             return days
         }
 
-        const weekdays = createDays(new Date("2020-12-14"))
-
         const vegLog = computed(() => {
-            const data = weekdays
+            const logDays = createDays(new Date("2020-12-14"))
 
-            // Object.entries(log)
-            //     .sort()
-            //     .forEach(([key, value]: any) => {
-            //     data[key] = codesToVeg(value)
-            // })
-
-            console.log(log)
-
-            const sortedLog = Object.keys(data)
+            const sortedLog = Object.keys(logDays)
                 .sort()
                 .reverse()
                 .reduce((obj, key) => {
+                    // if the log contains the day
                     if (log[key]) {
                         obj[key] = codesToVeg(log[key]); 
                     } else {
                         obj[key] = [];
                     }
-                    
+
                     return obj;
                 }, 
                 {}
