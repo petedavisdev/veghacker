@@ -48,17 +48,24 @@ export default defineComponent({
             //     data[key] = codesToVeg(value)
             // })
 
-            const sortedData = Object.keys(data)
+            console.log(log)
+
+            const sortedLog = Object.keys(data)
                 .sort()
                 .reverse()
-                .reduce((obj, key) => { 
-                    obj[key] = codesToVeg(log[key]); 
+                .reduce((obj, key) => {
+                    if (log[key]) {
+                        obj[key] = codesToVeg(log[key]); 
+                    } else {
+                        obj[key] = [];
+                    }
+                    
                     return obj;
                 }, 
                 {}
             )
 
-            return sortedData
+            return sortedLog
         })
 
         const nameDay = (name) => formatDate(new Date(name))

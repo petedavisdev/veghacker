@@ -230,5 +230,7 @@
         "CEL",
         "GRE"
     ],
-    "2021-02-02": ["ONI", "LET", "GIN", "CAU", "POT", "PAR", "CAR", "BRU"]
+    "2021-02-02": ["ONI", "GIN", "CAU", "POT", "PAR", "CAR", "BRU", "LET"],
+    "2021-02-03": ["CAB", "CAR", "RAD", "POT", "ONI", "CEL", "MUS", "TOM"],
+    "2021-02-04": ["AVO", "CAR", "MUS", "ONI", "OLI", "POT", "CEL", "TOM"]
 }
