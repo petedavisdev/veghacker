@@ -20,13 +20,17 @@ export function shortenDate(date: Date) {
 }
 
 export function formatDate(date: Date): String {
+    const shortDate = shortenDate(date);
     const today = new Date();
     const yesterday = new Date(Date.now() - 864e5);
+    const weekAgo = new Date(Date.now() - 7*864e5);
     const daynames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    if (shortenDate(date) === shortenDate(today)) return "today";
+    if (shortDate === shortenDate(today)) return "today";
     
-    if (shortenDate(date) === shortenDate(yesterday)) return "yesterday";
+    if (shortDate === shortenDate(yesterday)) return "yesterday";
     
-    return daynames[date.getDay()];
+    if (shortDate > shortenDate(weekAgo)) return daynames[date.getDay()];
+
+    return (shortenDate(date));
 }
