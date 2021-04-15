@@ -25,14 +25,13 @@ export default defineComponent({
         function createDays(start: Date): Object {
             const days = {}
 
-            let date = start
+            let date = new Date();
 
-            do {
+            while (date >= start) {
                 days[shortenDate(date)] = []
 
-                date.setDate(date.getDate() + 1)
+                date.setDate(date.getDate() - 1)
             }
-            while (date <= new Date())
 
             return days
         }
