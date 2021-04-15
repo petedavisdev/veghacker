@@ -534,5 +534,97 @@
         "CEL"
     ],
     "2021-03-28": ["CAR", "CAB", "RAD", "SPO", "COU", "FEN", "PAR", "CEL"],
-    "2021-03-29": ["CAB", "SPO", "GAR", "CEL", "CAR", "PEA", "COR"]
+    "2021-03-29": ["CAB", "SPO", "GAR", "CEL", "CAR", "PEA", "COR"],
+    "2021-03-30": [
+        "CAB",
+        "RAD",
+        "CAR",
+        "SPR",
+        "COU",
+        "GIN",
+        "ONI",
+        "GAR",
+        "CEL"
+    ],
+    "2021-03-31": ["MUS", "GAR", "SPR", "CAR", "ONI", "PEP", "CEL"],
+    "2021-04-01": [
+        "BEA",
+        "CAR",
+        "ASP",
+        "MUS",
+        "TOM",
+        "GAR",
+        "ONI",
+        "CEL",
+        "SPR",
+        "PEP"
+    ],
+    "2021-04-02": [
+        "CAR",
+        "CAB",
+        "RAD",
+        "AVO",
+        "TOM",
+        "ONI",
+        "MUS",
+        "PEP",
+        "CEL",
+        "GAR"
+    ],
+    "2021-04-03": ["SPO", "BEE", "CAR", "CAB", "RAD", "AVO", "BEA"],
+    "2021-04-04": ["AVO", "CAR", "CAB", "BEE", "CEL", "LEE", "POT"],
+    "2021-04-05": ["BEA", "AVO", "CAR", "CAB", "RAD", "CEL", "LEE", "POT"],
+    "2021-04-06": ["BEA", "AVO", "CAR", "CAB", "RAD", "CAU", "GIN", "GAR"],
+    "2021-04-07": [
+        "PEP",
+        "MUS",
+        "ONI",
+        "AVO",
+        "POT",
+        "CAU",
+        "CAR",
+        "GIN",
+        "GAR"
+    ],
+    "2021-04-08": ["CAR", "CAB", "RAD", "AVO", "LET"],
+    "2021-04-09": [
+        "JER",
+        "LET",
+        "CAR",
+        "CAB",
+        "RAD",
+        "GIN",
+        "CAU",
+        "MUS",
+        "ONI",
+        "PEP",
+        "POT"
+    ],
+    "2021-04-10": ["AVO", "BRO", "CAR", "PAR", "JER", "CAU", "POT"],
+    "2021-04-11": ["POT", "LEE", "CAR", "CAB", "RAD", "CEL", "ONI", "PAR"],
+    "2021-04-12": [
+        "ONI",
+        "GAR",
+        "COU",
+        "GIN",
+        "SPO",
+        "CEL",
+        "POT",
+        "PAR",
+        "LEE"
+    ],
+    "2021-04-13": [
+        "SPO",
+        "ONI",
+        "GIN",
+        "COU",
+        "TOM",
+        "GAR",
+        "MUS",
+        "CAR",
+        "LEE",
+        "PAR",
+        "POT"
+    ],
+    "2021-04-14": ["GAR", "MUS", "LET", "ONI", "AVO", "COU", "CAR"]
 }
