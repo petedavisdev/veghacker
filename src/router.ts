@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Day from "./views/Day.vue"
 import Log from "./views/Log.vue"
-import Weeks from "./views/Weeks.vue"
 
 const routes = [
     {
@@ -16,10 +15,6 @@ const routes = [
         path: "/log",
         component: Log,
     },
-    {
-        path: "/weeks",
-        component: Weeks,
-    }
 ]
 
 export const router = createRouter({

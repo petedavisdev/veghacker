@@ -1,4 +1,4 @@
-import { vegetables } from "./main";
+import vegetables from "./vegetables.json"
 import { Veg } from "./types"
 
 export function sortVeg(items: Veg[]) {

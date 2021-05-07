@@ -38,7 +38,7 @@
 import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
-import { vegetables } from '../main'
+import vegetables from "../vegetables.json"
 import { Veg } from '../types'
 import LogPrompt from './LogPrompt.vue'
 import VegArray from './VegArray.vue'
