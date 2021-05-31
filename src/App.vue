@@ -1,7 +1,7 @@
 <template>
   <header>
     <router-link to="/">
-      VEGHACKER v0.2-alpha
+      Veghacker v0.2-alpha
     </router-link>
 
     <nav>

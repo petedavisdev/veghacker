@@ -1,4 +1,4 @@
-# VEGHACKER
+# Veghacker
 The *object* is to eat an *array* of vegetables every week!
 
 [veghacker.app](https://veghacker.app)
@@ -10,19 +10,17 @@ The *object* is to eat an *array* of vegetables every week!
 
 ## veghack *(noun)*
 A way to eat extra vegetables to a meal
-Example: 
-- *Grating courgette into a bolognaise is a great veghack*
+Examples: 
+- *Grating courgette into a bolognaise is a great veghack.*
 - *Do you know any good veghacks?*
 
 ## veghack *(verb)*
 To add extra vegetables into your diet.
-Examples: *Veghacking makes me healthier*
-
+Example: *Veghacking makes me healthier!*
 
 ## veghacker *(noun)*
-A person who aims to eat a variety of vegetables.
-Examples: *I am a veghacker*
-
+A person who aims to eat a variety of vegetables every week.
+Example: *I am a veghacker!*
 
 Why?
 - [BBC: Why are Brits obsessed with the same four vegetables?](https://www.bbc.co.uk/food/articles/veg_variety)
