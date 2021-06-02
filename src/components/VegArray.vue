@@ -35,7 +35,7 @@ export default defineComponent({
 <style scoped>
 
 p {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Ubuntu Mono", monospace;
     color: gray;
 }
 

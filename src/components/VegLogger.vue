@@ -129,11 +129,12 @@ export default defineComponent({
 
 <style scoped>
 * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Ubuntu Mono", monospace;
 }
 
-h2 {
+h1 {
     font-family: inherit;
+    font-size: 1.15em;
 }
 
 [type="search"] {
