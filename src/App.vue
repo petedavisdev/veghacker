@@ -1,19 +1,13 @@
 <template>
   <header>
     <router-link to="/">
-      Veghacker v0.2-alpha
+      Veghacker v0.1-alpha
     </router-link>
 
     <nav>
-      <router-link to="/">
-        Today
-      </router-link>
-
-      &mdash;
-      
-      <router-link to="/log">
-        Days
-      </router-link>
+      <a href="/about.html">
+        About
+      </a>
     </nav>
   </header>
 
