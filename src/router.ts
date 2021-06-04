@@ -8,12 +8,12 @@ const routes = [
         component: Day,
     },
     {
-        path: "/day/:date",
-        component: Day,
-    },
-    {
         path: "/log",
         component: Log,
+    },
+    {
+        path: "/log/:date",
+        component: Day,
     },
 ]
 
