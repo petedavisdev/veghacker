@@ -5,7 +5,7 @@
     </router-link>
 
     <nav>
-      <a href="/about.html">
+      <a href="/about">
         About
       </a>
     </nav>
