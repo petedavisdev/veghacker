@@ -6,7 +6,17 @@
 </url>
   
 <url>
-  <loc>https://veghacker.app/about.html</loc>
+  <loc>https://veghacker.app/about</loc>
   <lastmod>2021-06-03</lastmod>
+</url>
+  
+<url>
+  <loc>https://veghacker.app/blog</loc>
+  <lastmod>2021-06-04</lastmod>
+</url>
+  
+<url>
+  <loc>https://veghacker.app/blog/how-to-eat-more-vegetables</loc>
+  <lastmod>2021-06-04</lastmod>
 </url>
 </urlset>
