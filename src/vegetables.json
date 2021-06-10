@@ -2,25 +2,26 @@
     {
         "code": "CAR",
         "color": "Orange",
-        "family": ["Carrot", "Parsnip", "Celeriac", "Celery root"]
-    },
-    {
-        "code": "JER",
-        "color": "NavajoWhite",
-        "family": ["Jerusalem artichoke", "Sunchoke"]
+        "family": [
+            "Carrot",
+            "Parsnip",
+            "Celeriac",
+            "Celery root"
+        ]
     },
     {
         "code": "CAB",
         "family": [
+            "Greens",
             "Cabbage",
             "Broccoli",
             "Kale",
+            "Spinach",
+            "Chard",
             "Brussels sprouts",
             "Cauliflower",
             "Spring greens",
             "Pak choi",
-            "Watercress",
-            "Kohlrabi",
             "Collard",
             "Romanesco",
             "Tender stem broccoli",
@@ -29,6 +30,7 @@
             "Curly kale",
             "Black kale",
             "Purple kale",
+            "Swiss chard",
             "Savoy cabbage",
             "Red cabbage",
             "White cabbage",
@@ -36,15 +38,16 @@
             "Bok choi"
         ],
         "familyUS": [
+            "Greens",
             "Cabbage",
             "Broccoli",
             "Kale",
-            "Brussels sprouts",
+            "Spinach",
+            "Chard",
             "Cauliflower",
+            "Brussels sprouts",
             "Spring greens",
             "Bok choi",
-            "Watercress",
-            "Kohlrabi",
             "Collard",
             "Romanesco",
             "Tender stem broccoli",
@@ -53,19 +56,13 @@
             "Curly kale",
             "Black kale",
             "Purple kale",
+            "Swiss chard",
             "Savoy cabbage",
             "Red cabbage",
             "White cabbage",
             "Sauerkraut",
             "Pak choi"
         ]
-    },
-    {
-        "code": "ROC",
-        "codeUS": "ARU",
-        "color": "Green",
-        "family": ["Rocket", "Arugula"],
-        "familyUS": ["Arugula", "Rocket"]
     },
     {
         "code": "ASP",
@@ -77,25 +74,46 @@
         "family": ["Garlic", "Wild garlic"]
     },
     {
-        "code": "SPI",
-        "color": "MediumSeaGreen",
-        "family": ["Spinach", "Chard", "Swiss chard"]
-    },
-    {
         "code": "ART",
         "color": "PaleGreen",
         "family": ["Artichoke", "Globe artichoke"]
     },
     {
-        "code": "RAD",
+        "code": "TUR",
         "color": "Pink",
-        "family": ["Radish", "Daikon"]
+        "family": [
+            "Turnip",
+            "Radish",
+            "Beetroot",
+            "Swede",
+            "Daikon",
+            "Kohlrabi",
+            "Horseradish",
+            "Wasabi",
+            "Rutabaga",
+            "Neep",
+            "Beets"
+        ],
+        "familyUS": [
+            "Turnip",
+            "Radish",,
+            "Beets",
+            "Rutabaga",
+            "Daikon",
+            "Kohlrabi",
+            "Horseradish",
+            "Wasabi",
+            "Swede",
+            "Neep",
+            "Beetroot"
+        ]
     },
     {
         "code": "SEA",
         "color": "OliveDrab",
         "family": [
             "Seaweed",
+            "Samphire",
             "Nori",
             "Spirulina",
             "Kelp",
@@ -108,19 +126,37 @@
     {
         "code": "AVO",
         "color": "MediumAquaMarine",
-        "family": ["Avocado", "Avocado pear"]
+        "family": ["Avocado"]
     },
     {
-        "code": "LET",
+        "code": "SAL",
         "family": [
-            "Lettuce",
             "Salad leaves",
+            "Lettuce",
+            "Rocket",
             "Endive",
+            "Watercress",
+            "Pea shoots",
             "Escarole",
             "Chicory",
             "Radicchio",
             "Romain lettuce",
-            "Iceberg"
+            "Iceberg",
+            "Arugula"
+        ],
+        "familyUS": [
+            "Salad leaves",
+            "Lettuce",
+            "Arugula",
+            "Endive",,
+            "Watercress",
+            "Pea shoots",
+            "Escarole",
+            "Chicory",
+            "Radicchio",
+            "Romain lettuce",
+            "Iceberg",
+            "Rocket"
         ]
     },
     {
@@ -144,7 +180,15 @@
     {
         "code": "POT",
         "color": "OldLace",
-        "family": ["Potato", "Sweet potato", "Yam"]
+        "family": [
+            "Potato",
+            "Sweet potato",
+            "Jerusalem artichoke",
+            "Yam",
+            "Cassava",
+            "Tapioca root",
+            "Sunchoke"
+        ]
     },
     {
         "code": "BSP",
@@ -157,12 +201,11 @@
         ]
     },
     {
-        "code": "PEP",
-        "codeUS": "CAP",
+        "code": "TOM",
         "color": "Tomato",
         "family": [
-            "Pepper",
             "Tomato",
+            "Pepper",
             "Aubergine",
             "Okra",
             "Chile",
@@ -173,12 +216,12 @@
             "Egg plant"
         ],
         "familyUS": [
-            "Capsicum",
             "Tomato",
+            "Capsicum",
             "Egg plant",
+            "Bell pepper",
             "Okra",
             "Chile",
-            "Bell pepper",
             "Pepper",
             "Romano pepper",
             "Aubergine"
@@ -199,10 +242,6 @@
             "Mange tout",
             "Petit pois"
         ]
-    },
-    {
-        "code": "SAM",
-        "family": ["Samphire"]
     },
     {
         "code": "GIN",
@@ -232,12 +271,6 @@
             "Salad onion",
             "Spring onion"
         ]
-    },
-    {
-        "code": "BEE",
-        "color": "DarkMagenta",
-        "family": ["Beetroot", "Beets"],
-        "familyUS": ["Beets", "Beetroot"]
     },
     {
         "code": "CEL",
@@ -278,28 +311,11 @@
     {
         "code": "WAT",
         "color": "LightYellow",
-        "family": ["Water chestnuts"]
+        "family": ["Water chestnuts", "Bamboo shoots"]
     },
     {
         "code": "MUS",
         "color": "Tan",
-        "family": ["Mushrooms"]
-    },
-    {
-        "code": "BAM",
-        "color": "Beige",
-        "family": ["Bamboo shoots"]
-    },
-    {
-        "code": "SWE",
-        "codeUS": "RUT",
-        "color": "BlanchedAlmond",
-        "family": ["Swede", "Turnip", "Rutabaga", "Neep"],
-        "familyUS": ["Rutabaga", "Turnip", "Swede", "Neep"]
-    },
-    {
-        "code": "CAS",
-        "color": "Linen",
-        "family": ["Cassava", "Tapioca root"]
+        "family": ["Mushrooms", "Fungi"]
     }
 ]
