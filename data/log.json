@@ -841,7 +841,7 @@
     "2021-05-26": ["MUS", "GAR", "LET", "CAB", "ONI"],
     "2021-05-28": ["RAD", "SPR", "POT", "CAR", "ONI", "CAB", "CHA"],
     "2021-05-29": ["CAB", "GAR", "GIN", "ONI", "CAR", "HER"],
-    "2021-05-31": [],
+    "2021-05-31": ["GAR", "COU", "PEP", "ONI", "MUS", "LET", "SPO"],
     "2021-05-30": [
         "AVO",
         "BRO",
@@ -853,5 +853,59 @@
         "RAD",
         "TOM",
         "HER"
-    ]
+    ],
+    "2021-06-01": ["PEP", "AVO", "ONI", "GAR", "COU", "POT", "CAB"],
+    "2021-06-02": [
+        "CAR",
+        "CAB",
+        "CEL",
+        "ONI",
+        "GAR",
+        "MUS",
+        "AVO",
+        "COU",
+        "PEP",
+        "POT"
+    ],
+    "2021-06-03": [
+        "CAR",
+        "LET",
+        "GAR",
+        "ONI",
+        "MUS",
+        "CEL",
+        "CAB",
+        "RAD",
+        "TOM"
+    ],
+    "2021-06-04": [
+        "MUS",
+        "BSP",
+        "AVO",
+        "CAR",
+        "ONI",
+        "GAR",
+        "TOM",
+        "SPR",
+        "SQU"
+    ],
+    "2021-06-05": ["CHA", "POT", "ONI", "GAR", "SPR", "SPO", "FEN", "GIN"],
+    "2021-06-06": ["BSP", "FEN", "ONI", "GAR", "AVO", "CHA", "SPO", "POT"],
+    "2021-06-07": [
+        "CAB",
+        "AVO",
+        "POT",
+        "CEL",
+        "ONI",
+        "GAR",
+        "COU",
+        "GIN",
+        "OLI"
+    ],
+    "2021-06-08": ["CAB", "CEL", "GAR", "ONI", "COU", "GIN", "CAR"],
+    "2021-06-09": ["CEL", "GIN", "GAR", "AVO", "ONI", "COU", "CAR"],
+    "2021-06-10": ["ONI", "GAR", "MUS", "SQU"],
+    "2021-06-11": ["MUS", "CEL", "CAR", "ONI", "GAR", "AVO", "CAB"],
+    "2021-06-12": ["CAB", "SQU"],
+    "2021-06-13": ["LET", "CAB"]
 }
