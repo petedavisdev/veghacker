@@ -25,6 +25,16 @@
         </li>
     </ul>
 
+    <aside>
+        <h2>
+            Can't find what you're looking for?
+        </h2>
+
+        <p>
+            Similar vegetables are grouped together. If you can't find what you're looking for, choose the closest thing on the list.
+        </p>
+    </aside>
+
     <footer>
         <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
 

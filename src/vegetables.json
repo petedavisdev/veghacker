@@ -16,12 +16,7 @@
     {
         "code": "CAR",
         "color": "Orange",
-        "family": [
-            "Carrot",
-            "Parsnip",
-            "Celeriac",
-            "Celery root"
-        ]
+        "family": ["Carrot", "Parsnip", "Celeriac", "Celery root"]
     },
     {
         "code": "CEL",
@@ -46,9 +41,9 @@
             "Broccoli",
             "Kale",
             "Spinach",
-            "Chard",
-            "Brussels sprouts",
             "Cauliflower",
+            "Brussels sprouts",
+            "Chard",
             "Spring greens",
             "Pak choi",
             "Collard",
@@ -72,12 +67,12 @@
             "Broccoli",
             "Kale",
             "Spinach",
-            "Chard",
             "Cauliflower",
             "Brussels sprouts",
-            "Spring greens",
-            "Bok choi",
+            "Chard",
             "Collard",
+            "Bok choi",
+            "Spring greens",
             "Romanesco",
             "Tender stem broccoli",
             "Purple sprouting broccoli",
@@ -194,7 +189,7 @@
             "Salad leaves",
             "Lettuce",
             "Arugula",
-            "Endive",,
+            "Endive",
             "Watercress",
             "Pea shoots",
             "Escarole",
@@ -223,12 +218,7 @@
     {
         "code": "SPR",
         "color": "PaleGoldenRod",
-        "family": [
-            "Sprouted seeds",
-            "Bean sprouts",
-            "Mung bean sprouts",
-            "Sprouted beans"
-        ]
+        "family": ["Sprouted seeds", "Bean sprouts"]
     },
     {
         "code": "SQU",
@@ -301,7 +291,7 @@
         ],
         "familyUS": [
             "Turnip",
-            "Radish",,
+            "Radish",
             "Beets",
             "Rutabaga",
             "Daikon",
