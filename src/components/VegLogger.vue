@@ -20,7 +20,7 @@
             />
 
             <label :for="veg.code">
-                <VegCode :colorLight="veg.colorLight">{{ veg.code }}</VegCode> = {{ veg.family }}
+                <VegCode :color="veg.color">{{ veg.code }}</VegCode> = {{ veg.family }}
             </label>
         </li>
     </ul>

@@ -9,10 +9,10 @@ import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
     props: {
-        colorLight: String,
+        color: String,
     },
     setup(props) {
-        const color = computed(() => props.colorLight || "LimeGreen")
+        const color = computed(() => props.color || "LimeGreen")
         
         return {
             color,
