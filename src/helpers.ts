@@ -26,9 +26,9 @@ export function formatDate(date: Date): String {
     const weekAgo = new Date(Date.now() - 7*864e5);
     const daynames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    if (shortDate === shortenDate(today)) return "today";
+    if (shortDate === shortenDate(today)) return "Today";
     
-    if (shortDate === shortenDate(yesterday)) return "yesterday";
+    if (shortDate === shortenDate(yesterday)) return "Yesterday";
     
     if (shortDate > shortenDate(weekAgo)) return daynames[date.getDay()];
 

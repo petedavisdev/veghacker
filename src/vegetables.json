@@ -1,12 +1,8 @@
 [
     {
-        "code": "ART",
-        "color": "PaleGreen",
-        "family": ["Artichoke", "Globe artichoke"]
-    },
-    {
         "code": "ASP",
-        "family": ["Asparagus"]
+        "color": "PaleGreen",
+        "family": ["Asparagus", "Globe artichoke"]
     },
     {
         "code": "AVO",

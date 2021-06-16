@@ -20,7 +20,13 @@
             />
 
             <label :for="veg.code">
-                <VegCode :color="veg.color">{{ veg.code }}</VegCode> = {{ veg.family }}
+                <VegCode :color="veg.color">
+                    {{ veg.code }}
+                </VegCode>
+                =
+                <template v-for="item in veg.family" :key="item.key">
+                    {{ item }},
+                </template>
             </label>
         </li>
     </ul>
@@ -138,12 +144,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-* {
-    font-family: "Ubuntu Mono", monospace;
-}
-
 h1 {
-    font-family: inherit;
     font-size: 1.15em;
 }
 
