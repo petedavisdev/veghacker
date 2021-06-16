@@ -2,18 +2,16 @@
     <p>
         <slot />
 
-        = [
-
         <div>
             <template v-for="veg in vegArray" :key="veg.key">
-                <VegCode :colorLight="veg.colorLight">
+                <VegCode :color="veg.color">
                     {{ veg.code }}
                 </VegCode>,
             </template>
+
+            {{ vegArray.length }}
         </div>
-
-        ] // {{ vegArray.length }}
-
+        
         <span class="search-input-target"></span>
     </p>
 </template>
@@ -28,7 +26,7 @@ export default defineComponent({
     },
     props: {
         vegArray: Array
-    },
+    }
 })
 </script>
 
@@ -37,10 +35,6 @@ export default defineComponent({
 p {
     font-family: "Ubuntu Mono", monospace;
     color: gray;
-}
-
-div {
-    margin-left: 2ch;
 }
 
 </style>

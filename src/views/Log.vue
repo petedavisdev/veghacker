@@ -72,15 +72,11 @@ export default defineComponent({
 
 a {
     display: inline-block;
-    min-width: 10ch;
+    min-width: 11ch;
 }
 
 a:hover {
     text-decoration-color: hotpink;
-}
-
-a::first-letter {
-    text-transform: uppercase;
 }
 
 </style>

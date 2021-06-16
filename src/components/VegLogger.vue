@@ -20,10 +20,26 @@
             />
 
             <label :for="veg.code">
-                <VegCode :colorLight="veg.colorLight">{{ veg.code }}</VegCode> = {{ veg.family }}
+                <VegCode :color="veg.color">
+                    {{ veg.code }}
+                </VegCode>
+                =
+                <template v-for="item in veg.family" :key="item.key">
+                    {{ item }},
+                </template>
             </label>
         </li>
     </ul>
+
+    <aside>
+        <h2>
+            Can't find what you're looking for?
+        </h2>
+
+        <p>
+            Similar vegetables are grouped together. If you can't find what you're looking for, choose the closest thing on the list.
+        </p>
+    </aside>
 
     <footer>
         <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
@@ -128,12 +144,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-* {
-    font-family: "Ubuntu Mono", monospace;
-}
-
 h1 {
-    font-family: inherit;
     font-size: 1.15em;
 }
 

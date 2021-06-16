@@ -1,5 +1,5 @@
 export interface Veg {
     code: string
-    colorLight?: string
+    color?: string
     family: string[]
 }
