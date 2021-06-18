@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { handleLogin } from "@/vuetils/useAuth";
+import { handleLogin } from "../vuetils/useAuth";
 
 export default defineComponent({
   name: "Auth",

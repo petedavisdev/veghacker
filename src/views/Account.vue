@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import Auth from "@/components/Auth.vue";
-import Loading from "@/components/Loading.vue";
-import { userSession, handleLogout } from "@/vuetils/useAuth";
+import Auth from "../components/Auth.vue";
+import Loading from "../components/Loading.vue";
+import { userSession, handleLogout } from "../vuetils/useAuth";
 
 export default {
     components: {
