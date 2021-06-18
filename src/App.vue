@@ -8,6 +8,9 @@
       <a href="/about">
         About
       </a>
+      <router-link to="account">
+        Account
+      </router-link>
     </nav>
   </header>
 

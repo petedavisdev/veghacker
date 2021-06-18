@@ -8,6 +8,10 @@ const routes = [
         component: Day,
     },
     {
+        path: "/account",
+        component: Account,
+    },
+    {
         path: "/log",
         component: Log,
     },
