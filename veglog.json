@@ -954,5 +954,11 @@
     "2021-06-13": ["SAL", "GRE", "ASP", "SQU"],
     "2021-06-14": ["SQU", "OLI", "SAL", "POT"],
     "2021-06-15": ["GRE", "POT", "SQU", "SEA", "GAR"],
-    "2021-06-16": ["GRE", "CAR", "TUR", "SQU", "GAR"]
+    "2021-06-16": ["GRE", "CAR", "TUR", "SQU", "GAR"],
+    "2021-06-17": ["GRE", "POT", "CAR", "ONI", "MUS", "GAR"],
+    "2021-06-18": ["GRE", "ONI", "CAR", "POT"],
+    "2021-06-19": ["CAR", "GRE", "TUR", "AVO", "SAL", "POT", "ONI"],
+    "2021-06-20": ["GRE", "POT", "ONI", "CAR"],
+    "2021-06-21": ["GRE", "POT", "CAR", "AVO", "ONI", "GAR"],
+    "2021-06-22": ["ONI", "CAR", "GAR", "SAL"]
 }
