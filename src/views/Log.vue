@@ -1,7 +1,5 @@
 <template>
-    <h1>
-        Daily log
-    </h1>
+    <h1>Daily log</h1>
 
     <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
         <router-link :to="'/log/' + date">
@@ -11,33 +9,36 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { codesToVeg, formatDate, shortenDate } from '../helpers'
-import VegArray from '../components/VegArray.vue'
+import { computed, defineComponent } from "vue";
+import { codesToVeg, formatDate, shortenDate } from "../helpers";
+import VegArray from "../components/VegArray.vue";
 
 export default defineComponent({
     components: {
         VegArray,
     },
-    setup () {
-        const log = JSON.parse(localStorage.getItem("veglog")) || JSON.parse(localStorage.getItem("log")) || {}
+    setup() {
+        const log =
+            JSON.parse(localStorage.getItem("veglog")) ||
+            JSON.parse(localStorage.getItem("log")) || // TODO: temp fix for name change - remove after alpha
+            {};
 
         function createDays(start: Date): Object {
-            const days = {}
+            const days = {};
 
             let date = new Date();
 
             while (date >= start) {
-                days[shortenDate(date)] = []
+                days[shortenDate(date)] = [];
 
-                date.setDate(date.getDate() - 1)
+                date.setDate(date.getDate() - 1);
             }
 
-            return days
+            return days;
         }
 
         const vegLog = computed(() => {
-            const logDays = createDays(new Date("2020-12-14"))
+            const logDays = createDays(new Date("2020-12-14"));
 
             const sortedLog = Object.keys(logDays)
                 .sort()
@@ -45,31 +46,28 @@ export default defineComponent({
                 .reduce((obj, key) => {
                     // if the log contains the day
                     if (log[key]) {
-                        obj[key] = codesToVeg(log[key]); 
+                        obj[key] = codesToVeg(log[key]);
                     } else {
                         obj[key] = [];
                     }
 
                     return obj;
-                }, 
-                {}
-            )
+                }, {});
 
-            return sortedLog
-        })
+            return sortedLog;
+        });
 
-        const nameDay = (name) => formatDate(new Date(name))
+        const nameDay = (name) => formatDate(new Date(name));
 
         return {
             vegLog,
             nameDay,
-        }
+        };
     },
-})
+});
 </script>
 
 <style scoped>
-
 a {
     display: inline-block;
     min-width: 11ch;
@@ -78,5 +76,4 @@ a {
 a:hover {
     text-decoration-color: hotpink;
 }
-
 </style>

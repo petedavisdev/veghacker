@@ -1,6 +1,6 @@
 <template>
     <LogPrompt :dayName="dayName" />
-    
+
     <input
         type="search"
         :value="keyword"
@@ -32,33 +32,39 @@
     </ul>
 
     <aside>
-        <h2>
-            Can't find what you're looking for?
-        </h2>
+        <h2>Can't find what you're looking for?</h2>
 
         <p>
-            Similar vegetables are grouped together. If you can't find what you're looking for, choose the closest thing on the list.
+            Similar vegetables are grouped together. If you can't find what
+            you're looking for, choose the closest thing on the list.
         </p>
     </aside>
 
     <footer>
         <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
 
-        <router-link to="/log" class="button">
+        <router-link to="/log" class="button" @click="updateVeglog">
             &#10003;
         </router-link>
     </footer>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
-import vegetables from "../vegetables.json"
-import { Veg } from '../types'
-import LogPrompt from './LogPrompt.vue'
-import VegArray from './VegArray.vue'
-import VegCode from './VegCode.vue'
+import { computed, defineComponent, onMounted, reactive, ref } from "vue";
+import { useRoute } from "vue-router";
+import {
+    codesToVeg,
+    formatDate,
+    shortenDate,
+    sortVeg,
+    vegToCodes,
+} from "../helpers";
+import vegetables from "../vegetables.json";
+import { Veg } from "../types";
+import LogPrompt from "./LogPrompt.vue";
+import VegArray from "./VegArray.vue";
+import VegCode from "./VegCode.vue";
+import { supabase } from "../supabase";
 
 export default defineComponent({
     components: {
@@ -66,70 +72,114 @@ export default defineComponent({
         VegArray,
         VegCode,
     },
-    setup () {
-        const route = useRoute()
+    setup() {
+        const route = useRoute();
 
-        const routeDay = route.params.date?.toString()
+        const routeDay = route.params.date?.toString();
 
-        const day = routeDay ? new Date(routeDay) : new Date()
+        const day = routeDay ? new Date(routeDay) : new Date();
 
-        const dayName = formatDate(day)
+        const dayName = formatDate(day);
 
-        const log = JSON.parse(localStorage.getItem("veglog")) || JSON.parse(localStorage.getItem("log")) || {}
+        const log =
+            JSON.parse(localStorage.getItem("veglog")) ||
+            JSON.parse(localStorage.getItem("log")) || // TODO: temp fix for name change - remove after alpha
+            {};
 
-        const dayLog = ref(log && log[shortenDate(day)] && codesToVeg(log[shortenDate(day)]) || [])
+        const dayLog = ref(
+            (log &&
+                log[shortenDate(day)] &&
+                codesToVeg(log[shortenDate(day)])) ||
+                []
+        );
 
-        const allVeg = sortVeg(vegetables)
-        
-        const keyword = ref("")
+        const allVeg = sortVeg(vegetables);
+
+        const keyword = ref("");
 
         const searchinput = ref(null);
 
+        let veglogUpdatedAt = localStorage.getItem("veglog_updated_at") || null;
+
         function updateDayLog() {
-            log[shortenDate(day)] = vegToCodes(dayLog.value)
-            localStorage.setItem("veglog", JSON.stringify(log))
-            localStorage.setItem("veglog_updated_at",  new Date().toISOString())
-            
+            log[shortenDate(day)] = vegToCodes(dayLog.value);
+            veglogUpdatedAt = new Date().toISOString();
+            localStorage.setItem("veglog", JSON.stringify(log));
+            localStorage.setItem("veglog_updated_at", veglogUpdatedAt);
+
             if (keyword.value) {
-                keyword.value = ""
-                console.log(searchinput.value)
-                searchinput.value.focus()
+                keyword.value = "";
+                console.log(searchinput.value);
+                searchinput.value.focus();
             }
         }
-        
-        const filteredVeg = computed(() => {
-            if (!keyword.value) return allVeg
 
-            const term = keyword.value.toUpperCase()
-            const isCode = code => code === term
-            const isCodeStart = code => code.startsWith(term)
-            const isCodePart = code => code.includes(term)
-            const isFamilyPart = family => family.toString().toUpperCase().includes(term)
+        const filteredVeg = computed(() => {
+            if (!keyword.value) return allVeg;
+
+            const term = keyword.value.toUpperCase();
+            const isCode = (code) => code === term;
+            const isCodeStart = (code) => code.startsWith(term);
+            const isCodePart = (code) => code.includes(term);
+            const isFamilyPart = (family) =>
+                family.toString().toUpperCase().includes(term);
 
             const topResult = allVeg.filter((veg: Veg) => {
-                return isCode(veg.code)
-            })
+                return isCode(veg.code);
+            });
 
             const greatResults = allVeg.filter((veg: Veg) => {
-                return !isCode(veg.code)
-                    && isCodeStart(veg.code)
-            })
-            
+                return !isCode(veg.code) && isCodeStart(veg.code);
+            });
+
             const goodResults = allVeg.filter((veg: Veg) => {
-                return !isCode(veg.code)
-                    && !isCodeStart(veg.code)
-                    && isCodePart(veg.code)
-            })
+                return (
+                    !isCode(veg.code) &&
+                    !isCodeStart(veg.code) &&
+                    isCodePart(veg.code)
+                );
+            });
 
             const otherResults = allVeg.filter((veg: Veg) => {
-                return !isCode(veg.code)
-                    && !isCodeStart(veg.code)
-                    && !isCodePart(veg.code)
-                    && isFamilyPart(veg.family)
-            })
+                return (
+                    !isCode(veg.code) &&
+                    !isCodeStart(veg.code) &&
+                    !isCodePart(veg.code) &&
+                    isFamilyPart(veg.family)
+                );
+            });
 
-            return [...topResult, ...greatResults, ...goodResults, ...otherResults]
-        })
+            return [
+                ...topResult,
+                ...greatResults,
+                ...goodResults,
+                ...otherResults,
+            ];
+        });
+
+        /**
+         * Targets a specific todo via its record id and updates the is_completed attribute.
+         */
+        async function updateVeglog() {
+            try {
+                const { error } = await supabase
+                    .from("accounts")
+                    .update({ veglog: log, veglog_updated_at: veglogUpdatedAt })
+                    .eq("id", 1)
+                    .single();
+
+                if (error) {
+                    alert(error.message);
+                    console.error("There was an error updating", error);
+                    return;
+                }
+
+                console.log("Updated account", 1);
+            } catch (err) {
+                alert("Error");
+                console.error("Unknown problem updating record", err);
+            }
+        }
 
         return {
             allVeg,
@@ -139,9 +189,10 @@ export default defineComponent({
             keyword,
             updateDayLog,
             searchinput,
-        }
-    }
-})
+            updateVeglog,
+        };
+    },
+});
 </script>
 
 <style scoped>
@@ -207,5 +258,4 @@ footer {
     background-color: midnightblue;
     padding: 0 1ch;
 }
-
 </style>
