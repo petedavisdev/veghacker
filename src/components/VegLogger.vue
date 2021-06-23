@@ -75,7 +75,7 @@ export default defineComponent({
 
         const dayName = formatDate(day)
 
-        const log = JSON.parse(localStorage.getItem("log")) || {}
+        const log = JSON.parse(localStorage.getItem("veglog")) || JSON.parse(localStorage.getItem("log")) || {}
 
         const dayLog = ref(log && log[shortenDate(day)] && codesToVeg(log[shortenDate(day)]) || [])
 
@@ -87,7 +87,8 @@ export default defineComponent({
 
         function updateDayLog() {
             log[shortenDate(day)] = vegToCodes(dayLog.value)
-            localStorage.setItem("log", JSON.stringify(log))
+            localStorage.setItem("veglog", JSON.stringify(log))
+            localStorage.setItem("veglog_updated_at",  new Date().toISOString())
             
             if (keyword.value) {
                 keyword.value = ""

@@ -20,7 +20,7 @@ export default defineComponent({
         VegArray,
     },
     setup () {
-        const log = JSON.parse(localStorage.getItem("log")) || {}
+        const log = JSON.parse(localStorage.getItem("veglog")) || JSON.parse(localStorage.getItem("log")) || {}
 
         function createDays(start: Date): Object {
             const days = {}
