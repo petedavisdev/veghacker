@@ -1,7 +1,7 @@
 <template>
-    <form>
-        <label class="font-bold text-grey-darker block mb-2">Email</label>
-        <input type="email" v-model="email" />
+    <form @submit.prevent="handleLogin({ email })">
+        <label>Email</label>
+        <input type="email" v-model="email" required />
         <label>
             <input type="checkbox" required />
             As and early veghacker, I am happy to be asked for feedback and I
