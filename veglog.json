@@ -739,7 +739,7 @@
     "2021-04-18": ["CEL", "CAR", "GRE", "SAL", "AVO", "TOM", "GAR"],
     "2021-04-19": ["TOM", "GAR", "SAL", "AVO", "CAR", "GRE", "CEL"],
     "2021-04-20": ["CAR", "AVO", "GAR", "ONI"],
-    "2021-04-21": ["ONI", "GAR", "ASP"],
+    "2021-04-21": ["ONI", "GAR", "ART"],
     "2021-04-22": ["ONI", "GAR", "CAR", "GRE", "TUR", "AVO", "POT"],
     "2021-04-23": ["ONI", "GAR", "CAR", "GRE", "TUR", "POT", "PEA"],
     "2021-04-24": ["GAR", "ONI", "AVO", "CAR", "GRE", "TUR", "OLI", "TOM"],
@@ -959,6 +959,46 @@
     "2021-06-18": ["GRE", "ONI", "CAR", "POT"],
     "2021-06-19": ["CAR", "GRE", "TUR", "AVO", "SAL", "POT", "ONI"],
     "2021-06-20": ["GRE", "POT", "ONI", "CAR"],
-    "2021-06-21": ["GRE", "POT", "CAR", "AVO", "ONI", "GAR"],
-    "2021-06-22": ["ONI", "CAR", "GAR", "SAL"]
+    "2021-06-21": ["GRE", "POT", "CAR", "AVO", "ONI", "GAR", "OLI"],
+    "2021-06-22": ["ONI", "CAR", "GAR", "SAL", "GRE", "TUR", "OLI"],
+    "2021-06-23": ["SAL", "CAR", "ONI", "AVO", "GAR"],
+    "2021-06-24": ["AVO", "CAR", "POT", "ONI", "GAR", "HER"],
+    "2021-06-25": ["CAR", "TUR", "GRE", "POT", "SAL", "HER"],
+    "2021-06-26": ["CAR", "GRE", "SAL", "TUR", "ONI", "OLI"],
+    "2021-06-27": [
+        "CAR",
+        "GRE",
+        "TUR",
+        "GAR",
+        "SQU",
+        "MUS",
+        "ONI",
+        "OLI",
+        "HER",
+        "TOM",
+        "AVO"
+    ],
+    "2021-06-28": [
+        "SEA",
+        "GAR",
+        "ONI",
+        "TOM",
+        "TUR",
+        "CAR",
+        "SQU",
+        "MUS",
+        "GRE"
+    ],
+    "2021-06-29": [
+        "CAR",
+        "GRE",
+        "HER",
+        "TOM",
+        "SQU",
+        "SEA",
+        "ONI",
+        "MUS",
+        "GAR"
+    ],
+    "2021-06-30": ["GRE", "CAR", "TUR"]
 }
