@@ -1007,5 +1007,14 @@
     "2021-07-04": ["GAR", "ONI", "CAR"],
     "2021-07-05": ["CAR", "GRE", "AVO", "ASP"],
     "2021-07-06": ["ASP", "AVO", "SAL"],
-    "2021-07-07": ["CAR", "TUR", "GRE", "GAR"]
+    "2021-07-07": ["CAR", "TUR", "GRE", "GAR"],
+    "2021-07-08": ["ONI", "GAR", "SEA", "AVO"],
+    "2021-07-09": ["ONI", "GRE", "CAR", "TUR", "GAR", "OLI"],
+    "2021-07-10": ["CAR", "GRE", "TUR", "AVO", "SAL", "ONI"],
+    "2021-07-11": ["AVO", "SAL", "ONI"],
+    "2021-07-12": ["AVO", "GRE", "CAR", "TUR", "ONI", "SQU", "HER"],
+    "2021-07-13": ["CAR", "GRE", "TUR", "MUS", "ONI", "GAR", "TOM"],
+    "2021-07-14": ["TOM", "OLI", "ONI", "MUS", "GAR", "ASP"],
+    "2021-07-15": ["CAR", "GRE", "SAL"],
+    "2021-07-16": ["ONI", "SAL"]
 }
