@@ -1,27 +1,36 @@
 <template>
     <h1>Daily log</h1>
+    <Suspense>
+        <template #default>
+            <VegArray
+                v-for="(array, date) in vegLog"
+                :key="date"
+                :vegArray="array"
+            >
+                <router-link :to="'/log/' + date">
+                    {{ nameDay(date) }}
+                </router-link>
+            </VegArray>
+        </template>
 
-    <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
-        <router-link :to="'/log/' + date">
-            {{ nameDay(date) }}
-        </router-link>
-    </VegArray>
+        <template #fallback>
+            <p>Loading...</p>
+        </template>
+    </Suspense>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { codesToVeg, formatDate, shortenDate } from "../helpers";
 import VegArray from "../components/VegArray.vue";
+import { getVeglog } from "../vuetils/getVeglog";
 
 export default defineComponent({
     components: {
         VegArray,
     },
-    setup() {
-        const log =
-            JSON.parse(localStorage.getItem("veglog")) ||
-            JSON.parse(localStorage.getItem("log")) || // TODO: temp fix for name change - remove after alpha
-            {};
+    async setup() {
+        const log = await getVeglog();
 
         function createDays(start: Date): Object {
             const days = {};

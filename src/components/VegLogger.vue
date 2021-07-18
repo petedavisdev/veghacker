@@ -65,6 +65,7 @@ import LogPrompt from "./LogPrompt.vue";
 import VegArray from "./VegArray.vue";
 import VegCode from "./VegCode.vue";
 import { supabase } from "../supabase";
+import { getVeglog } from "../vuetils/getVeglog";
 
 export default defineComponent({
     components: {
@@ -81,10 +82,7 @@ export default defineComponent({
 
         const dayName = formatDate(day);
 
-        const log =
-            JSON.parse(localStorage.getItem("veglog")) ||
-            JSON.parse(localStorage.getItem("log")) || // TODO: temp fix for name change - remove after alpha
-            {};
+        const log = getVeglog();
 
         const dayLog = ref(
             (log &&
