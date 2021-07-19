@@ -1016,5 +1016,8 @@
     "2021-07-13": ["CAR", "GRE", "TUR", "MUS", "ONI", "GAR", "TOM"],
     "2021-07-14": ["TOM", "OLI", "ONI", "MUS", "GAR", "ASP"],
     "2021-07-15": ["CAR", "GRE", "SAL"],
-    "2021-07-16": ["ONI", "SAL"]
+    "2021-07-16": ["ONI", "SAL", "GRE", "AVO", "GAR"],
+    "2021-07-17": ["SEA", "ONI", "HER", "TUR", "CAR", "GRE"],
+    "2021-07-18": ["SQU", "ONI", "HER", "GRE"],
+    "2021-07-19": ["SQU", "SAL", "ONI"]
 }
