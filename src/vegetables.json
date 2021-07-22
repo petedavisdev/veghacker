@@ -1,8 +1,12 @@
 [
     {
+        "code": "ART",
+        "family": ["Artichoke", "Globe artichoke", "French artichoke", "Green artichoke"]
+    },
+    {
         "code": "ASP",
         "color": "PaleGreen",
-        "family": ["Asparagus", "Globe artichoke"]
+        "family": ["Asparagus"]
     },
     {
         "code": "AVO",
@@ -12,7 +16,12 @@
     {
         "code": "CAR",
         "color": "Orange",
-        "family": ["Carrot", "Parsnip", "Celeriac", "Celery root"]
+        "family": ["Carrot"]
+    },
+    {
+        "code": "PAR",
+        "color": "HoneyDew",
+        "family": ["Parsnip"]
     },
     {
         "code": "CEL",
@@ -270,33 +279,53 @@
         ]
     },
     {
+        "code": "RAD",
+        "color": "Pink",
+        "family": [
+            "Radish",
+            "Daikon",
+            "Horseradish",
+            "Wasabi"
+        ],
+        "familyUS": [
+            "Radish",
+            "Daikon",
+            "Horseradish",
+            "Wasabi"
+        ]
+    },
+    {
+        "code": "BEE",
+        "color": "Purple",
+        "family": [
+            "Beetroot",
+            "Beets"
+        ],
+        "familyUS": [
+            "Beets",
+            "Beetroot"
+        ],
+    },
+    {
         "code": "TUR",
         "color": "Pink",
         "family": [
             "Turnip",
-            "Radish",
-            "Beetroot",
             "Swede",
-            "Daikon",
+            "Celeriac",
             "Kohlrabi",
-            "Horseradish",
-            "Wasabi",
             "Rutabaga",
             "Neep",
-            "Beets"
+            "Celery root",
         ],
         "familyUS": [
             "Turnip",
-            "Radish",
-            "Beets",
             "Rutabaga",
-            "Daikon",
+            "Celeriac",
             "Kohlrabi",
-            "Horseradish",
-            "Wasabi",
             "Swede",
+            "Celery root",
             "Neep",
-            "Beetroot"
         ]
     }
 ]
