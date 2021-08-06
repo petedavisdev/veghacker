@@ -7,9 +7,7 @@
     "week": 1,
     "seasonStart": 1,
     "seasonEnd": 52,
-    "family": [
-      "Carrot"
-    ],
+    "family": ["Carrot"],
     "familyUS": ""
   },
   {
@@ -24,33 +22,21 @@
       "Kale",
       "Cavolo nero",
       "Curly kale",
+      "Purple kale",
       "Black kale",
-      "Purple kale"
+      "Dinosaur kale"
     ],
     "familyUS": ""
   },
   {
-    "code": "BEA",
+    "code": "PLA",
     "codeUS": "",
     "colorDark": "",
-    "colorLight": "SandyBrown",
+    "colorLight": "Gold",
     "week": 3,
     "seasonStart": 1,
     "seasonEnd": 52,
-    "family": [
-      "Beans",
-      "Lentils",
-      "Pulses",
-      "Legumes",
-      "Chickpeas",
-      "Broad beans",
-      "Edamame beans",
-      "Kidney beans",
-      "Lima beans",
-      "Butter beans",
-      "Haricot beans",
-      "Black beans"
-    ],
+    "family": ["Plantain"],
     "familyUS": ""
   },
   {
@@ -61,10 +47,7 @@
     "week": 4,
     "seasonStart": 42,
     "seasonEnd": 13,
-    "family": [
-      "Jerusalem artichoke",
-      "Sunchoke"
-    ],
+    "family": ["Jerusalem artichoke", "Sunchoke"],
     "familyUS": ""
   },
   {
@@ -75,26 +58,19 @@
     "week": 5,
     "seasonStart": 43,
     "seasonEnd": 19,
-    "family": [
-      "Broccoli",
-      "Tender stem broccoli",
-      "Purple sprouting broccoli"
-    ],
+    "family": ["Broccoli", "Tender stem broccoli", "Purple sprouting broccoli"],
     "familyUS": ""
   },
   {
-    "code": "CHA",
-    "codeUS": "",
+    "code": "CLC",
+    "codeUS": "CRO",
     "colorDark": "",
-    "colorLight": "",
+    "colorLight": "Honeydew",
+    "seasonStart": 6,
+    "seasonEnd": 40,
     "week": 6,
-    "seasonStart": 1,
-    "seasonEnd": 52,
-    "family": [
-      "Chard",
-      "Swiss chard"
-    ],
-    "familyUS": ""
+    "family": ["Celeriac", "Celery root"],
+    "familyUS": ["Celery root", "Celeriac"]
   },
   {
     "code": "LEE",
@@ -104,9 +80,7 @@
     "week": 7,
     "seasonStart": 38,
     "seasonEnd": 15,
-    "family": [
-      "Leeks"
-    ],
+    "family": ["Leek"],
     "familyUS": ""
   },
   {
@@ -119,6 +93,8 @@
     "seasonEnd": 19,
     "family": [
       "Cabbage",
+      "Collard",
+      "Spring greens",
       "Savoy cabbage",
       "Red cabbage",
       "White cabbage",
@@ -134,9 +110,7 @@
     "week": 9,
     "seasonStart": 42,
     "seasonEnd": 12,
-    "family": [
-      "Fennel"
-    ],
+    "family": ["Fennel"],
     "familyUS": ""
   },
   {
@@ -147,14 +121,8 @@
     "week": 10,
     "seasonStart": 1,
     "seasonEnd": 52,
-    "family": [
-      "Rocket",
-      "Arugula"
-    ],
-    "familyUS": [
-      "Arugula",
-      "Rocket"
-    ]
+    "family": ["Rocket", "Arugula", "Wild rocket"],
+    "familyUS": ["Arugula", "Rocket", "Wild rocket"]
   },
   {
     "code": "ASP",
@@ -164,9 +132,7 @@
     "week": 11,
     "seasonStart": 7,
     "seasonEnd": 22,
-    "family": [
-      "Asparagus"
-    ],
+    "family": ["Asparagus"],
     "familyUS": ""
   },
   {
@@ -177,10 +143,7 @@
     "week": 12,
     "seasonStart": 10,
     "seasonEnd": 23,
-    "family": [
-      "Garlic",
-      "Wild garlic"
-    ],
+    "family": ["Garlic", "Wild garlic"],
     "familyUS": ""
   },
   {
@@ -191,27 +154,22 @@
     "week": 13,
     "seasonStart": 9,
     "seasonEnd": 13,
-    "family": [
-      "Spinach"
-    ],
+    "family": ["Spinach", "Chard", "Beet greens", "Silverbeet", "Swiss chard"],
     "familyUS": ""
   },
   {
-    "code": "COL",
+    "code": "BAM",
     "codeUS": "",
     "colorDark": "",
-    "colorLight": "SpringGreen",
+    "colorLight": "Beige",
     "week": 14,
-    "seasonStart": 11,
-    "seasonEnd": 25,
-    "family": [
-      "Collard",
-      "Spring greens"
-    ],
+    "seasonStart": 49,
+    "seasonEnd": 17,
+    "family": ["Bamboo shoots"],
     "familyUS": ""
   },
   {
-    "code": "SPR",
+    "code": "SON",
     "codeUS": "SCA",
     "colorDark": "",
     "colorLight": "LightGreen",
@@ -228,8 +186,9 @@
     "familyUS": [
       "Scallions",
       "Chives",
-      "Spring onions",
-      "Green Onions"
+      "Salad onions",
+      "Green Onions",
+      "Spring onions"
     ]
   },
   {
@@ -240,9 +199,7 @@
     "week": 16,
     "seasonStart": 9,
     "seasonEnd": 28,
-    "family": [
-      "Rhubarb"
-    ],
+    "family": ["Rhubarb"],
     "familyUS": ""
   },
   {
@@ -253,10 +210,7 @@
     "week": 17,
     "seasonStart": 14,
     "seasonEnd": 43,
-    "family": [
-      "Artichoke",
-      "Globe artichoke"
-    ],
+    "family": ["Artichoke", "Globe artichoke", "French artichoke"],
     "familyUS": ""
   },
   {
@@ -267,10 +221,7 @@
     "week": 18,
     "seasonStart": 15,
     "seasonEnd": 37,
-    "family": [
-      "Raddish",
-      "Daikon"
-    ],
+    "family": ["Raddish", "Daikon"],
     "familyUS": ""
   },
   {
@@ -281,12 +232,7 @@
     "week": 19,
     "seasonStart": 13,
     "seasonEnd": 24,
-    "family": [
-      "Endive",
-      "Escarole",
-      "Chicory",
-      "Radicchio"
-    ],
+    "family": ["Endive", "Escarole", "Chicory", "Radicchio"],
     "familyUS": ""
   },
   {
@@ -317,9 +263,7 @@
     "week": 21,
     "seasonStart": 13,
     "seasonEnd": 43,
-    "family": [
-      "Watercress"
-    ],
+    "family": ["Watercress"],
     "familyUS": ""
   },
   {
@@ -330,10 +274,7 @@
     "week": 22,
     "seasonStart": 14,
     "seasonEnd": 29,
-    "family": [
-      "Avocado",
-      "Avocado pear"
-    ],
+    "family": ["Avocado", "Avocado pear"],
     "familyUS": ""
   },
   {
@@ -362,16 +303,27 @@
     "seasonStart": 12,
     "seasonEnd": 42,
     "family": [
-        "Herbs",
-        "Fresh herbs",
-        "Basil",
-        "Parsley",
-        "Cilantro",
-        "Coriander",
-        "Mint",
-        "Dill"
+      "Herbs",
+      "Fresh herbs",
+      "Basil",
+      "Parsley",
+      "Coriander",
+      "Mint",
+      "Dill",
+      "Thyme",
+      "Cilantro"
     ],
-    "familyUS": ""
+    "familyUS": [
+      "Herbs",
+      "Fresh herbs",
+      "Basil",
+      "Parsley",
+      "Cilantro",
+      "Mint",
+      "Dill",
+      "Thyme",
+      "Coriander"
+    ]
   },
   {
     "code": "POT",
@@ -381,24 +333,18 @@
     "week": 25,
     "seasonStart": 23,
     "seasonEnd": 39,
-    "family": [
-      "Potato"
-    ],
+    "family": ["Potato"],
     "familyUS": ""
   },
   {
-    "code": "BSP",
+    "code": "SPR",
     "codeUS": "",
     "colorDark": "",
     "colorLight": "PaleGoldenRod",
     "week": 26,
     "seasonStart": 1,
     "seasonEnd": 52,
-    "family": [
-      "Bean sprouts",
-      "Sprouted beans",
-      "Mung bean sprouts"
-    ],
+    "family": ["Bean sprouts", "Sprouted seeds", "Mung bean sprouts"],
     "familyUS": ""
   },
   {
@@ -409,9 +355,7 @@
     "week": 27,
     "seasonStart": 26,
     "seasonEnd": 40,
-    "family": [
-      "Tomato"
-    ],
+    "family": ["Tomato"],
     "familyUS": ""
   },
   {
@@ -422,16 +366,8 @@
     "week": 28,
     "seasonStart": 27,
     "seasonEnd": 30,
-    "family": [
-      "Courgette",
-      "Marrow",
-      "Zucchini"
-    ],
-    "familyUS": [
-      "Zucchini",
-      "Courgette",
-      "Marrow"
-    ]
+    "family": ["Courgette", "Marrow", "Zucchini"],
+    "familyUS": ["Zucchini", "Marrow", "Courgette"]
   },
   {
     "code": "PEP",
@@ -449,13 +385,7 @@
       "Chile",
       "Capsicum"
     ],
-    "familyUS": [
-      "Capsicum",
-      "Bell pepper",
-      "Chile",
-      "Pepper",
-      "Romano pepper"
-    ]
+    "familyUS": ["Capsicum", "Bell pepper", "Chile", "Pepper", "Romano pepper"]
   },
   {
     "code": "AUB",
@@ -465,30 +395,27 @@
     "week": 30,
     "seasonStart": 27,
     "seasonEnd": 35,
-    "family": [
-      "Aubergine",
-      "Egg plant"
-    ],
-    "familyUS": [
-      "Egg plant",
-      "Aubergine"
-    ]
+    "family": ["Aubergine", "Egg plant"],
+    "familyUS": ["Egg plant", "Aubergine"]
   },
   {
-    "code": "GRE",
+    "code": "BEA",
     "codeUS": "",
     "colorDark": "",
-    "colorLight": "SeaGreen",
+    "colorLight": "",
     "week": 31,
     "seasonStart": 27,
     "seasonEnd": 39,
     "family": [
+      "Beans",
       "Green beans",
       "Runner beans",
+      "Broad beans",
+      "Edamame beans",
+      "Legumes",
+      "Pulses",
       "Fine beans",
       "String beans",
-      "French beans",
-      "Snaps",
       "Haricot vert"
     ],
     "familyUS": ""
@@ -501,11 +428,7 @@
     "week": 32,
     "seasonStart": 27,
     "seasonEnd": 35,
-    "family": [
-      "Cucumber",
-      "Gherkin",
-      "Pickle"
-    ],
+    "family": ["Cucumber", "Gherkin", "Pickle"],
     "familyUS": ""
   },
   {
@@ -516,9 +439,7 @@
     "week": 33,
     "seasonStart": 24,
     "seasonEnd": 36,
-    "family": [
-      "Okra"
-    ],
+    "family": ["Okra"],
     "familyUS": ""
   },
   {
@@ -529,11 +450,7 @@
     "week": 34,
     "seasonStart": 24,
     "seasonEnd": 39,
-    "family": [
-      "Peas",
-      "Mange tout",
-      "Petit pois"
-    ],
+    "family": ["Peas", "Mange tout", "Petit pois"],
     "familyUS": ""
   },
   {
@@ -544,9 +461,7 @@
     "week": 35,
     "seasonStart": 27,
     "seasonEnd": 35,
-    "family": [
-      "Samphire"
-    ],
+    "family": ["Samphire"],
     "familyUS": ""
   },
   {
@@ -557,12 +472,7 @@
     "week": 36,
     "seasonStart": 33,
     "seasonEnd": 39,
-    "family": [
-      "Corn",
-      "Sweet corn",
-      "Corn on the cob",
-      "Baby corn"
-    ],
+    "family": ["Corn", "Sweet corn", "Corn on the cob", "Baby corn"],
     "familyUS": ""
   },
   {
@@ -573,10 +483,7 @@
     "week": 37,
     "seasonStart": 35,
     "seasonEnd": 40,
-    "family": [
-      "Ginger",
-      "Turmeric"
-    ],
+    "family": ["Ginger", "Turmeric"],
     "familyUS": ""
   },
   {
@@ -587,10 +494,7 @@
     "week": 38,
     "seasonStart": 30,
     "seasonEnd": 45,
-    "family": [
-      "Onion",
-      "Shallot"
-    ],
+    "family": ["Onion", "Shallot"],
     "familyUS": ""
   },
   {
@@ -601,14 +505,8 @@
     "week": 39,
     "seasonStart": 31,
     "seasonEnd": 43,
-    "family": [
-      "Pak choi",
-      "Bok choi"
-    ],
-    "familyUS": [
-      "Bok choi",
-      "Pak choi"
-    ]
+    "family": ["Pak choi", "Bok choi"],
+    "familyUS": ["Bok choi", "Pak choi"]
   },
   {
     "code": "KHO",
@@ -618,9 +516,7 @@
     "week": 40,
     "seasonStart": 31,
     "seasonEnd": 43,
-    "family": [
-      "Kholrabi"
-    ],
+    "family": ["Kholrabi"],
     "familyUS": ""
   },
   {
@@ -631,14 +527,8 @@
     "week": 41,
     "seasonStart": 26,
     "seasonEnd": 45,
-    "family": [
-      "Beetroot",
-      "Beets"
-    ],
-    "familyUS": [
-      "Beets",
-      "Beetroot"
-    ]
+    "family": ["Beetroot", "Beets"],
+    "familyUS": ["Beets", "Beetroot"]
   },
   {
     "code": "CEL",
@@ -648,9 +538,7 @@
     "week": 42,
     "seasonStart": 36,
     "seasonEnd": 16,
-    "family": [
-      "Celery"
-    ],
+    "family": ["Celery"],
     "familyUS": ""
   },
   {
@@ -661,11 +549,7 @@
     "week": 43,
     "seasonStart": 36,
     "seasonEnd": 48,
-    "family": [
-      "Squash",
-      "Pumpkin",
-      "Butternut squash"
-    ],
+    "family": ["Squash", "Pumpkin", "Butternut squash"],
     "familyUS": ""
   },
   {
@@ -676,9 +560,7 @@
     "week": 44,
     "seasonStart": 40,
     "seasonEnd": 50,
-    "family": [
-      "Cauliflower, Romanesco"
-    ],
+    "family": ["Cauliflower, Romanesco"],
     "familyUS": ""
   },
   {
@@ -689,9 +571,7 @@
     "week": 45,
     "seasonStart": 40,
     "seasonEnd": 50,
-    "family": [
-      "Olives"
-    ],
+    "family": ["Olives"],
     "familyUS": ""
   },
   {
@@ -702,10 +582,7 @@
     "week": 46,
     "seasonStart": 40,
     "seasonEnd": 4,
-    "family": [
-      "Sweet potato",
-      "Yam"
-    ],
+    "family": ["Sweet potato", "Yam"],
     "familyUS": ""
   },
   {
@@ -716,9 +593,7 @@
     "week": 47,
     "seasonStart": 44,
     "seasonEnd": 50,
-    "family": [
-      "Water chestnuts"
-    ],
+    "family": ["Water chestnuts"],
     "familyUS": ""
   },
   {
@@ -729,22 +604,7 @@
     "week": 48,
     "seasonStart": 40,
     "seasonEnd": 50,
-    "family": [
-      "Mushrooms"
-    ],
-    "familyUS": ""
-  },
-  {
-    "code": "BAM",
-    "codeUS": "",
-    "colorDark": "",
-    "colorLight": "Beige",
-    "week": 49,
-    "seasonStart": 49,
-    "seasonEnd": 17,
-    "family": [
-      "Bamboo shoots"
-    ],
+    "family": ["Mushrooms"],
     "familyUS": ""
   },
   {
@@ -755,9 +615,7 @@
     "week": 50,
     "seasonStart": 38,
     "seasonEnd": 8,
-    "family": [
-      "Parsnips"
-    ],
+    "family": ["Parsnips"],
     "familyUS": ""
   },
   {
@@ -768,9 +626,7 @@
     "week": 51,
     "seasonStart": 43,
     "seasonEnd": 19,
-    "family": [
-      "Brussels sprouts"
-    ],
+    "family": ["Brussels sprouts"],
     "familyUS": ""
   },
   {
@@ -781,20 +637,8 @@
     "week": 52,
     "seasonStart": 40,
     "seasonEnd": 4,
-    "family": [
-        "Swede",
-        "Turnip",
-        "Celeriac",
-        "Rutabaga",
-        "Neep"
-    ],
-    "familyUS": [
-        "Rutabaga",
-        "Turnip",
-        "Swede",
-        "Celeriac",
-        "Neep"
-    ]
+    "family": ["Swede", "Turnip", "Rutabaga", "Neep"],
+    "familyUS": ["Rutabaga", "Turnip", "Swede", "Neep"]
   },
   {
     "code": "CAS",
@@ -804,23 +648,7 @@
     "week": 53,
     "seasonStart": 1,
     "seasonEnd": 52,
-    "family": [
-      "Cassava",
-      "Tapioca root"
-    ],
-    "familyUS": ""
-  },
-  {
-    "code": "PLA",
-    "codeUS": "",
-    "colorDark": "",
-    "colorLight": "Gold",
-    "week": 54,
-    "seasonStart": 1,
-    "seasonEnd": 52,
-    "family": [
-      "Plantain"
-    ],
+    "family": ["Cassava", "Tapioca root"],
     "familyUS": ""
   }
-] 
+]
