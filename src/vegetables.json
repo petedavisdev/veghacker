@@ -1,6 +1,5 @@
-[
-    {
-        "code": "CAR",
+{
+    "CAR": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Orange",
@@ -10,8 +9,7 @@
         "family": ["Carrot"],
         "familyUS": []
     },
-    {
-        "code": "KAL",
+    "KAL": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "",
@@ -28,19 +26,17 @@
         ],
         "familyUS": []
     },
-    {
-        "code": "PLA",
+    "LEE": {
         "codeUS": "",
         "colorDark": "",
-        "colorLight": "Gold",
+        "colorLight": "LightGreen",
         "week": 3,
-        "seasonStart": 1,
-        "seasonEnd": 52,
-        "family": ["Plantain"],
+        "seasonStart": 38,
+        "seasonEnd": 15,
+        "family": ["Leek"],
         "familyUS": []
     },
-    {
-        "code": "JER",
+    "JER": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "NavajoWhite",
@@ -50,8 +46,7 @@
         "family": ["Jerusalem artichoke", "Sunchoke"],
         "familyUS": []
     },
-    {
-        "code": "BRO",
+    "BRO": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Green",
@@ -65,8 +60,7 @@
         ],
         "familyUS": []
     },
-    {
-        "code": "CLC",
+    "CLC": {
         "codeUS": "CRO",
         "colorDark": "",
         "colorLight": "Honeydew",
@@ -76,19 +70,17 @@
         "family": ["Celeriac", "Celery root"],
         "familyUS": ["Celery root", "Celeriac"]
     },
-    {
-        "code": "LEE",
+    "SPR": {
         "codeUS": "",
         "colorDark": "",
-        "colorLight": "LightGreen",
+        "colorLight": "PaleGoldenRod",
         "week": 7,
-        "seasonStart": 38,
-        "seasonEnd": 15,
-        "family": ["Leek"],
+        "seasonStart": 1,
+        "seasonEnd": 52,
+        "family": ["Sprouted seeds", "Bean sprouts", "Mung bean sprouts"],
         "familyUS": []
     },
-    {
-        "code": "CAB",
+    "CAB": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "",
@@ -106,8 +98,7 @@
         ],
         "familyUS": []
     },
-    {
-        "code": "FEN",
+    "FEN": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "YellowGreen",
@@ -117,19 +108,18 @@
         "family": ["Fennel"],
         "familyUS": []
     },
-    {
-        "code": "ROC",
-        "codeUS": "ARU",
+    "PLA": {
+        "code": "PLA",
+        "codeUS": "",
         "colorDark": "",
-        "colorLight": "Green",
+        "colorLight": "Gold",
         "week": 10,
         "seasonStart": 1,
         "seasonEnd": 52,
-        "family": ["Rocket", "Arugula", "Wild rocket"],
-        "familyUS": ["Arugula", "Rocket", "Wild rocket"]
+        "family": ["Plantain"],
+        "familyUS": []
     },
-    {
-        "code": "ASP",
+    "ASP": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "",
@@ -139,8 +129,7 @@
         "family": ["Asparagus"],
         "familyUS": []
     },
-    {
-        "code": "GAR",
+    "GAR": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "HoneyDew",
@@ -150,8 +139,7 @@
         "family": ["Garlic", "Wild garlic"],
         "familyUS": []
     },
-    {
-        "code": "SPI",
+    "SPI": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "MediumSeaGreen",
@@ -167,8 +155,7 @@
         ],
         "familyUS": []
     },
-    {
-        "code": "BAM",
+    "BAM": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Beige",
@@ -178,8 +165,7 @@
         "family": ["Bamboo shoots"],
         "familyUS": []
     },
-    {
-        "code": "SON",
+    "SON": {
         "codeUS": "SCA",
         "colorDark": "",
         "colorLight": "LightGreen",
@@ -201,8 +187,7 @@
             "Spring onions"
         ]
     },
-    {
-        "code": "RHU",
+    "RHU": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Plum",
@@ -212,8 +197,7 @@
         "family": ["Rhubarb"],
         "familyUS": []
     },
-    {
-        "code": "ART",
+    "ART": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "PaleGreen",
@@ -223,8 +207,7 @@
         "family": ["Artichoke", "Globe artichoke", "French artichoke"],
         "familyUS": []
     },
-    {
-        "code": "RAD",
+    "RAD": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Pink",
@@ -234,8 +217,7 @@
         "family": ["Raddish", "Daikon", "Wasabi", "Horseradish"],
         "familyUS": []
     },
-    {
-        "code": "END",
+    "END": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "",
@@ -245,8 +227,7 @@
         "family": ["Endive", "Escarole", "Chicory", "Radicchio"],
         "familyUS": []
     },
-    {
-        "code": "SEA",
+    "SEA": {
         "codeUS": "",
         "colorDark": "",
         "colorLight": "OliveDrab",
@@ -341,15 +322,15 @@
         "familyUS": []
     },
     {
-        "code": "SPR",
-        "codeUS": "",
+        "code": "ROC",
+        "codeUS": "ARU",
         "colorDark": "",
-        "colorLight": "PaleGoldenRod",
+        "colorLight": "Green",
         "week": 26,
-        "seasonStart": 1,
+        "seasonStart": 23,
         "seasonEnd": 52,
-        "family": ["Bean sprouts", "Sprouted seeds", "Mung bean sprouts"],
-        "familyUS": []
+        "family": ["Rocket", "Arugula", "Wild rocket"],
+        "familyUS": ["Arugula", "Rocket", "Wild rocket"]
     },
     {
         "code": "TOM",
@@ -615,25 +596,36 @@
         "familyUS": []
     },
     {
+        "code": "PAR",
+        "codeUS": "",
+        "colorDark": "",
+        "colorLight": "LightGoldenRodYellow",
+        "week": 48,
+        "seasonStart": 38,
+        "seasonEnd": 8,
+        "family": ["Parsnips"],
+        "familyUS": []
+    },
+    {
         "code": "MUS",
         "codeUS": "",
         "colorDark": "",
         "colorLight": "Tan",
-        "week": 48,
+        "week": 49,
         "seasonStart": 40,
         "seasonEnd": 50,
         "family": ["Mushrooms"],
         "familyUS": []
     },
     {
-        "code": "PAR",
+        "code": "TUR",
         "codeUS": "",
         "colorDark": "",
-        "colorLight": "LightGoldenRodYellow",
+        "colorLight": "",
         "week": 50,
-        "seasonStart": 38,
-        "seasonEnd": 8,
-        "family": ["Parsnips"],
+        "seasonStart": 40,
+        "seasonEnd": 50,
+        "family": ["Turmeric root"],
         "familyUS": []
     },
     {
@@ -666,7 +658,7 @@
         "week": 53,
         "seasonStart": 1,
         "seasonEnd": 52,
-        "family": ["Cassava", "Tapioca root"],
+        "family": ["Cassava", "Taro", "Tapioca root"],
         "familyUS": []
     }
-]
+}
