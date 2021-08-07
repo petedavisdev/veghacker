@@ -5,7 +5,7 @@
         "colorLight": "Orange",
         "week": 1,
         "seasonStart": 1,
-        "seasonEnd": 52,
+        "seasonEnd": 53,
         "family": ["Carrot"],
         "familyUS": []
     },
@@ -76,7 +76,7 @@
         "colorLight": "PaleGoldenRod",
         "week": 7,
         "seasonStart": 1,
-        "seasonEnd": 52,
+        "seasonEnd": 53,
         "family": ["Sprouted seeds", "Bean sprouts", "Mung bean sprouts"],
         "familyUS": []
     },
@@ -115,7 +115,7 @@
         "colorLight": "Gold",
         "week": 10,
         "seasonStart": 1,
-        "seasonEnd": 52,
+        "seasonEnd": 53,
         "family": ["Plantain"],
         "familyUS": []
     },
@@ -183,7 +183,7 @@
         "colorLight": "Linen",
         "week": 53,
         "seasonStart": 1,
-        "seasonEnd": 52,
+        "seasonEnd": 53,
         "family": ["Cassava", "Taro", "Tapioca root"],
         "familyUS": []
     },
@@ -322,7 +322,7 @@
         "colorLight": "Green",
         "week": 26,
         "seasonStart": 23,
-        "seasonEnd": 52,
+        "seasonEnd": 53,
         "family": ["Rocket", "Arugula", "Wild rocket"],
         "familyUS": ["Arugula", "Rocket", "Wild rocket"]
     },
