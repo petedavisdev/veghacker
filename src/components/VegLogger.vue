@@ -184,6 +184,7 @@ label {
     padding: 0.2em 0.5em;
     background-color: #000919;
     color: gray;
+    font-family: "Ubuntu Mono", monospace;
 }
 
 :checked + label {
