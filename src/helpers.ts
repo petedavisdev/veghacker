@@ -1,20 +1,3 @@
-import vegetables from "./vegetables.json"
-import { Veg } from "./types"
-
-export function sortVeg(items: Veg[]) {
-    return items.sort((a, b) => {
-        if (a.code < b.code) return -1
-        if (a.code > b.code) return 1
-        return 0;
-    })
-}
-
-export const vegToCodes = (vegArray: Veg[]) => vegArray.map((veg) => veg.code)
-
-export const codesToVeg = (codes: String[]) => codes.map((code) => {
-    return vegetables.filter(veg => veg.code === code)[0]
-})
-
 export function shortenDate(date: Date) {
     return date.toISOString().split("T")[0]
 }

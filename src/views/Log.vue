@@ -6,13 +6,13 @@
     <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
         <router-link :to="'/log/' + date">
             {{ nameDay(date) }}
-        </router-link>
+        </router-link> =
     </VegArray>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import { codesToVeg, formatDate, shortenDate } from '../helpers'
+import { formatDate, shortenDate } from '../helpers'
 import VegArray from '../components/VegArray.vue'
 
 export default defineComponent({
@@ -45,7 +45,7 @@ export default defineComponent({
                 .reduce((obj, key) => {
                     // if the log contains the day
                     if (log[key]) {
-                        obj[key] = codesToVeg(log[key]); 
+                        obj[key] = log[key]; 
                     } else {
                         obj[key] = [];
                     }
@@ -58,7 +58,7 @@ export default defineComponent({
             return sortedLog
         })
 
-        const nameDay = (name) => formatDate(new Date(name))
+        const nameDay = (date) => formatDate(new Date(date))
 
         return {
             vegLog,
@@ -69,11 +69,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-a {
-    display: inline-block;
-    min-width: 11ch;
-}
 
 a:hover {
     text-decoration-color: hotpink;

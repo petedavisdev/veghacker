@@ -10,23 +10,20 @@
     />
 
     <ul>
-        <li v-for="veg in filteredVeg" :key="veg.key">
+        <li v-for="(meta, code) in filteredVeg" :key="code">
             <input
                 v-model="dayLog"
                 type="checkbox"
-                :id="veg.code"
-                :value="veg"
+                :id="code"
+                :value="code"
                 @change="updateDayLog"
             />
 
-            <label :for="veg.code">
-                <VegCode :color="veg.color">
-                    {{ veg.code }}
+            <label :for="code">
+                <VegCode :color="meta.colorLight">
+                    {{ code }}
                 </VegCode>
-                =
-                <template v-for="item in veg.family" :key="item.key">
-                    {{ item }},
-                </template>
+                = {{ JSON.stringify(meta.family).replace(/['"]+/g, ' ') }}
             </label>
         </li>
     </ul>
@@ -42,7 +39,7 @@
     </aside>
 
     <footer>
-        <VegArray :vegArray="dayLog">{{ dayName }}</VegArray>
+        <VegArray :vegArray="dayLog">{{ dayName }} =</VegArray>
 
         <router-link to="/log" class="button">
             &#10003;
@@ -53,7 +50,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { codesToVeg, formatDate, shortenDate, sortVeg, vegToCodes } from '../helpers'
+import { formatDate, shortenDate } from '../helpers'
 import vegetables from "../vegetables.json"
 import { Veg } from '../types'
 import LogPrompt from './LogPrompt.vue'
@@ -73,31 +70,31 @@ export default defineComponent({
 
         const day = routeDay ? new Date(routeDay) : new Date()
 
+        const dayKey = shortenDate(day)
+
         const dayName = formatDate(day)
 
         const log = JSON.parse(localStorage.getItem("log")) || {}
 
-        const dayLog = ref(log && log[shortenDate(day)] && codesToVeg(log[shortenDate(day)]) || [])
-
-        const allVeg = sortVeg(vegetables)
+        const dayLog = ref(log && log[dayKey] || [])
         
         const keyword = ref("")
 
         const searchinput = ref(null);
 
         function updateDayLog() {
-            log[shortenDate(day)] = vegToCodes(dayLog.value)
+            log[dayKey] = dayLog.value
             localStorage.setItem("log", JSON.stringify(log))
             
+            // focus back on search input after each update
             if (keyword.value) {
                 keyword.value = ""
-                console.log(searchinput.value)
                 searchinput.value.focus()
             }
         }
         
         const filteredVeg = computed(() => {
-            if (!keyword.value) return allVeg
+            if (!keyword.value) return vegetables
 
             const term = keyword.value.toUpperCase()
             const isCode = code => code === term
@@ -105,22 +102,22 @@ export default defineComponent({
             const isCodePart = code => code.includes(term)
             const isFamilyPart = family => family.toString().toUpperCase().includes(term)
 
-            const topResult = allVeg.filter((veg: Veg) => {
+            const topResult = vegetables.filter((veg: Veg) => {
                 return isCode(veg.code)
             })
 
-            const greatResults = allVeg.filter((veg: Veg) => {
+            const greatResults = vegetables.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && isCodeStart(veg.code)
             })
             
-            const goodResults = allVeg.filter((veg: Veg) => {
+            const goodResults = vegetables.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && !isCodeStart(veg.code)
                     && isCodePart(veg.code)
             })
 
-            const otherResults = allVeg.filter((veg: Veg) => {
+            const otherResults = vegetables.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && !isCodeStart(veg.code)
                     && !isCodePart(veg.code)
@@ -131,7 +128,6 @@ export default defineComponent({
         })
 
         return {
-            allVeg,
             dayLog,
             dayName,
             filteredVeg,
