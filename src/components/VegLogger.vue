@@ -96,16 +96,23 @@ export default defineComponent({
         // TODO sort veg by code
         
         const filteredVeg = computed(() => {
-            return vegetables
+            const sortedVeg = {}
+            const vegKeys = Object.keys(vegetables).sort()
+            
+            vegKeys.forEach(key => {
+                sortedVeg[key] = vegetables[key]
+            });
+
+            return sortedVeg;
 
             // FIXME Search filters are broken
-            if (!keyword.value) return vegetables
+            if (!keyword.value) return sortedVeg
 
             const term = keyword.value.toUpperCase()
-            const isCode = code => code === term
-            const isCodeStart = code => code.startsWith(term)
-            const isCodePart = code => code.includes(term)
-            const isFamilyPart = family => family.toString().toUpperCase().includes(term)
+            function isCode(code: string) { return code === term }
+            function isCodeStart(code: string) { return code.startsWith(term) }
+            function isCodePart(code: string) { return code.includes(term) }
+            function isFamilyPart(family: string[]) { return family.toString().toUpperCase().includes(term) }
 
             const topResult = vegetables.filter((veg: Veg) => {
                 return isCode(veg.code)
