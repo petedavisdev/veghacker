@@ -92,8 +92,13 @@ export default defineComponent({
                 searchinput.value.focus()
             }
         }
+
+        // TODO sort veg by code
         
         const filteredVeg = computed(() => {
+            return vegetables
+
+            // FIXME Search filters are broken
             if (!keyword.value) return vegetables
 
             const term = keyword.value.toUpperCase()
