@@ -24,6 +24,7 @@ export default defineComponent({
 <style scoped>
 span {
     font-family: "Ubuntu Mono", monospace;
-    color: v-bind(color)
+    color: v-bind(color);
+    font-weight: bold;
 }
 </style>

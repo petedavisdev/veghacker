@@ -1,13 +1,15 @@
 <template>
-    <h1>
-        Daily log
-    </h1>
+    <main>
+        <h1>
+            Daily log
+        </h1>
 
-    <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
-        <router-link :to="'/log/' + date">
-            {{ nameDay(date) }}
-        </router-link> =
-    </VegArray>
+        <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
+            <router-link :to="'/log/' + date">
+                {{ nameDay(date) }}
+            </router-link> =
+        </VegArray>
+    </main>
 </template>
 
 <script lang="ts">
@@ -69,9 +71,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-a:hover {
-    text-decoration-color: hotpink;
+main {
+    padding-inline: 1em;
 }
-
 </style>

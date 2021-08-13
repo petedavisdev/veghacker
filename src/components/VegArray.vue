@@ -2,6 +2,8 @@
     <p>
         <slot />
 
+        <span class="count"> // {{ vegArray.length }}</span>
+
         <div>
             [
             <template v-for="(meta, code, index) in vegObj" :key="index">
@@ -11,7 +13,6 @@
                 </VegCode>
             </template>
             ]
-            //{{ vegArray.length }}
         </div>
         
         <span class="search-input-target"></span>
@@ -48,7 +49,12 @@ export default defineComponent({
 
 p {
     font-family: "Ubuntu Mono", monospace;
-    color: gray;
+}
+
+.count {
+    float: right;
+    color: green;
+    margin-right: 1ch;
 }
 
 </style>

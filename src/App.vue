@@ -17,10 +17,13 @@
 <style scoped>
 a {
   text-decoration: none;
+  font-size: small;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  padding: 1em;
+  background-color: #124;
 }
 </style>
