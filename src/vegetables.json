@@ -481,9 +481,8 @@
         "family": ["Sweet potato", "Yam"],
         "familyUS": []
     },
-    "PAC": {
-        "code": "PAC",
-        "codeUS": "BOC",
+    "PAK": {
+        "codeUS": "BOK",
         "colorDark": "",
         "colorLight": "MediumSeaGreen",
         "week": 40,
