@@ -103,33 +103,26 @@ export default defineComponent({
                 sortedVeg[key] = vegetables[key]
             });
 
-            return sortedVeg;
-
-            // FIXME Search filters are broken
             if (!keyword.value) return sortedVeg
 
             const term = keyword.value.toUpperCase()
-            function isCode(code: string) { return code === term }
+            const vegEntries = Object.entries(sortedVeg)
+
             function isCodeStart(code: string) { return code.startsWith(term) }
             function isCodePart(code: string) { return code.includes(term) }
             function isFamilyPart(family: string[]) { return family.toString().toUpperCase().includes(term) }
 
-            const topResult = vegetables.filter((veg: Veg) => {
-                return isCode(veg.code)
+            const topResults = vegEntries.filter(([key, value]) => {
+                return isCodeStart(key)
             })
 
-            const greatResults = vegetables.filter((veg: Veg) => {
-                return !isCode(veg.code)
-                    && isCodeStart(veg.code)
-            })
-            
-            const goodResults = vegetables.filter((veg: Veg) => {
-                return !isCode(veg.code)
-                    && !isCodeStart(veg.code)
-                    && isCodePart(veg.code)
+            const goodResults = vegEntries.filter(([key, value]) => {
+                    isCodePart(key)
             })
 
-            const otherResults = vegetables.filter((veg: Veg) => {
+            return { ...Object.fromEntries(topResults), ...Object.fromEntries(goodResults) }
+
+            const otherResults = vegEntries.filter((veg: Veg) => {
                 return !isCode(veg.code)
                     && !isCodeStart(veg.code)
                     && !isCodePart(veg.code)
