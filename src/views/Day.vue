@@ -30,17 +30,10 @@
         </li>
     </ul>
 
-    <aside>
-        <h3>Can't find what you're looking for?</h3>
-        <p>
-            Similar vegetables are grouped together. If you can't find what
-            you're looking for, choose the closest thing on the list.
-        </p>
-    </aside>
     <footer>
-        <VegArray :vegArray="dayLog">{{ dayName }} =</VegArray>
+        <VegArray :vegArray="dayLog"> {{ dayName }} = </VegArray>
 
-        <router-link to="/log"> ▷ </router-link>
+        <router-link to="/log" @click="updateVeglog"> ▷ </router-link>
     </footer>
 </template>
 
@@ -52,9 +45,8 @@ import vegetables from "../vegetables.json";
 import LogPrompt from "../components/LogPrompt.vue";
 import VegArray from "../components/VegArray.vue";
 import VegCode from "../components/VegCode.vue";
-interface Veg {
-    family: string[];
-}
+import { supabase } from "../supabase";
+import { getVeglog } from "../vuetils/getVeglog";
 
 export default defineComponent({
     components: {
@@ -73,7 +65,7 @@ export default defineComponent({
 
         const dayName = formatDate(day);
 
-        const log = JSON.parse(localStorage.getItem("log")) || {};
+        const log = getVeglog();
 
         const dayLog = ref((log && log[dayKey]) || []);
 
@@ -81,9 +73,16 @@ export default defineComponent({
 
         const searchinput = ref(null);
 
+        let veglogUpdatedAt = localStorage.getItem("veglog_updated_at") || null;
+
         function updateDayLog() {
+            // update and store log
             log[dayKey] = dayLog.value;
             localStorage.setItem("log", JSON.stringify(log));
+
+            // update and store timestamp
+            veglogUpdatedAt = new Date().toISOString();
+            localStorage.setItem("veglog_updated_at", veglogUpdatedAt);
 
             // focus back on search input after each update
             if (keyword.value) {
@@ -91,8 +90,6 @@ export default defineComponent({
                 searchinput.value.focus();
             }
         }
-
-        // TODO sort veg by code
 
         const filteredVeg = computed(() => {
             const sortedVeg = {};
@@ -107,7 +104,7 @@ export default defineComponent({
             if (!keyword.value) return sortedVeg;
 
             const term = keyword.value.toUpperCase();
-            const vegEntries = Object.entries(sortedVeg);
+            const vegEntries: any = Object.entries(sortedVeg);
 
             const topEntries = vegEntries.filter(([key]) =>
                 key.startsWith(term)
@@ -129,6 +126,30 @@ export default defineComponent({
             };
         });
 
+        /**
+         * Targets a specific todo via its record id and updates the is_completed attribute.
+         */
+        async function updateVeglog() {
+            try {
+                const { error } = await supabase
+                    .from("accounts")
+                    .update({ veglog: log, veglog_updated_at: veglogUpdatedAt })
+                    .eq("id", 1)
+                    .single();
+
+                if (error) {
+                    alert(error.message);
+                    console.error("There was an error updating", error);
+                    return;
+                }
+
+                console.log("Updated account", 1);
+            } catch (err) {
+                alert("Error");
+                console.error("Unknown problem updating record", err);
+            }
+        }
+
         return {
             dayLog,
             dayName,
@@ -136,6 +157,7 @@ export default defineComponent({
             keyword,
             updateDayLog,
             searchinput,
+            updateVeglog,
         };
     },
 });
@@ -191,10 +213,6 @@ ul {
 li {
     display: flex;
     align-items: baseline;
-}
-
-aside {
-    padding: 1em;
 }
 
 footer {
