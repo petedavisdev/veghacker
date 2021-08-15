@@ -73,7 +73,7 @@ export default defineComponent({
 
         const dayName = formatDate(day);
 
-        const log = JSON.parse(localStorage.getItem("log")) || {};
+        const log = JSON.parse(localStorage.getItem("vegLog")) || {};
 
         const dayLog = ref((log && log[dayKey]) || []);
 
@@ -83,7 +83,7 @@ export default defineComponent({
 
         function updateDayLog() {
             log[dayKey] = dayLog.value;
-            localStorage.setItem("log", JSON.stringify(log));
+            localStorage.setItem("vegLog", JSON.stringify(log));
 
             // focus back on search input after each update
             if (keyword.value) {
