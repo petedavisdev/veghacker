@@ -1,24 +1,24 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    background-color: #012;
-    color: silver;
-    margin-bottom: 33vh;
+	background-color: #012;
+	color: silver;
+	margin-bottom: 33vh;
 }
 
 input {
-    color: #124;
-    border: 0;
-    border-radius: 0;
+	color: #124;
+	border: 0;
+	border-radius: 0;
 }
 
 a {
-    color: limegreen;
+	color: deepskyblue;
 }
 
 a:hover {
-    text-decoration: underline;
-    text-decoration-color: limegreen;
+	text-decoration: underline;
+	text-decoration-color: limegreen;
 }

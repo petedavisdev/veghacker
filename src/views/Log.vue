@@ -1,45 +1,44 @@
 <template>
     <main>
-        <h1>
-            Daily log
-        </h1>
+        <h1>Daily log</h1>
 
         <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
             <router-link :to="'/log/' + date">
                 {{ nameDay(date) }}
-            </router-link> =
+            </router-link>
+            =
         </VegArray>
     </main>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { formatDate, shortenDate } from '../helpers'
-import VegArray from '../components/VegArray.vue'
+import { computed, defineComponent } from "vue";
+import { formatDate, shortenDate } from "../helpers";
+import VegArray from "../components/VegArray.vue";
 
 export default defineComponent({
     components: {
         VegArray,
     },
-    setup () {
-        const log = JSON.parse(localStorage.getItem("log")) || {}
+    setup() {
+        const log = JSON.parse(localStorage.getItem("log")) || {};
 
         function createDays(start: Date): Object {
-            const days = {}
+            const days = {};
 
             let date = new Date();
 
             while (date >= start) {
-                days[shortenDate(date)] = []
+                days[shortenDate(date)] = [];
 
-                date.setDate(date.getDate() - 1)
+                date.setDate(date.getDate() - 1);
             }
 
-            return days
+            return days;
         }
 
         const vegLog = computed(() => {
-            const logDays = createDays(new Date("2020-12-14"))
+            const logDays = createDays(new Date("2020-09-02"));
 
             const sortedLog = Object.keys(logDays)
                 .sort()
@@ -47,27 +46,25 @@ export default defineComponent({
                 .reduce((obj, key) => {
                     // if the log contains the day
                     if (log[key]) {
-                        obj[key] = log[key]; 
+                        obj[key] = log[key];
                     } else {
                         obj[key] = [];
                     }
 
                     return obj;
-                }, 
-                {}
-            )
+                }, {});
 
-            return sortedLog
-        })
+            return sortedLog;
+        });
 
-        const nameDay = (date) => formatDate(new Date(date))
+        const nameDay = (date) => formatDate(new Date(date));
 
         return {
             vegLog,
             nameDay,
-        }
+        };
     },
-})
+});
 </script>
 
 <style scoped>
