@@ -1,47 +1,24 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    background-color: #012;
-    color: hotpink;
-}
-
-#app {
-    padding: 1rem;
+	background-color: #012;
+	color: silver;
+	margin-bottom: 33vh;
 }
 
 input {
-    border: solid 2px midnightblue;
-    border-radius: 0.2em;
+	color: #124;
+	border: 0;
+	border-radius: 0;
 }
 
 a {
-    color: skyblue;
+	color: deepskyblue;
 }
 
 a:hover {
-    text-decoration: underline;
-    text-decoration-color: hotpink;
-}
-
-button,
-.button {
-    display: grid;
-    place-content: center;
-    height: 3rem;
-    width: 3rem;
-    font-size: xx-large;
-    color: white;
-    background-color: green;
-    border: none;
-    border-radius: 50%;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-button:hover,
-.button:hover {
-    text-decoration: none;
-    background-color: limegreen;
+	text-decoration: underline;
+	text-decoration-color: limegreen;
 }

@@ -2,14 +2,17 @@
     <p>
         <slot />
 
-        <div>
-            <template v-for="veg in vegArray" :key="veg.key">
-                <VegCode :color="veg.color">
-                    {{ veg.code }}
-                </VegCode>,
-            </template>
+        <span class="count"> // {{ vegArray.length }}</span>
 
-            {{ vegArray.length }}
+        <div>
+            [
+            <template v-for="(meta, code, index) in vegObj" :key="index">
+                {{ index ? "," : "" }}
+                <VegCode :color="meta.colorLight">
+                    {{ code }}
+                </VegCode>
+            </template>
+            ]
         </div>
         
         <span class="search-input-target"></span>
@@ -18,6 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import vegetables from "../vegetables.json"
 import VegCode from "./VegCode.vue"
 
 export default defineComponent({
@@ -26,6 +30,17 @@ export default defineComponent({
     },
     props: {
         vegArray: Array
+    },
+    computed: {
+        vegObj() {
+            const vegObject = {};
+
+            this.vegArray.forEach(code => {
+                if (code in vegetables) vegObject[code] = vegetables[code];
+            })
+            
+            return vegObject;
+        }
     }
 })
 </script>
@@ -34,7 +49,12 @@ export default defineComponent({
 
 p {
     font-family: "Ubuntu Mono", monospace;
-    color: gray;
+}
+
+.count {
+    float: right;
+    color: green;
+    margin-right: 1ch;
 }
 
 </style>
