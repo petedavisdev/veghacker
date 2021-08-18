@@ -5,7 +5,6 @@ import { userSession } from "./useAuth";
 function getLocalVeglog() {
 	const log = localStorage.getItem("veglog")
 	const timestamp = localStorage.getItem("veglog_updated_at")
-
 	return { log, timestamp }
 }
 
@@ -37,7 +36,7 @@ async function fetchVeglog() {
 	}
 }
 
-async function getVeglog() {
+export async function getVeglog() {
 	const localVeglog = getLocalVeglog()
 
 	if (!localVeglog.log && !userSession.value) return
@@ -51,5 +50,3 @@ async function getVeglog() {
 		? { ...JSON.parse(localVeglog.log), ...JSON.parse(dbVeglog.log) }
 		: { ...JSON.parse(dbVeglog.log), ...JSON.parse(localVeglog.log) }
 }
-
-export { getVeglog };

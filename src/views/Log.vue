@@ -23,9 +23,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
-import VegArray from "../components/VegArray.vue";
+import { computed, defineComponent, reactive } from "vue";
 import { formatDate, shortenDate } from "../helpers";
+import VegArray from "../components/VegArray.vue";
 import { getVeglog } from "../vuetils/getVeglog";
 
 export default defineComponent({

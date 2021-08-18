@@ -1,40 +1,49 @@
 <template>
-    <header>
-        <LogPrompt :dayName="dayName" />
+    <!-- <Suspense>
+        <template #default> -->
+            <header>
+                <LogPrompt :dayName="dayName" />
 
-        <input
-            type="search"
-            :value="keyword"
-            placeholder="SEARCH"
-            @input="keyword = $event.target.value"
-            ref="searchinput"
-        />
-    </header>
+                <input
+                    type="search"
+                    :value="keyword"
+                    placeholder="SEARCH"
+                    @input="keyword = $event.target.value"
+                    ref="searchinput"
+                />
+            </header>
 
-    <ul>
-        <li v-for="(meta, code) in filteredVeg" :key="code">
-            <input
-                v-model="dayLog"
-                type="checkbox"
-                :id="code"
-                :value="code"
-                @change="updateDayLog"
-            />
+            <ul>
+                <li v-for="(meta, code) in filteredVeg" :key="code">
+                    <input
+                        v-model="dayLog"
+                        type="checkbox"
+                        :id="code"
+                        :value="code"
+                        @change="updateDayLog"
+                    />
 
-            <label :for="code">
-                <VegCode :color="meta.colorLight">
-                    {{ code }}
-                </VegCode>
-                = {{ JSON.stringify(meta.family).replace(/['"]+/g, " ") }}
-            </label>
-        </li>
-    </ul>
+                    <label :for="code">
+                        <VegCode :color="meta.colorLight">
+                            {{ code }}
+                        </VegCode>
+                        = {{ JSON.stringify(meta.family).replace(/['"]+/g, " ") }}
+                    </label>
+                </li>
+            </ul>
 
-    <footer>
-        <VegArray :vegArray="dayLog"> {{ dayName }} = </VegArray>
+            <footer>
+                <VegArray :vegArray="dayLog"> {{ dayName }} = </VegArray>
 
-        <router-link to="/log" @click="updateVeglog"> ▷ </router-link>
-    </footer>
+                <router-link to="/log" @click="updateVeglog"> ▷ </router-link>
+            </footer>
+        <!-- </template>
+
+
+        <template #fallback>
+            <p>Loading...</p>
+        </template>
+    </Suspense> -->
 </template>
 
 <script lang="ts">
@@ -74,16 +83,14 @@ export default defineComponent({
 
         const searchinput = ref(null);
 
-        let veglogUpdatedAt = localStorage.getItem("veglog_updated_at") || null;
-
         function updateDayLog() {
             // update and store log
             log[dayKey] = dayLog.value;
             localStorage.setItem("log", JSON.stringify(log));
 
             // update and store timestamp
-            veglogUpdatedAt = new Date().toISOString();
-            localStorage.setItem("veglog_updated_at", veglogUpdatedAt);
+            const timestamp = new Date().toISOString();
+            localStorage.setItem("veglog_updated_at", timestamp);
 
             // focus back on search input after each update
             if (keyword.value) {
@@ -131,8 +138,8 @@ export default defineComponent({
          * Targets a specific todo via its record id and updates the is_completed attribute.
          */
         async function updateVeglog() {
-            if (!userSession.value) return
-            
+            if (!userSession.value) return;
+
             try {
                 const { error } = await supabase
                     .from("accounts")
