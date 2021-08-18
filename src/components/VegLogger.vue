@@ -66,6 +66,7 @@ import VegArray from "./VegArray.vue";
 import VegCode from "./VegCode.vue";
 import { supabase } from "../supabase";
 import { getVeglog } from "../vuetils/getVeglog";
+import { userSession } from "../vuetils/useAuth";
 
 export default defineComponent({
     components: {
@@ -159,6 +160,8 @@ export default defineComponent({
          * Targets a specific todo via its record id and updates the is_completed attribute.
          */
         async function updateVeglog() {
+            if (!userSession.value) return
+            
             try {
                 const { error } = await supabase
                     .from("accounts")
