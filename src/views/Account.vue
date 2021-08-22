@@ -5,15 +5,15 @@
 		<p>
 			<label>
 				Email
-				<input v-model="state.email" type="email" required />
+				<input v-model="email" type="email" required />
 			</label>
 		</p>
 
 		<p>
 			<label>
 				<input type="checkbox" required />
-				As and alpha veghacker, I am happy to be asked for feedback and
-				I can tolerate a few bugs!
+				As an alpha veghacker, I am happy to be asked for feedback and I
+				can tolerate a few bugs!
 			</label>
 		</p>
 
@@ -25,7 +25,7 @@
 			<template #default>
 				<p>
 					You are logged in as
-					{{ userSession.user }}
+					<code>{{ userSession.user.email }}</code>
 				</p>
 			</template>
 
@@ -39,11 +39,9 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { supabase } from "../supabase";
+import { userSession } from "../user";
 
 export default defineComponent({
-	props: {
-		userSession: Object,
-	},
 	setup() {
 		const email = ref("");
 
@@ -65,7 +63,14 @@ export default defineComponent({
 		return {
 			email,
 			login,
+			userSession,
 		};
 	},
 });
 </script>
+
+<style scoped>
+code {
+	color: limegreen;
+}
+</style>

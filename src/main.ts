@@ -1,8 +1,11 @@
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import App from './App.vue'
 import './modern-normalize.css'
 import './index.css'
 import { router } from './router'
+import { Session } from '@supabase/supabase-js'
+import { supabase } from './supabase'
+import { userSession } from './user'
 
 if ('serviceWorker' in navigator) {
   navigator
@@ -13,5 +16,9 @@ if ('serviceWorker' in navigator) {
 
 const app = createApp(App)
 
-app.use(router)
-app.mount('#app')
+app.use(router);
+app.mount('#app');
+
+supabase.auth.onAuthStateChange((event, session) => {
+  userSession.value = session
+});

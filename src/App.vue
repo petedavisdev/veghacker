@@ -10,23 +10,6 @@
 	<router-view />
 </template>
 
-<script lang="ts">
-import { Session } from "@supabase/supabase-js";
-import { defineComponent, ref } from "vue";
-import { supabase } from "./supabase";
-
-export default defineComponent({
-	setup() {
-		const userSession = ref<Session | null>(null);
-
-		supabase.auth.onAuthStateChange((event, session) => {
-			userSession.value = session;
-		});
-	},
-});
-</script>
-
-
 <style scoped>
 a {
 	text-decoration: none;
