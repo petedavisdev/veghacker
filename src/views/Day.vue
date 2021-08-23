@@ -1,7 +1,7 @@
 <template>
     <AppHeader>
         <VegArray :vegArray="dayLog" class="total">
-            {{ dayName }}
+            <h1>{{ dayName }}</h1>
         </VegArray>
 
         <input
@@ -13,32 +13,26 @@
         />
     </AppHeader>
 
-    <label v-for="(meta, code) in filteredVeg" :key="code">
-        <input
-            v-model="dayLog"
-            type="checkbox"
-            :value="code"
-            @change="updateDayLog"
-        />
+    <main>
+        <label v-for="(meta, code) in filteredVeg" :key="code">
+            <input
+                v-model="dayLog"
+                type="checkbox"
+                :value="code"
+                @change="updateDayLog"
+            />
 
-        <VegCode :color="meta.colorLight">
-            {{ code }}
-        </VegCode>
-        =
-        {{
-            JSON.stringify(meta.family)
-                .replace(/['"]+/g, "")
-                .replace(/[,]+/g, ", ")
-        }}
-    </label>
-
-    <aside>
-        <h3>Can't find what you're looking for?</h3>
-        <p>
-            Similar vegetables are grouped together. If you can't find what
-            you're looking for, choose the closest thing on the list.
-        </p>
-    </aside>
+            <VegCode :color="meta.colorLight">
+                {{ code }}
+            </VegCode>
+            =
+            {{
+                JSON.stringify(meta.family)
+                    .replace(/["]+/g, " ")
+                    .replace(/[,]+/g, ", ")
+            }}
+        </label>
+    </main>
 </template>
 
 <script lang="ts">
@@ -139,8 +133,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-    font-size: 1.15em;
+main {
+    padding: 1em;
 }
 
 [type="search"] {
@@ -160,11 +154,14 @@ label {
     overflow-x: hidden;
     text-overflow: ellipsis;
     margin: 0.5ch;
-    padding-inline: 1em 1ch;
 }
 
-:checked + * {
-    background-color: #235;
+label * {
+    padding: 1ch 0 1ch 1ch;
+}
+
+:checked ~ * {
+    background-color: #346;
 }
 
 aside {
