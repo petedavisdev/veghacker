@@ -4,7 +4,11 @@
     </AppHeader>
 
     <main>
-        <router-link v-for="(array, date) in vegLog" :key="date" :to="'/log/' + date">
+        <router-link
+            v-for="(array, date) in vegLog"
+            :key="date"
+            :to="'/log/' + date"
+        >
             <VegArray :vegArray="array">
                 {{ nameDay(date) }}
             </VegArray>
@@ -75,7 +79,7 @@ main {
     padding-inline: 1em;
 }
 
-time {
-    display: block;
+h1 {
+    padding: 0 1rem 1rem;
 }
 </style>
