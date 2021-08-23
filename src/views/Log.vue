@@ -1,23 +1,26 @@
 <template>
-    <main>
+    <AppHeader>
         <h1>Daily log</h1>
+    </AppHeader>
 
-        <VegArray v-for="(array, date) in vegLog" :key="date" :vegArray="array">
-            <router-link :to="'/log/' + date">
+    <main>
+        <router-link v-for="(array, date) in vegLog" :key="date" :to="'/log/' + date">
+            <VegArray :vegArray="array">
                 {{ nameDay(date) }}
-            </router-link>
-            =
-        </VegArray>
+            </VegArray>
+        </router-link>
     </main>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { formatDate, shortenDate } from "../helpers";
+import AppHeader from "../components/AppHeader.vue";
 import VegArray from "../components/VegArray.vue";
 
 export default defineComponent({
     components: {
+        AppHeader,
         VegArray,
     },
     setup() {
@@ -70,5 +73,9 @@ export default defineComponent({
 <style scoped>
 main {
     padding-inline: 1em;
+}
+
+time {
+    display: block;
 }
 </style>

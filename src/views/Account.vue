@@ -1,6 +1,7 @@
 <template>
-    <h1>Account</h1>
-
+    <AppHeader>
+        <h1>Account</h1>
+    </AppHeader>
 
     <form @submit.prevent="login">
         <label for="email">
@@ -21,22 +22,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive } from "vue";
+import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
+    components: {
+        AppHeader,
+    },
     setup() {
         const state = reactive({
-            email: ""
-        })
+            email: "",
+        });
 
         function login() {
-            console.log(state.email)
+            console.log(state.email);
         }
 
         return {
             state,
-            login
-        }
+            login,
+        };
     },
-})
+});
 </script>

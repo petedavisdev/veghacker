@@ -17,3 +17,7 @@ input {
 a {
     color: deepskyblue;
 }
+
+.router-link-exact-active {
+    color: limegreen;
+}

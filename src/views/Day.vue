@@ -1,19 +1,17 @@
 <template>
-    <header>
-        <LogPrompt :dayName="dayName" />
-        
-        <section>
-            <VegArray :vegArray="dayLog" />
+    <AppHeader>
+        <VegArray :vegArray="dayLog" class="total">
+            {{ dayName }}
+        </VegArray>
 
-            <input
-                type="search"
-                :value="keyword"
-                placeholder="Search"
-                @input="keyword = $event.target.value"
-                ref="searchinput"
-            />
-        </section>
-    </header>
+        <input
+            type="search"
+            :value="keyword"
+            placeholder="Search"
+            @input="keyword = $event.target.value"
+            ref="searchinput"
+        />
+    </AppHeader>
 
     <ul>
         <li v-for="(meta, code) in filteredVeg" :key="code">
@@ -29,7 +27,7 @@
                 <VegCode :color="meta.colorLight">
                     {{ code }}
                 </VegCode>
-                = {{ JSON.stringify(meta.family).replace(/['"]+/g, " ") }}
+                = {{ JSON.stringify(meta.family).replace(/['"]+/g, "").replace(/[,]+/g, ", ") }}
             </label>
         </li>
     </ul>
@@ -48,7 +46,7 @@ import { computed, defineComponent, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 import { formatDate, shortenDate } from "../helpers";
 import vegetables from "../vegetables.json";
-import LogPrompt from "../components/LogPrompt.vue";
+import AppHeader from "../components/AppHeader.vue";
 import VegArray from "../components/VegArray.vue";
 import VegCode from "../components/VegCode.vue";
 interface Veg {
@@ -57,7 +55,7 @@ interface Veg {
 
 export default defineComponent({
     components: {
-        LogPrompt,
+        AppHeader,
         VegArray,
         VegCode,
     },
@@ -141,28 +139,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #124;
-    padding: 1px 1rem 1ch;
-}
-
 h1 {
     font-size: 1.15em;
 }
 
 [type="search"] {
-    padding: 1ch;
+    padding: 1ch 1em;
     background-color: gainsboro;
     width: 100%;
 }
 
 [type="checkbox"] {
-    height: 1em;
-    width: 1em;
+    height: 1rem;
 }
 
 label {
@@ -193,5 +181,9 @@ li {
 
 aside {
     padding: 1em;
+}
+
+.total {
+    padding-inline: 1em 1ch;
 }
 </style>
