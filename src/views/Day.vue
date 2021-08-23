@@ -13,24 +13,24 @@
         />
     </AppHeader>
 
-    <ul>
-        <li v-for="(meta, code) in filteredVeg" :key="code">
-            <input
-                v-model="dayLog"
-                type="checkbox"
-                :id="code"
-                :value="code"
-                @change="updateDayLog"
-            />
+    <label v-for="(meta, code) in filteredVeg" :key="code">
+        <input
+            v-model="dayLog"
+            type="checkbox"
+            :value="code"
+            @change="updateDayLog"
+        />
 
-            <label :for="code">
-                <VegCode :color="meta.colorLight">
-                    {{ code }}
-                </VegCode>
-                = {{ JSON.stringify(meta.family).replace(/['"]+/g, "").replace(/[,]+/g, ", ") }}
-            </label>
-        </li>
-    </ul>
+        <VegCode :color="meta.colorLight">
+            {{ code }}
+        </VegCode>
+        =
+        {{
+            JSON.stringify(meta.family)
+                .replace(/['"]+/g, "")
+                .replace(/[,]+/g, ", ")
+        }}
+    </label>
 
     <aside>
         <h3>Can't find what you're looking for?</h3>
@@ -155,28 +155,16 @@ h1 {
 
 label {
     font-family: "Ubuntu Mono", monospace;
-    display: inline-block;
+    display: block;
     white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
-    margin: 0.1em;
-    padding: 0.5ch;
-    background-color: #000;
-}
-
-:checked + label {
-    background-color: #235;
-}
-
-ul {
-    list-style: none;
+    margin: 0.5ch;
     padding-inline: 1em 1ch;
-    overflow-x: hidden;
 }
 
-li {
-    display: flex;
-    align-items: baseline;
+:checked + * {
+    background-color: #235;
 }
 
 aside {

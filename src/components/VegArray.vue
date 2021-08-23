@@ -50,4 +50,8 @@ p {
     color: green;
     margin-right: 1ch;
 }
+
+div {
+    height: 1em;
+}
 </style>
