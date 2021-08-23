@@ -1,14 +1,18 @@
 <template>
     <header>
         <LogPrompt :dayName="dayName" />
+        
+        <section>
+            <VegArray :vegArray="dayLog" />
 
-        <input
-            type="search"
-            :value="keyword"
-            placeholder="SEARCH"
-            @input="keyword = $event.target.value"
-            ref="searchinput"
-        />
+            <input
+                type="search"
+                :value="keyword"
+                placeholder="Search"
+                @input="keyword = $event.target.value"
+                ref="searchinput"
+            />
+        </section>
     </header>
 
     <ul>
@@ -37,11 +41,6 @@
             you're looking for, choose the closest thing on the list.
         </p>
     </aside>
-    <footer>
-        <VegArray :vegArray="dayLog">{{ dayName }} =</VegArray>
-
-        <router-link to="/log"> ▷ </router-link>
-    </footer>
 </template>
 
 <script lang="ts">
@@ -156,15 +155,14 @@ h1 {
 }
 
 [type="search"] {
-    width: 100%;
     padding: 1ch;
-    text-transform: uppercase;
     background-color: gainsboro;
+    width: 100%;
 }
 
 [type="checkbox"] {
-    position: absolute;
-    opacity: 0;
+    height: 1em;
+    width: 1em;
 }
 
 label {
@@ -195,30 +193,5 @@ li {
 
 aside {
     padding: 1em;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    padding-left: 1em;
-    background-color: #124;
-}
-
-a {
-    display: grid;
-    place-content: center;
-    font-size: xx-large;
-    color: #124;
-    background-color: limegreen;
-    text-decoration: none;
-    cursor: pointer;
-    height: 100%;
-    min-width: 68px;
-    aspect-ratio: 1 / 1;
 }
 </style>
