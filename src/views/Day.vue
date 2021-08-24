@@ -103,21 +103,17 @@ export default defineComponent({
 			const term = keyword.value.toUpperCase();
 			const vegEntries = Object.entries(sortedVeg);
 
-			const topEntries = vegEntries.filter(([key]) =>
-				key.startsWith(term)
-			);
-
-			const strongEntries = vegEntries.filter(([key]) =>
-				key.includes(term)
-			);
+			const strongEntries = vegEntries.filter(([key, value]) => {
+				console.log(value.family);
+				return value.family.toUpperCase().startsWith(term);
+			});
 
 			const goodEntries = vegEntries.filter(([key, value]) => {
 				console.log(value.family);
-				return value.family.toString().toUpperCase().includes(term);
+				return value.family.toUpperCase().includes(term);
 			});
 
 			return {
-				...Object.fromEntries(topEntries),
 				...Object.fromEntries(strongEntries),
 				...Object.fromEntries(goodEntries),
 			};
@@ -138,6 +134,7 @@ export default defineComponent({
 <style scoped>
 header {
 	position: sticky;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -145,7 +142,7 @@ header {
 }
 
 h1 {
-	padding: 1rem 1rem 0;
+	padding: 1rem 1rem 0.5rem;
 	margin: 0;
 }
 
@@ -157,6 +154,7 @@ main {
 	padding: 1ch 1em;
 	background-color: gainsboro;
 	width: 100%;
+	border-radius: 0;
 }
 
 [type="checkbox"] {

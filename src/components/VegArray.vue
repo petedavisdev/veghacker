@@ -1,17 +1,16 @@
 <template>
-    <p>
-        <span class="count"> // {{ vegArray.length }}</span>
+	<div>
+		<span class="count"> // {{ vegArray.length }}</span>
 
-        <slot />
+		[<VegCode
+			v-for="(meta, code, index) in vegObj"
+			:key="index"
+			:color="meta.colorLight"
+			>{{ code }}</VegCode
+		>]
 
-        <div>
-            [<VegCode v-for="(meta, code, index) in vegObj" :key="index" :color="meta.colorLight">
-                {{ code }}
-            </VegCode>]
-        </div>
-        
-        <span class="search-input-target"></span>
-    </p>
+		<span class="search-input-target"></span>
+	</div>
 </template>
 
 <script lang="ts">
@@ -48,6 +47,7 @@ export default defineComponent({
 }
 
 div {
-	height: 1em;
+	color: silver;
+	margin-bottom: 1ch;
 }
 </style>

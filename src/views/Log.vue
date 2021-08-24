@@ -10,9 +10,8 @@
 			:key="date"
 			:to="'/log/' + date"
 		>
-			<VegArray :vegArray="array">
-				{{ nameDay(date) }}
-			</VegArray>
+			{{ nameDay(date) }}
+			<VegArray :vegArray="array"> </VegArray>
 		</router-link>
 	</main>
 
@@ -88,6 +87,6 @@ header {
 }
 
 main {
-	padding-inline: 1em;
+	padding: 1em;
 }
 </style>
