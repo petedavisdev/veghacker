@@ -1,31 +1,31 @@
 <template>
-    <span>
-        <slot />
-    </span>
+	<span>
+		<slot />
+	</span>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 
 export default defineComponent({
-    props: {
-        color: String,
-    },
-    setup(props) {
-        const color = computed(() => props.color || "LimeGreen");
+	props: {
+		color: String,
+	},
+	setup(props) {
+		const color = computed(() => props.color || "LimeGreen");
 
-        return {
-            color,
-        };
-    },
+		return {
+			color,
+		};
+	},
 });
 </script>
 
 <style scoped>
 span {
-    display: inline-block;
-    font-family: "Ubuntu Mono", monospace;
-    color: v-bind(color);
-    font-weight: bold;
+	display: inline-block;
+	color: v-bind(color);
+	font-weight: bold;
+	margin-inline: 0.25ch;
 }
 </style>

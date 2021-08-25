@@ -1,24 +1,33 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: #012;
-	color: silver;
-	margin-bottom: 33vh;
+  background-color: #012;
+  color: silver;
+  margin-bottom: 33vh;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+h1 {
+  font-size: 1.5em;
 }
 
 input {
-	color: #124;
-	border: 0;
-	border-radius: 0;
+  color: #124;
+  border: 0;
+  border-radius: 0;
 }
 
 a {
-	color: deepskyblue;
+  color: deepskyblue;
+  text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-	text-decoration-color: limegreen;
+.router-link-exact-active {
+  color: limegreen;
+}
+
+.fl-r {
+  float: right;
 }
