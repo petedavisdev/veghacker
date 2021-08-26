@@ -2,7 +2,7 @@
 	<header>
 		<h1>
 			{{ dayName }}
-			<router-link to="/log" class="fl-r">☰</router-link>
+			<router-link to="/log" class="fl-r icon">➪</router-link>
 		</h1>
 
 		<VegArray :vegArray="dayLog" class="total" />
@@ -189,5 +189,9 @@ aside {
 
 .total {
 	padding-inline: 1em 1ch;
+}
+
+.icon {
+        transform: scale(1.5);
 }
 </style>
