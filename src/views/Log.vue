@@ -1,7 +1,7 @@
 <template>
 	<header>
 		VEGHACKER 0.1-alpha &nbsp;
-		<a href="/about" class="fl-r icon">☻</a>
+		<a href="/about" class="fl-r">README</a>
 	</header>
 
 	<main>
@@ -88,10 +88,5 @@ header {
 
 main {
 	padding: 1em;
-}
-
-.icon {
-        padding-inline: 0.5ch;
-        transform: scale(2);
 }
 </style>
