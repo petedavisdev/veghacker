@@ -10,7 +10,7 @@
 		<input
 			type="search"
 			:value="keyword"
-			placeholder="Search"
+			placeholder="⌕"
 			@input="keyword = $event.target.value"
 			ref="searchinput"
 		/>
@@ -151,10 +151,14 @@ main {
 }
 
 [type="search"] {
-	padding: 1ch 1em;
+	padding: 1rem;
 	background-color: gainsboro;
 	width: 100%;
 	border-radius: 0;
+}
+
+[type="search"]::placeholder {
+	font-size: x-large;
 }
 
 [type="checkbox"] {
