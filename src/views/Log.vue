@@ -91,6 +91,7 @@ main {
 }
 
 .icon {
+        padding-inline: 0.5ch;
         transform: scale(2);
 }
 </style>
