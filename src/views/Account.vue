@@ -21,7 +21,7 @@
             <button type="submit">▷</button>
         </form>
 
-        <template v-else-if="submitted">
+        <template v-else-if="submitted && !userSession">
             <p>Magic login link sent to {{ email }}</p>
             <p>Check your inbox and spam folder ;)</p>
             <button type="button" @click="submitted = false">
@@ -48,8 +48,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { supabase } from "../supabase";
-import { userSession } from "../user";
+import { createAccount, supabase, userSession } from "../supabase";
 import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
@@ -74,6 +73,14 @@ export default defineComponent({
                 return alert(error.error_description || error);
             }
         }
+
+        const vegLog = ref({});
+
+        async function getVegLog() {
+            vegLog.value = await createAccount();
+        }
+
+        if (userSession) createAccount();
 
         return {
             email,
