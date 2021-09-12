@@ -50,14 +50,14 @@
     "familyUS": ""
   },
   "CLC": {
-    "codeUS": "CRO",
+    "codeUS": "",
     "colorDark": "",
     "colorLight": "Honeydew",
     "seasonStart": 6,
     "seasonEnd": 40,
     "week": 6,
     "family": "Celeriac ‖ Celery root",
-    "familyUS": "Celery root ‖ Celeriac"
+    "familyUS": ""
   },
   "SPR": {
     "codeUS": "",
@@ -90,7 +90,7 @@
     "familyUS": ""
   },
   "PLA": {
-    "code": "PLA",
+    "code": "",
     "codeUS": "",
     "colorDark": "",
     "colorLight": "Gold",
@@ -137,8 +137,8 @@
     "week": 14,
     "seasonStart": 10,
     "seasonEnd": 17,
-    "family": "Spring onions ‖ Chives ‖ Salad onions ‖ Scallions ‖ Green Onions",
-    "familyUS": "Scallions ‖ Chives ‖ Salad onions ‖ Green Onions ‖ Spring onions"
+    "family": "Spring onion ‖ Chive ‖ Salad onion ‖ Scallion ‖ Green Onion ‖ Sibie ‖ Syboe",
+    "familyUS": "Scallion ‖ Chive ‖ Salad onion ‖ Green Onion ‖ Spring onion ‖ Sibie ‖ Syboe"
   },
   "CAS": {
     "codeUS": "",
@@ -277,8 +277,8 @@
     "week": 28,
     "seasonStart": 27,
     "seasonEnd": 30,
-    "family": "Courgette ‖ Marrow ‖ Summer squash ‖ Zucchini",
-    "familyUS": "Zucchini ‖ Marrow ‖ Summer squash ‖ Courgette"
+    "family": "Courgette ‖ Marrow ‖ Zucchini ‖ Summer squash",
+    "familyUS": "Zucchini ‖ Marrow ‖ Courgette ‖ Summer squash"
   },
   "AUB": {
     "codeUS": "EGG",
@@ -398,8 +398,8 @@
     "week": 40,
     "seasonStart": 31,
     "seasonEnd": 43,
-    "family": "Pak choi ‖ Bok choi",
-    "familyUS": "Bok choi ‖ Pak choi"
+    "family": "Pak choi ‖ Bok choy ‖ Tatsoi",
+    "familyUS": "Bok choy ‖ Pak choi ‖ Tatsoi"
   },
   "KHO": {
     "codeUS": "",
