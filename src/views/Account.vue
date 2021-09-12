@@ -1,4 +1,6 @@
 <template>
+    <app-header />
+
     <main>
         <form v-if="!userSession && !submitted" @submit.prevent="login">
             <p>
@@ -48,8 +50,12 @@
 import { defineComponent, ref } from "vue";
 import { supabase } from "../supabase";
 import { userSession } from "../user";
+import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
+    components: {
+        AppHeader,
+    },
     setup() {
         const email = ref("");
         const submitted = ref(false);
