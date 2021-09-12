@@ -1,12 +1,31 @@
 <template>
     <header>
         <router-link to="log">
-            <span>VEG</span><span>HAC</span><span>KER</span> 0.1-alpha
+            <span>VEG</span><span>HAC</span><span>KER</span>
+            0.1-alpha
         </router-link>
-        <router-link to="account" class="fl-r">Account</router-link>
+
+        <router-link to="account" class="fl-r">
+            {{ userSession ? "Account" : "Log in" }}
+        </router-link>
+
         <a href="/about" class="fl-r">ReadMe</a>
     </header>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { userSession } from "../user";
+
+export default defineComponent({
+    setup() {
+        return {
+            userSession,
+        };
+    },
+});
+</script>
+
 
 <style scoped>
 header {
