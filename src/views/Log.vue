@@ -1,7 +1,7 @@
 <template>
 	<header>
 		VEGHACKER 0.1-alpha &nbsp;
-		<a href="/about" class="fl-r">README</a>
+		<a href="/guide" class="fl-r">Guide</a>
 	</header>
 
 	<main>
