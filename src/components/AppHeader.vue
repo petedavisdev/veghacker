@@ -5,27 +5,11 @@
 			0.1-alpha
 		</router-link>
 
-		<router-link to="account" class="fl-r">
-			{{ userSession ? "Account" : "Log in" }}
-		</router-link>
+		<router-link to="account" class="fl-r">😀</router-link>
 
-		<a href="/guide" class="fl-r">Guide</a>
+		<a href="/guide" class="fl-r">📖</a>
 	</header>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-import { userSession } from "../supabase";
-
-export default defineComponent({
-	setup() {
-		return {
-			userSession,
-		};
-	},
-});
-</script>
-
 
 <style scoped>
 header {
