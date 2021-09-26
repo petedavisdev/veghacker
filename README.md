@@ -36,5 +36,5 @@ netlify link
 
 # Develop
 ```bash
-netlify dev
+npm start
 ```

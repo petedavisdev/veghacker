@@ -2,7 +2,7 @@
     "name": "veghacker-app",
     "version": "0.3.0",
     "scripts": {
-        "start": "npm run dev",
+        "start": "netlify dev",
         "dev": "vite",
         "build": "vite build"
     },
