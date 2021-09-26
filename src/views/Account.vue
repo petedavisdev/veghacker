@@ -35,6 +35,7 @@
                     <p>
                         You are logged in as
                         <code>{{ userSession.user.email }}</code>
+                        <pre>{{ vegLog }}</pre>
                     </p>
                 </template>
 
@@ -48,7 +49,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { createAccount, supabase, userSession } from "../supabase";
+import { createAccount, fetchVeglog, supabase, userSession } from "../supabase";
 import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
@@ -74,19 +75,22 @@ export default defineComponent({
             }
         }
 
+        if (userSession) createAccount();
+
         const vegLog = ref({});
 
         async function getVegLog() {
-            vegLog.value = await createAccount();
+            vegLog.value = await fetchVeglog();
         }
 
-        if (userSession) createAccount();
+        getVegLog();
 
         return {
             email,
             login,
             submitted,
             userSession,
+            vegLog,
         };
     },
 });

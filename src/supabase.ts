@@ -31,10 +31,12 @@ export async function createAccount() {
 
 export async function fetchVeglog() {
 	try {
+		console.log(userSession);
+
 		const { data: accounts, error } = await supabase
 			.from("accounts")
 			.select("veg_log")
-			.eq("user_id", userSession.user.id);
+			.eq("user_id", userSession.value.user.id);
 
 		if (error) {
 			console.error("error", error);
