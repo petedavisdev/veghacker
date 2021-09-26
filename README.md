@@ -22,6 +22,19 @@ Example: *Veghacking makes me healthier!*
 A person who aims to eat a variety of vegetables every week.
 Example: *I am a veghacker!*
 
-Why?
+## Why?
 - [BBC: Why are Brits obsessed with the same four vegetables?](https://www.bbc.co.uk/food/articles/veg_variety)
 - [Telegraph: Good nutrition is crucial for the coronavirus vaccine to work effectively](https://www.telegraph.co.uk/global-health/science-and-disease/good-nutrition-can-make-vaccines-effective/)
+
+# Install
+```bash
+npm i
+npm install netlify-cli -g
+netlify login
+netlify link
+```
+
+# Develop
+```bash
+netlify dev
+```
