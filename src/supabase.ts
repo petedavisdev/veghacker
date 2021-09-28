@@ -10,18 +10,25 @@ export const supabase = createClient(
 export const userSession = ref<Session | null>(null);
 
 export async function createAccount() {
+	// TODO: Check if account exist already
+
+	const localVegLog = localStorage.getItem("vegLog");
+
 	console.log(userSession.value.user.id);
 	try {
 		const { data, error } = await supabase
 			.from("accounts")
-			.insert([{ user_id: userSession.value.user.id }]);
+			.insert([{ 
+				user_id: userSession.value.user.id,
+				veg_log: localVegLog
+			}]);
 
 		if (error) {
 			console.error("error", error);
 			return;
 		}
 
-		console.log("account created");
+		console.log(data);
 	} catch (err) {
 		alert("Error");
 		console.error("Unknown problem inserting to db", err);
@@ -33,6 +40,7 @@ export async function fetchVeglog() {
 	try {
 		console.log(userSession);
 
+		// TODO: change accounts to profiles and allow read by anyone
 		const { data: accounts, error } = await supabase
 			.from("accounts")
 			.select("veg_log")

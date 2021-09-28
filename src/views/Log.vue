@@ -23,60 +23,61 @@ import AppHeader from "../components/AppHeader.vue";
 import VegArray from "../components/VegArray.vue";
 
 export default defineComponent({
-	components: {
-		AppFooter,
-		AppHeader,
-		VegArray,
-	},
-	setup() {
-		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
+    components: {
+        AppFooter,
+        AppHeader,
+        VegArray,
+    },
+    setup() {
+        const log = JSON.parse(localStorage.getItem("vegLog")) || {};
 
-		function createDays(start: Date): Object {
-			const days = {};
+        function createDays(start: Date): Object {
+            const days = {};
 
-			let date = new Date();
+            let date = new Date();
 
-			while (date >= start) {
-				days[shortenDate(date)] = [];
+            while (date >= start) {
+                days[shortenDate(date)] = [];
 
-				date.setDate(date.getDate() - 1);
-			}
+                date.setDate(date.getDate() - 1);
+            }
 
-			return days;
-		}
+            return days;
+        }
 
-		const vegLog = computed(() => {
-			const logDays = createDays(new Date("2020-09-02"));
+        const vegLog = computed(() => {
+            // TODO: Only create days for current week
+            const logDays = createDays(new Date("2020-09-02"));
 
-			const sortedLog = Object.keys(logDays)
-				.sort()
-				.reverse()
-				.reduce((obj, key) => {
-					// if the log contains the day
-					if (log[key]) {
-						obj[key] = log[key];
-					} else {
-						obj[key] = [];
-					}
+            const sortedLog = Object.keys(logDays)
+                .sort()
+                .reverse()
+                .reduce((obj, key) => {
+                    // if the log contains the day
+                    if (log[key]) {
+                        obj[key] = log[key];
+                    } else {
+                        obj[key] = [];
+                    }
 
-					return obj;
-				}, {});
+                    return obj;
+                }, {});
 
-			return sortedLog;
-		});
+            return sortedLog;
+        });
 
-		const nameDay = (date) => formatDate(new Date(date));
+        const nameDay = (date) => formatDate(new Date(date));
 
-		return {
-			vegLog,
-			nameDay,
-		};
-	},
+        return {
+            vegLog,
+            nameDay,
+        };
+    },
 });
 </script>
 
 <style scoped>
 main {
-	padding: 1em;
+    padding: 1em;
 }
 </style>
