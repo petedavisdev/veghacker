@@ -9,15 +9,15 @@ export const supabase = createClient(
 
 export const userSession = ref<Session | null>(null);
 
-export async function createAccount() {
-	// TODO: Check if account exist already
+export async function createProfile() {
+	// TODO: Check if profile exists already
 
 	const localVegLog = localStorage.getItem("vegLog");
 
 	console.log(userSession.value.user.id);
 	try {
 		const { data, error } = await supabase
-			.from("accounts")
+			.from("profiles")
 			.insert([{ 
 				user_id: userSession.value.user.id,
 				veg_log: localVegLog
@@ -40,9 +40,8 @@ export async function fetchVeglog() {
 	try {
 		console.log(userSession);
 
-		// TODO: change accounts to profiles and allow read by anyone
-		const { data: accounts, error } = await supabase
-			.from("accounts")
+		const { data: profiles, error } = await supabase
+			.from("profiles")
 			.select("veg_log")
 			.eq("user_id", userSession.value.user.id);
 
@@ -51,12 +50,12 @@ export async function fetchVeglog() {
 			return;
 		}
 
-		if (accounts === null) {
-			console.warn("no accounts fo user");
+		if (profiles === null) {
+			console.warn("no profiles fo user");
 			return;
 		}
 
-		return accounts[0].veg_log;
+		return profiles[0].veg_log;
 	} catch (err) {
 		console.error("Error retrieving data from db", err);
 		return;

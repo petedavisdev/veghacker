@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { createAccount, fetchVeglog, supabase, userSession } from "../supabase";
+import { createProfile, fetchVeglog, supabase, userSession } from "../supabase";
 import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
@@ -75,7 +75,7 @@ export default defineComponent({
             }
         }
 
-        if (userSession) createAccount();
+        if (userSession) createProfile();
 
         // TODO: remove
         const vegLog = ref({});

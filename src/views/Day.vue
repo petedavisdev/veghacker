@@ -46,6 +46,8 @@ import vegetables from "../vegetables.json";
 import AppFooter from "../components/AppFooter.vue";
 import VegArray from "../components/VegArray.vue";
 import VegCode from "../components/VegCode.vue";
+import { fetchVeglog, userSession } from "../supabase";
+
 interface Veg {
     family: string[];
 }
@@ -67,8 +69,20 @@ export default defineComponent({
 
         const dayName = formatDate(day);
 
+        const log = ref({});
         // TODO: get vegLog from database with localStorage as fallback only
-        const log = JSON.parse(localStorage.getItem("vegLog")) || {};
+
+        async function getLog() {
+            if (userSession.value) {
+                log.value = await fetchVeglog();
+            }
+
+            if (!log.value) {
+                log.value = JSON.parse(localStorage.getItem("vegLog")) || {};
+            }
+        }
+
+        getLog();
 
         const dayLog = ref((log && log[dayKey]) || []);
 
