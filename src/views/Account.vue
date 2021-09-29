@@ -35,7 +35,6 @@
                     <p>
                         You are logged in as
                         <code>{{ userSession.user.email }}</code>
-                        <pre>{{ vegLog }}</pre><!-- TODO: remove -->
                     </p>
                 </template>
 
@@ -77,21 +76,11 @@ export default defineComponent({
 
         if (userSession) createProfile();
 
-        // TODO: remove
-        const vegLog = ref({});
-        // TODO: remove
-        async function getVegLog() {
-            vegLog.value = await fetchVeglog();
-        }
-        // TODO: remove
-        getVegLog();
-
         return {
             email,
             login,
             submitted,
             userSession,
-            vegLog, // TODO: remove
         };
     },
 });

@@ -18,7 +18,7 @@ export async function createProfile() {
 	try {
 		const { data, error } = await supabase
 			.from("profiles")
-			.insert([{ 
+			.insert([{
 				user_id: userSession.value.user.id,
 				veg_log: localVegLog
 			}]);
@@ -60,4 +60,11 @@ export async function fetchVeglog() {
 		console.error("Error retrieving data from db", err);
 		return;
 	}
+}
+
+export async function updateProfile() {
+	const { data, error } = await supabase
+		.from('profiles')
+		.update({ veg_log: localStorage.getItem("vegLog") })
+		.eq("user_id", userSession.value.user.id)
 }

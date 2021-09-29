@@ -2,7 +2,7 @@
 	<header>
 		<h1>
 			{{ dayName }}
-			<router-link to="/log" class="fl-r icon">➔</router-link>
+			<router-link to="/log" @click="submitLog" class="fl-r icon">➔</router-link>
 		</h1>
 
 		<VegArray :vegArray="dayLog" class="total" />
@@ -22,7 +22,7 @@
 				v-model="dayLog"
 				type="checkbox"
 				:value="code"
-				@change="updateDayLog"
+				@change="updateProfile"
 			/>
 
 			<code>
@@ -70,14 +70,15 @@ export default defineComponent({
         const dayName = formatDate(day);
 
         const log = ref({});
-        // TODO: get vegLog from database with localStorage as fallback only
 
         async function getLog() {
             if (userSession.value) {
                 log.value = await fetchVeglog();
             }
 
-            if (!log.value) {
+            if (log.value) {
+                localStorage.setItem("vegLog", JSON.stringify(log.value));
+            } else {
                 log.value = JSON.parse(localStorage.getItem("vegLog")) || {};
             }
         }
@@ -90,7 +91,6 @@ export default defineComponent({
 
         const searchinput = ref(null);
 
-        // TODO: if userSession, update supabase, else update localstorage
         function updateDayLog() {
             log[dayKey] = dayLog.value;
             localStorage.setItem("vegLog", JSON.stringify(log));
