@@ -4,9 +4,6 @@ The _object_ is to eat an _array_ of vegetables every week!
 
 [veghacker.app](https://veghacker.app)
 
-## License
-[GNU GENERAL PUBLIC LICENSE Version 2](https://github.com/petedavisdev/veghacker/blob/master/LICENSE)
-
 ## Definition
 
 ### veghacker _(noun)_
