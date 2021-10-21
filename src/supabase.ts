@@ -14,7 +14,6 @@ export async function createProfile() {
 
 	const localVegLog = localStorage.getItem("vegLog");
 
-	console.log(userSession.value.user.id);
 	try {
 		const { data, error } = await supabase
 			.from("profiles")
@@ -27,8 +26,6 @@ export async function createProfile() {
 			console.error("error", error);
 			return;
 		}
-
-		console.log(data);
 	} catch (err) {
 		alert("Error");
 		console.error("Unknown problem inserting to db", err);
@@ -38,8 +35,6 @@ export async function createProfile() {
 
 export async function fetchVeglog() {
 	try {
-		console.log(userSession);
-
 		const { data: profiles, error } = await supabase
 			.from("profiles")
 			.select("veg_log")

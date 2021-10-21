@@ -71,9 +71,12 @@ export default defineComponent({
 
         const log = ref({});
 
+        const dayLog = ref([]);
+
         async function getLog() {
             if (userSession.value) {
-                log.value = await fetchVeglog();
+                const dbLog = await fetchVeglog();
+                log.value = JSON.parse(dbLog);
             }
 
             if (log.value) {
@@ -81,20 +84,18 @@ export default defineComponent({
             } else {
                 log.value = JSON.parse(localStorage.getItem("vegLog")) || {};
             }
+
+            dayLog.value = log.value?.[dayKey];
         }
 
         getLog();
-
-        const dayLog = ref((log.value && log.value[dayKey]) || []);
 
         const keyword = ref("");
 
         const searchinput = ref(null);
 
         function updateDayLog() {
-            console.log(dayLog.value);
             log.value[dayKey] = dayLog.value;
-            console.log(log.value);
             localStorage.setItem("vegLog", JSON.stringify(log.value));
 
             updateProfile();
@@ -123,12 +124,10 @@ export default defineComponent({
             const vegEntries = Object.entries(sortedVeg);
 
             const strongEntries = vegEntries.filter(([key, value]) => {
-                console.log(value.family);
                 return value.family.toUpperCase().startsWith(term);
             });
 
             const goodEntries = vegEntries.filter(([key, value]) => {
-                console.log(value.family);
                 return value.family.toUpperCase().includes(term);
             });
 
