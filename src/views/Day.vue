@@ -2,7 +2,7 @@
 	<header>
 		<h1>
 			{{ dayName }}
-			<router-link to="/log" @click="submitLog" class="fl-r icon">➔</router-link>
+			<router-link to="/log" class="fl-r icon">➔</router-link>
 		</h1>
 
 		<VegArray :vegArray="dayLog" class="total" />
@@ -22,7 +22,7 @@
 				v-model="dayLog"
 				type="checkbox"
 				:value="code"
-				@change="updateProfile"
+				@change="updateDayLog"
 			/>
 
 			<code>
@@ -46,7 +46,7 @@ import vegetables from "../vegetables.json";
 import AppFooter from "../components/AppFooter.vue";
 import VegArray from "../components/VegArray.vue";
 import VegCode from "../components/VegCode.vue";
-import { fetchVeglog, userSession } from "../supabase";
+import { fetchVeglog, updateProfile, userSession } from "../supabase";
 
 interface Veg {
     family: string[];
@@ -85,15 +85,19 @@ export default defineComponent({
 
         getLog();
 
-        const dayLog = ref((log && log[dayKey]) || []);
+        const dayLog = ref((log.value && log.value[dayKey]) || []);
 
         const keyword = ref("");
 
         const searchinput = ref(null);
 
         function updateDayLog() {
-            log[dayKey] = dayLog.value;
-            localStorage.setItem("vegLog", JSON.stringify(log));
+            console.log(dayLog.value);
+            log.value[dayKey] = dayLog.value;
+            console.log(log.value);
+            localStorage.setItem("vegLog", JSON.stringify(log.value));
+
+            updateProfile();
 
             // focus back on search input after each update
             if (keyword.value) {
