@@ -2,7 +2,7 @@
 	<header>
 		<router-link to="log">
 			<span>VEG</span><span>HAC</span><span>KER</span>
-			0.1-alpha
+			0.2-alpha
 		</router-link>
 
 		<router-link to="account" class="fl-r">{{ userSession ? "😀" : "😢" }}</router-link>

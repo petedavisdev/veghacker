@@ -1,6 +1,5 @@
 {
-    "name": "veghacker-app",
-    "version": "0.3.0",
+    "name": "veghacker",
     "scripts": {
         "start": "netlify dev",
         "dev": "vite",
