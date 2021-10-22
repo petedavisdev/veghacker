@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, reactive, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
 import { formatDate, shortenDate } from "../helpers";
 import vegetables from "../vegetables.json";
@@ -85,7 +85,7 @@ export default defineComponent({
                 log.value = JSON.parse(localStorage.getItem("vegLog")) || {};
             }
 
-            dayLog.value = log.value?.[dayKey];
+            dayLog.value = log.value[dayKey] || [];
         }
 
         getLog();
