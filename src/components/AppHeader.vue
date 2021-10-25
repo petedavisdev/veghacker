@@ -54,7 +54,7 @@ span:last-of-type {
 
 strong {
 	display: inline-block;
-	transform: rotate(180deg) scale(3);
+	transform: rotate(180deg) scale(2);
 	margin-right: 2ch;
 }
 

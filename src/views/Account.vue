@@ -34,26 +34,28 @@
 		<template v-else>
 			<Suspense>
 				<template #default>
-					<p>
-						You are logged in as
-						<code>{{ userSession.user.email }}</code>
-					</p>
-					<p>
-						Thank you for trying out
-						<router-link to="log">Veghacker alpha</router-link>!
-					</p>
-					<p>
-						If you would like to encourage me to take the app to the
-						next level, you can
-						<a href="https://www.buymeacoffee.com/veghacker">
-							buy me a coffee
-						</a>
-						😉
-					</p>
+					<article>
+						<p>
+							You are logged in as
+							<code>{{ userSession.user.email }}</code>
+						</p>
+						<p>
+							Thank you for trying out
+							<router-link to="log">Veghacker alpha</router-link>!
+						</p>
+						<p>
+							If you would like to encourage me to take the app to
+							the next level, you can
+							<a href="https://www.buymeacoffee.com/veghacker">
+								buy me a coffee
+							</a>
+							😉
+						</p>
 
-					<p>Cheers!</p>
+						<p>Cheers!</p>
 
-					<p><i>Pete</i> 😃</p>
+						<p><i>Pete</i> 😃</p>
+					</article>
 				</template>
 
 				<template #fallback>
