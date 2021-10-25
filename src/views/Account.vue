@@ -3,6 +3,8 @@
 
 	<main>
 		<form v-if="!userSession && !submitted" @submit.prevent="login">
+			<h1>Login</h1>
+			<p>Backup your veg and use Veghacker on multiple devices 😎</p>
 			<p>
 				<label>
 					Email
@@ -14,11 +16,11 @@
 				<label>
 					<input type="checkbox" required />
 					As an alpha veghacker, I am happy to be asked for feedback
-					and I can tolerate a few bugs!
+					and I can tolerate the odd bug!
 				</label>
 			</p>
 
-			<button type="submit">▷</button>
+			<button type="submit">Send me a magic login link ✨</button>
 		</form>
 
 		<template v-else-if="submitted && !userSession">
@@ -36,6 +38,22 @@
 						You are logged in as
 						<code>{{ userSession.user.email }}</code>
 					</p>
+					<p>
+						Thank you for trying out
+						<router-link to="log">Veghacker alpha</router-link>!
+					</p>
+					<p>
+						If you would like to encourage me to take the app to the
+						next level, you can
+						<a href="https://www.buymeacoffee.com/veghacker">
+							buy me a coffee
+						</a>
+						😉
+					</p>
+
+					<p>Cheers!</p>
+
+					<p><i>Pete</i> 😃</p>
 				</template>
 
 				<template #fallback>
@@ -89,5 +107,22 @@ export default defineComponent({
 <style scoped>
 main {
 	padding: 1rem;
+}
+
+[type="email"] {
+	display: block;
+	width: 100%;
+	border-width: 2px;
+	padding: 0.5em;
+}
+
+button {
+	display: block;
+	width: 100%;
+	color: deepskyblue;
+	background-color: #124;
+	border-color: deepskyblue;
+	border-width: 2px;
+	padding: 0.5em;
 }
 </style>
