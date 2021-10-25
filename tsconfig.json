@@ -4,9 +4,10 @@
     ],
     "compilerOptions": {
         "module": "es2020",
-        "moduleResolution": "node",
         "target": "es2015",
         "sourceMap": true,
-        "allowJs": true
+        "allowJs": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true
     }
 }
