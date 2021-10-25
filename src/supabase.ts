@@ -25,7 +25,7 @@ export async function createProfile() {
     const { data, error } = await supabase.from("profiles").insert([
       {
         user_id: userSession.value.user.id,
-        veg_log: localVegLog,
+        veg_log: JSON.parse(localVegLog),
       },
     ])
 
