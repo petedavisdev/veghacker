@@ -10,6 +10,10 @@
 
 <style scoped>
 footer {
-    text-align: center;
+	position: absolute;
+	bottom: 1ch;
+	left: 0;
+	right: 0;
+	text-align: center;
 }
 </style>
