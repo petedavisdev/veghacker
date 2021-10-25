@@ -39,13 +39,15 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, reactive, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
 import { formatDate, shortenDate } from "../helpers";
 import vegetables from "../vegetables.json";
 import AppFooter from "../components/AppFooter.vue";
 import VegArray from "../components/VegArray.vue";
 import VegCode from "../components/VegCode.vue";
+import { fetchVeglog, updateProfile, userSession } from "../supabase";
+
 interface Veg {
 	family: string[];
 }
@@ -67,17 +69,43 @@ export default defineComponent({
 
 		const dayName = formatDate(day);
 
-		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
+		const log = ref({});
 
-		const dayLog = ref((log && log[dayKey]) || []);
+		const dayLog = ref([]);
+
+		async function getLog() {
+			log.value = await fetchVeglog();
+
+			const localLog = JSON.parse(localStorage.getItem("vegLog"));
+
+			if (log.value && localLog) {
+				localStorage.setItem(
+					"vegLog",
+					JSON.stringify({
+						...log.value,
+						...localLog,
+					})
+				);
+			} else if (log.value) {
+				localStorage.setItem("vegLog", JSON.stringify(log.value));
+			} else if (localLog) {
+				log.value = localLog;
+			}
+
+			dayLog.value = log.value[dayKey] || [];
+		}
+
+		getLog();
 
 		const keyword = ref("");
 
 		const searchinput = ref(null);
 
 		function updateDayLog() {
-			log[dayKey] = dayLog.value;
-			localStorage.setItem("vegLog", JSON.stringify(log));
+			log.value[dayKey] = dayLog.value;
+			localStorage.setItem("vegLog", JSON.stringify(log.value));
+
+			updateProfile(log.value);
 
 			// focus back on search input after each update
 			if (keyword.value) {
@@ -86,12 +114,11 @@ export default defineComponent({
 			}
 		}
 
-		// TODO sort veg by code
-
+		// TODO: sort veg by code alphabetically
 		const filteredVeg = computed(() => {
 			const sortedVeg = {};
 
-			// Sort alhoabetically by key
+			// Sort alhpabetically by key
 			Object.keys(vegetables)
 				.sort()
 				.forEach((key) => {
@@ -104,12 +131,10 @@ export default defineComponent({
 			const vegEntries = Object.entries(sortedVeg);
 
 			const strongEntries = vegEntries.filter(([key, value]) => {
-				console.log(value.family);
 				return value.family.toUpperCase().startsWith(term);
 			});
 
 			const goodEntries = vegEntries.filter(([key, value]) => {
-				console.log(value.family);
 				return value.family.toUpperCase().includes(term);
 			});
 
@@ -126,6 +151,7 @@ export default defineComponent({
 			keyword,
 			updateDayLog,
 			searchinput,
+			log,
 		};
 	},
 });
@@ -192,7 +218,7 @@ aside {
 }
 
 .icon {
-        padding-inline: 0.25ch;
-        transform: scale(1.5);
+	padding-inline: 0.25ch;
+	transform: scale(1.5);
 }
 </style>

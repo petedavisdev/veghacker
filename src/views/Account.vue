@@ -1,36 +1,93 @@
 <template>
-	<form @submit.prevent="login">
-		<label for="email"> Email </label>
+	<app-header />
 
-		<input id="email" type="email" v-model="state.email" required />
+	<main>
+		<form v-if="!userSession && !submitted" @submit.prevent="login">
+			<p>
+				<label>
+					Email
+					<input v-model="email" type="email" required />
+				</label>
+			</p>
 
-		<button type="submit">▷</button>
-	</form>
+			<p>
+				<label>
+					<input type="checkbox" required />
+					As an alpha veghacker, I am happy to be asked for feedback
+					and I can tolerate a few bugs!
+				</label>
+			</p>
 
-	<app-footer />
+			<button type="submit">▷</button>
+		</form>
+
+		<template v-else-if="submitted && !userSession">
+			<p>Magic login link sent to {{ email }}</p>
+			<p>Check your inbox and spam folder 😉</p>
+			<button type="button" @click="submitted = false">
+				&lt; Try again
+			</button>
+		</template>
+
+		<template v-else>
+			<Suspense>
+				<template #default>
+					<p>
+						You are logged in as
+						<code>{{ userSession.user.email }}</code>
+					</p>
+				</template>
+
+				<template #fallback>
+					<p>Loading...</p>
+				</template>
+			</Suspense>
+		</template>
+	</main>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
-import AppFooter from "../components/AppFooter.vue";
+import { defineComponent, ref } from "vue";
+import { createProfile, supabase, userSession } from "../supabase";
+import AppHeader from "../components/AppHeader.vue";
 
 export default defineComponent({
 	components: {
-		AppFooter,
+		AppHeader,
 	},
 	setup() {
-		const state = reactive({
-			email: "",
-		});
+		const email = ref("");
+		const submitted = ref(false);
 
-		function login() {
-			console.log(state.email);
+		async function login() {
+			try {
+				const { error } = await supabase.auth.signIn({
+					email: email.value,
+				});
+
+				if (error) return alert("Error logging in: " + error.message);
+
+				submitted.value = true;
+			} catch (error) {
+				console.error("Error thrown:", error.message);
+				return alert(error.error_description || error);
+			}
 		}
 
+		createProfile();
+
 		return {
-			state,
+			email,
 			login,
+			submitted,
+			userSession,
 		};
 	},
 });
 </script>
+
+<style scoped>
+main {
+	padding: 1rem;
+}
+</style>

@@ -1,4 +1,4 @@
-# VEGHACKER 0.1-alpha
+# VEGHACKER alpha
 
 The _object_ is to eat an _array_ of vegetables every week!
 

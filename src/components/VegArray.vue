@@ -19,35 +19,36 @@ import vegetables from "../vegetables.json";
 import VegCode from "./VegCode.vue";
 
 export default defineComponent({
-	components: {
-		VegCode,
-	},
-	props: {
-		vegArray: Array,
-	},
-	computed: {
-		vegObj() {
-			const vegObject = {};
+    components: {
+        VegCode,
+    },
+    props: {
+        vegArray: Array,
+        default: [],
+    },
+    computed: {
+        vegObj() {
+            const vegObject = {};
 
-			this.vegArray.forEach((code) => {
-				if (code in vegetables) vegObject[code] = vegetables[code];
-			});
+            this.vegArray.forEach((code) => {
+                if (code in vegetables) vegObject[code] = vegetables[code];
+            });
 
-			return vegObject;
-		},
-	},
+            return vegObject;
+        },
+    },
 });
 </script>
 
 <style scoped>
 .count {
-	float: right;
-	color: green;
-	margin-right: 1ch;
+    float: right;
+    color: green;
+    margin-right: 1ch;
 }
 
 div {
-	color: silver;
-	margin-bottom: 1ch;
+    color: silver;
+    margin-bottom: 1ch;
 }
 </style>
