@@ -37,7 +37,7 @@
 					<article>
 						<p>
 							You are logged in as
-							<code>{{ userSession.user.email }}</code>
+							<strong>{{ userSession.user.email }}</strong>
 						</p>
 						<p>
 							Thank you for trying out
@@ -64,67 +64,71 @@
 			</Suspense>
 		</template>
 	</main>
+
+	<app-footer></app-footer>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { createProfile, supabase, userSession } from "../supabase";
 import AppHeader from "../components/AppHeader.vue";
+import AppFooter from "../components/AppFooter.vue";
 
 export default defineComponent({
-	components: {
-		AppHeader,
-	},
-	setup() {
-		const email = ref("");
-		const submitted = ref(false);
+    components: {
+        AppHeader,
+        AppFooter,
+    },
+    setup() {
+        const email = ref("");
+        const submitted = ref(false);
 
-		async function login() {
-			try {
-				const { error } = await supabase.auth.signIn({
-					email: email.value,
-				});
+        async function login() {
+            try {
+                const { error } = await supabase.auth.signIn({
+                    email: email.value,
+                });
 
-				if (error) return alert("Error logging in: " + error.message);
+                if (error) return alert("Error logging in: " + error.message);
 
-				submitted.value = true;
-			} catch (error) {
-				console.error("Error thrown:", error.message);
-				return alert(error.error_description || error);
-			}
-		}
+                submitted.value = true;
+            } catch (error) {
+                console.error("Error thrown:", error.message);
+                return alert(error.error_description || error);
+            }
+        }
 
-		createProfile();
+        createProfile();
 
-		return {
-			email,
-			login,
-			submitted,
-			userSession,
-		};
-	},
+        return {
+            email,
+            login,
+            submitted,
+            userSession,
+        };
+    },
 });
 </script>
 
 <style scoped>
 main {
-	padding: 1rem;
+    padding: 1rem;
 }
 
 [type="email"] {
-	display: block;
-	width: 100%;
-	border-width: 2px;
-	padding: 0.5em;
+    display: block;
+    width: 100%;
+    border-width: 2px;
+    padding: 0.5em;
 }
 
 button {
-	display: block;
-	width: 100%;
-	color: deepskyblue;
-	background-color: #124;
-	border-color: deepskyblue;
-	border-width: 2px;
-	padding: 0.5em;
+    display: block;
+    width: 100%;
+    color: deepskyblue;
+    background-color: #124;
+    border-color: deepskyblue;
+    border-width: 2px;
+    padding: 0.5em;
 }
 </style>

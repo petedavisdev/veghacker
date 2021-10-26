@@ -17,12 +17,30 @@
     {
         "code": "FIS",
         "color": "Gainsboro",
-        "family": ["Small oily fish", "Sardines", "Mackerel", "Anchovies", "Herring", "Eel", "Pilchards", "Whitebait"]
+        "family": [
+            "Small oily fish",
+            "Sardines",
+            "Mackerel",
+            "Anchovies",
+            "Herring",
+            "Eel",
+            "Pilchards",
+            "Whitebait"
+        ]
     },
     {
         "code": "INS",
         "color": "Wheat",
-        "family": ["Insects", "Grubs", "Crickets", "Mealworms", "Larvae", "Grasshoppers", "Ants", "Cicadas"]
+        "family": [
+            "Insects",
+            "Grubs",
+            "Crickets",
+            "Mealworms",
+            "Larvae",
+            "Grasshoppers",
+            "Ants",
+            "Cicadas"
+        ]
     },
     {
         "code": "Liv",
@@ -32,21 +50,70 @@
     {
         "code": "POU",
         "color": "LavenderBlush",
-        "family": ["Organic/pasture fed poultry", "Chicken", "Turkey", "Duck", "Goose", "Pheasant", "Ostrich", "Partridge", "Pigeon", "Guinea Fowl", "Quail"]
+        "family": [
+            "Organic/pasture fed poultry",
+            "Chicken",
+            "Turkey",
+            "Duck",
+            "Goose",
+            "Pheasant",
+            "Ostrich",
+            "Partridge",
+            "Pigeon",
+            "Guinea Fowl",
+            "Quail"
+        ]
     },
     {
         "code": "RED",
         "color": "LightPink",
-        "family": ["Grass/pasture fed red meat", "Beef", "Lamb", "Mutton", "Goat", "Venison", "Veal", "Pork"]
+        "family": [
+            "Grass/pasture fed red meat",
+            "Beef",
+            "Lamb",
+            "Mutton",
+            "Goat",
+            "Venison",
+            "Veal",
+            "Pork"
+        ]
     },
     {
         "code": "OFF",
         "color": "MistyRose",
-        "family": ["Offal", "Kidney", "Heart", "Sweetbreads", "Tripe", "Spleen", "Tongue", "Pancreas", "Thymus", "Intestines", "Brains", "Testicles", "Organ meat"]
+        "family": [
+            "Offal",
+            "Kidney",
+            "Heart",
+            "Sweetbreads",
+            "Tripe",
+            "Spleen",
+            "Tongue",
+            "Pancreas",
+            "Thymus",
+            "Intestines",
+            "Brains",
+            "Testicles",
+            "Organ meat"
+        ]
     },
     {
         "code": "SHE",
         "color": "SeaShell",
-        "family": ["Shellfish", "Snails", "Mussels", "Scallops", "Oysters", "Cockles", "Clams", "Crab", "Lobster", "Shrimp", "Prawn", "Crayfish", "Crawfish"]
-    },
+        "family": [
+            "Shellfish",
+            "Snails",
+            "Mussels",
+            "Scallops",
+            "Oysters",
+            "Cockles",
+            "Clams",
+            "Crab",
+            "Lobster",
+            "Shrimp",
+            "Prawn",
+            "Crayfish",
+            "Crawfish"
+        ]
+    }
 ]

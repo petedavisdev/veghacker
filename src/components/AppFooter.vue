@@ -1,6 +1,6 @@
 <template>
 	<footer>
-		Veghacker alpha &copy;
+		Veghacker &copy;
 
 		{{ new Date().getFullYear() }}
 
@@ -10,10 +10,7 @@
 
 <style scoped>
 footer {
-	position: absolute;
-	bottom: 1ch;
-	left: 0;
-	right: 0;
-	text-align: center;
+    text-align: center;
+    padding: 1em;
 }
 </style>
