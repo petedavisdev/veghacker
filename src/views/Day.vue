@@ -5,7 +5,7 @@
 			<router-link to="/log" class="fl-r icon">➔</router-link>
 		</h1>
 
-		<VegArray :vegArray="dayLog" class="total" />
+		<VegArray :vegArray="dayLog.sort()" class="total" />
 
 		<input
 			type="search"
@@ -26,9 +26,9 @@
 			/>
 
 			<code>
-				<VegCode :color="meta.colorLight">
+				<span :style="{ color: `var(--${code})` }" class="code">
 					{{ code }}
-				</VegCode>
+				</span>
 				=
 				{{ meta.family }}
 			</code>
@@ -45,7 +45,6 @@ import { formatDate, shortenDate } from "../helpers";
 import vegetables from "../vegetables.json";
 import AppFooter from "../components/AppFooter.vue";
 import VegArray from "../components/VegArray.vue";
-import VegCode from "../components/VegCode.vue";
 import { fetchVeglog, updateProfile, userSession } from "../supabase";
 
 interface Veg {
@@ -56,7 +55,6 @@ export default defineComponent({
 	components: {
 		AppFooter,
 		VegArray,
-		VegCode,
 	},
 	setup() {
 		const route = useRoute();
@@ -138,9 +136,14 @@ export default defineComponent({
 				return value.family.toUpperCase().includes(term);
 			});
 
+			const codeMatches = vegEntries.filter(([key, value]) => {
+				return key.includes(term);
+			});
+
 			return {
 				...Object.fromEntries(strongEntries),
 				...Object.fromEntries(goodEntries),
+				...Object.fromEntries(codeMatches),
 			};
 		});
 
@@ -221,5 +224,12 @@ aside {
 .icon {
 	padding-inline: 0.25ch;
 	transform: scale(1.5);
+}
+
+.code {
+	display: inline-block;
+	color: v-bind(color);
+	font-weight: bold;
+	margin-inline: 0.25ch;
 }
 </style>
