@@ -2,11 +2,12 @@
 	<div>
 		<span class="count"> // {{ vegArray.length }}</span>
 
-		[<VegCode
+		[<span
 			v-for="(meta, code, index) in vegObj"
 			:key="index"
-			:color="meta.colorLight"
-			>{{ code }}</VegCode
+			:style="{ color: `var(--${code})` }"
+			class="code"
+			>{{ code }}</span
 		>]
 
 		<span class="search-input-target"></span>
@@ -16,39 +17,42 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import vegetables from "../vegetables.json";
-import VegCode from "./VegCode.vue";
 
 export default defineComponent({
-    components: {
-        VegCode,
-    },
-    props: {
-        vegArray: Array,
-        default: [],
-    },
-    computed: {
-        vegObj() {
-            const vegObject = {};
+	props: {
+		vegArray: Array,
+		default: [],
+	},
+	computed: {
+		vegObj() {
+			const vegObject = {};
 
-            this.vegArray.forEach((code) => {
-                if (code in vegetables) vegObject[code] = vegetables[code];
-            });
+			this.vegArray.forEach((code) => {
+				if (code in vegetables) vegObject[code] = vegetables[code];
+			});
 
-            return vegObject;
-        },
-    },
+			return vegObject;
+		},
+	},
 });
 </script>
 
 <style scoped>
 .count {
-    float: right;
-    color: green;
-    margin-right: 1ch;
+	float: right;
+	color: royalblue;
+	margin-right: 1ch;
+}
+
+.code {
+	display: inline-block;
+	color: v-bind(color);
+	font-weight: bold;
+	margin-inline: 0.25ch;
 }
 
 div {
-    color: silver;
-    margin-bottom: 1ch;
+	color: silver;
+	margin-bottom: 1ch;
 }
 </style>

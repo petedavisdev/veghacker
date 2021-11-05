@@ -2,10 +2,11 @@
 	<app-header />
 
 	<main>
-		<div style="overflow-x: auto">
+		<div class="container">
 			<table>
 				<tr>
 					<th colspan="7" scope="colgroup">This week</th>
+					<th colspan="7" scope="colgroup" class="even">Last week</th>
 				</tr>
 
 				<tr>
@@ -14,6 +15,16 @@
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
+							{{ day.name }}
+						</router-link>
+					</td>
+
+					<td
+						v-for="(day, index) in lastWeek"
+						:key="index"
+						class="even"
+					>
+						<router-link :to="'/log/' + day.date">
 							{{ day.name }}
 						</router-link>
 					</td>
@@ -29,7 +40,26 @@
 								{{ day.data.length }}
 							</span>
 							<span
-								v-for="(veg, index) in day.data"
+								v-for="(veg, index) in day.data.sort()"
+								:key="index"
+								class="veg"
+								:style="{ color: `var(--${veg})` }"
+								>{{ veg }}</span
+							>
+						</router-link>
+					</td>
+
+					<td
+						v-for="(day, index) in lastWeek"
+						:key="index"
+						class="even"
+					>
+						<router-link :to="'/log/' + day.date">
+							<span class="count">
+								{{ day.data.length }}
+							</span>
+							<span
+								v-for="(veg, index) in day.data.sort()"
 								:key="index"
 								class="veg"
 								:style="{ color: `var(--${veg})` }"
@@ -49,6 +79,16 @@
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
+							{{ day.date }}
+						</router-link>
+					</td>
+
+					<td
+						v-for="(day, index) in lastWeek"
+						:key="index"
+						class="date even"
+					>
+						<router-link :to="'/log/' + day.date">
 							{{ day.date }}
 						</router-link>
 					</td>
@@ -75,14 +115,17 @@ export default defineComponent({
 	},
 	setup() {
 		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
-
-		const thisWeek = createWeek(new Date(), log);
+		const today = new Date();
+		const thisWeek = createWeek(today, log);
+		const weekAgo = new Date(today.setDate(today.getDate() - 7));
+		const lastWeek = createWeek(weekAgo, log);
 
 		const nameDay = (date) => formatDate(new Date(date));
 
 		return {
 			nameDay,
 			thisWeek,
+			lastWeek,
 		};
 	},
 });
@@ -91,12 +134,12 @@ export default defineComponent({
 <style scoped>
 main {
 	direction: rtl;
-	padding: 1em;
 }
 
 table {
 	min-width: 100%;
 	text-align: center;
+	border-collapse: collapse;
 }
 
 .date {
@@ -115,7 +158,7 @@ td {
 }
 
 .count {
-	color: green;
+	color: royalblue;
 }
 
 .future,
@@ -126,5 +169,13 @@ td {
 
 .veg {
 	display: block;
+}
+
+.even {
+	background-color: #124;
+}
+
+.container {
+	overflow-x: auto;
 }
 </style>
