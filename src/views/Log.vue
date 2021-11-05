@@ -2,14 +2,51 @@
 	<app-header />
 
 	<main>
-		<router-link
-			v-for="(array, date) in vegLog"
-			:key="date"
-			:to="'/log/' + date"
-		>
-			{{ nameDay(date) }}
-			<VegArray :vegArray="array"> </VegArray>
-		</router-link>
+		<div style="overflow-x: auto">
+			<table>
+				<tr>
+					<th colspan="7" scope="colgroup">This week</th>
+				</tr>
+
+				<tr>
+					<td
+						v-for="(day, index) in thisWeek"
+						:key="index"
+						:class="day.future"
+					>
+						{{ day.name }}
+					</td>
+				</tr>
+
+				<tr>
+					<td
+						v-for="(day, index) in thisWeek"
+						:key="index"
+						:class="day.future"
+					>
+						<router-link :to="'/log/' + day.date">
+							<span
+								v-for="(veg, index) in day.data"
+								:key="index"
+								:class="'veg' + veg"
+								>{{ veg }}</span
+							>
+						</router-link>
+					</td>
+				</tr>
+
+				<tr>
+					<td
+						v-for="(day, index) in thisWeek"
+						:key="index"
+						class="date"
+						:class="day.future && 'future'"
+					>
+						{{ day.date }}
+					</td>
+				</tr>
+			</table>
+		</div>
 	</main>
 
 	<app-footer />
@@ -48,7 +85,7 @@ export default defineComponent({
 			return days;
 		}
 
-		console.log(createWeek(new Date(), log));
+		const thisWeek = createWeek(new Date(), log);
 
 		const vegLog = computed(() => {
 			// TODO: Only create days for current week
@@ -76,6 +113,7 @@ export default defineComponent({
 		return {
 			vegLog,
 			nameDay,
+			thisWeek,
 		};
 	},
 });
@@ -83,6 +121,31 @@ export default defineComponent({
 
 <style scoped>
 main {
+	direction: rtl;
 	padding: 1em;
+}
+
+table {
+	min-width: 100%;
+}
+
+.date {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	font-family: monospace;
+}
+
+th,
+td {
+	padding: 1ch;
+	direction: ltr;
+}
+
+.future {
+	color: silver;
+}
+
+[class^="veg"] {
+	display: block;
 }
 </style>
