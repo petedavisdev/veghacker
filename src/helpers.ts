@@ -39,7 +39,7 @@ export function createWeek(currentDate: Date, log: {}) {
   return dayNames.map((name, index) => {
     const date = dayjs(endDate).subtract(index, "day").format("YYYY-MM-DD")
     const future = dayjs().isBefore(dayjs(date))
-    const data = log[date]
+    const data = log[date] || []
     return { name, date, future, data }
   })
 }

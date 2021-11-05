@@ -25,10 +25,14 @@
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
+							<span class="count">
+								{{ day.data.length }}
+							</span>
 							<span
 								v-for="(veg, index) in day.data"
 								:key="index"
-								:class="'veg' + veg"
+								class="veg"
+								:style="{ color: `var(--${veg})` }"
 								>{{ veg }}</span
 							>
 						</router-link>
@@ -45,7 +49,7 @@
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
-							{{ nameDay(day.date) }}
+							{{ day.date }}
 						</router-link>
 					</td>
 				</tr>
@@ -57,8 +61,8 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
-import { formatDate, createWeek, shortenDate } from "../helpers";
+import { defineComponent } from "vue";
+import { formatDate, createWeek } from "../helpers";
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 import VegArray from "../components/VegArray.vue";
@@ -92,6 +96,7 @@ main {
 
 table {
 	min-width: 100%;
+	text-align: center;
 }
 
 .date {
@@ -99,20 +104,27 @@ table {
 	transform: rotate(180deg);
 	font-family: monospace;
 	text-align: end;
+	vertical-align: middle;
 }
 
 th,
 td {
 	padding: 1ch;
 	direction: ltr;
+	vertical-align: bottom;
 }
 
-.future {
+.count {
+	color: green;
+}
+
+.future,
+.future * {
 	color: #124;
 	pointer-events: none;
 }
 
-[class^="veg"] {
+.veg {
 	display: block;
 }
 </style>
