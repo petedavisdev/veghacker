@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
-import { formatDate, shortenDate } from "../helpers";
+import { formatDate, createWeek, shortenDate } from "../helpers";
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 import VegArray from "../components/VegArray.vue";
@@ -47,6 +47,8 @@ export default defineComponent({
 
 			return days;
 		}
+
+		console.log(createWeek(new Date(), log));
 
 		const vegLog = computed(() => {
 			// TODO: Only create days for current week

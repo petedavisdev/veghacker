@@ -76,7 +76,7 @@ export default defineComponent({
 		async function getLog() {
 			log.value = await fetchVeglog();
 
-			const localLog = JSON.parse(localStorage.getItem("vegLog"));
+			const localLog = JSON.parse(localStorage.getItem("vegLog")) || {};
 
 			if (log.value && localLog) {
 				localStorage.setItem(
