@@ -26,9 +26,9 @@
 			/>
 
 			<code>
-				<span :style="{ color: `var(--${code})` }" class="code">
+				<strong :style="{ color: `var(--${code})` }" class="code">
 					{{ code }}
-				</span>
+				</strong>
 				=
 				{{ meta.family }}
 			</code>
@@ -228,8 +228,6 @@ aside {
 
 .code {
 	display: inline-block;
-	color: v-bind(color);
-	font-weight: bold;
 	margin-inline: 0.25ch;
 }
 </style>

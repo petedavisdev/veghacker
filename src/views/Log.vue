@@ -5,32 +5,6 @@
 		<div class="container">
 			<table>
 				<tr>
-					<th colspan="7" scope="colgroup">This week</th>
-					<th colspan="7" scope="colgroup" class="even">Last week</th>
-				</tr>
-
-				<tr>
-					<td v-for="(day, index) in thisWeek" :key="index">
-						<router-link
-							:to="'/log/' + day.date"
-							:class="day.future && 'future'"
-						>
-							{{ day.name }}
-						</router-link>
-					</td>
-
-					<td
-						v-for="(day, index) in lastWeek"
-						:key="index"
-						class="even"
-					>
-						<router-link :to="'/log/' + day.date">
-							{{ day.name }}
-						</router-link>
-					</td>
-				</tr>
-
-				<tr>
 					<td v-for="(day, index) in thisWeek" :key="index">
 						<router-link
 							:to="'/log/' + day.date"
@@ -49,11 +23,7 @@
 						</router-link>
 					</td>
 
-					<td
-						v-for="(day, index) in lastWeek"
-						:key="index"
-						class="even"
-					>
+					<td v-for="(day, index) in lastWeek" :key="index">
 						<router-link :to="'/log/' + day.date">
 							<span class="count">
 								{{ day.data.length }}
@@ -70,28 +40,25 @@
 				</tr>
 
 				<tr>
-					<td
-						v-for="(day, index) in thisWeek"
-						:key="index"
-						class="date"
-					>
+					<td v-for="(day, index) in thisWeek" :key="index">
 						<router-link
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
-							{{ day.date }}
+							{{ day.name }}
 						</router-link>
 					</td>
 
-					<td
-						v-for="(day, index) in lastWeek"
-						:key="index"
-						class="date even"
-					>
+					<td v-for="(day, index) in lastWeek" :key="index">
 						<router-link :to="'/log/' + day.date">
-							{{ day.date }}
+							{{ day.name }}
 						</router-link>
 					</td>
+				</tr>
+
+				<tr>
+					<th colspan="7" scope="colgroup" class="week">This week</th>
+					<th colspan="7" scope="colgroup" class="week">Last week</th>
 				</tr>
 			</table>
 		</div>
@@ -139,15 +106,6 @@ main {
 table {
 	min-width: 100%;
 	text-align: center;
-	border-collapse: collapse;
-}
-
-.date {
-	writing-mode: vertical-rl;
-	transform: rotate(180deg);
-	font-family: monospace;
-	text-align: end;
-	vertical-align: middle;
 }
 
 th,
@@ -173,5 +131,10 @@ td {
 
 .container {
 	overflow-x: auto;
+}
+
+.week {
+	background-color: #124;
+	border-radius: 1ch;
 }
 </style>
