@@ -9,22 +9,22 @@
 				</tr>
 
 				<tr>
-					<td
-						v-for="(day, index) in thisWeek"
-						:key="index"
-						:class="day.future"
-					>
-						{{ day.name }}
+					<td v-for="(day, index) in thisWeek" :key="index">
+						<router-link
+							:to="'/log/' + day.date"
+							:class="day.future && 'future'"
+						>
+							{{ day.name }}
+						</router-link>
 					</td>
 				</tr>
 
 				<tr>
-					<td
-						v-for="(day, index) in thisWeek"
-						:key="index"
-						:class="day.future"
-					>
-						<router-link :to="'/log/' + day.date">
+					<td v-for="(day, index) in thisWeek" :key="index">
+						<router-link
+							:to="'/log/' + day.date"
+							:class="day.future && 'future'"
+						>
 							<span
 								v-for="(veg, index) in day.data"
 								:key="index"
@@ -40,9 +40,13 @@
 						v-for="(day, index) in thisWeek"
 						:key="index"
 						class="date"
-						:class="day.future && 'future'"
 					>
-						{{ day.date }}
+						<router-link
+							:to="'/log/' + day.date"
+							:class="day.future && 'future'"
+						>
+							{{ nameDay(day.date) }}
+						</router-link>
 					</td>
 				</tr>
 			</table>
@@ -68,50 +72,11 @@ export default defineComponent({
 	setup() {
 		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
 
-		function createDays(start: Date): Object {
-			const days = {};
-
-			const date = new Date();
-			const startMonday = new Date();
-
-			startMonday.setDate(date.getDate() - date.getDay() - 6);
-			console.log(startMonday);
-			while (date >= startMonday) {
-				days[shortenDate(date)] = [];
-
-				date.setDate(date.getDate() - 1);
-			}
-
-			return days;
-		}
-
 		const thisWeek = createWeek(new Date(), log);
-
-		const vegLog = computed(() => {
-			// TODO: Only create days for current week
-			const logDays = createDays(new Date("2020-09-02"));
-
-			const sortedLog = Object.keys(logDays)
-				.sort()
-				.reverse()
-				.reduce((obj, key) => {
-					// if the log contains the day
-					if (log[key]) {
-						obj[key] = log[key];
-					} else {
-						obj[key] = [];
-					}
-
-					return obj;
-				}, {});
-
-			return sortedLog;
-		});
 
 		const nameDay = (date) => formatDate(new Date(date));
 
 		return {
-			vegLog,
 			nameDay,
 			thisWeek,
 		};
@@ -133,6 +98,7 @@ table {
 	writing-mode: vertical-rl;
 	transform: rotate(180deg);
 	font-family: monospace;
+	text-align: end;
 }
 
 th,
@@ -142,7 +108,8 @@ td {
 }
 
 .future {
-	color: silver;
+	color: #124;
+	pointer-events: none;
 }
 
 [class^="veg"] {

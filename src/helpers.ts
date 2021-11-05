@@ -26,7 +26,8 @@ export function formatDate(date: Date): String {
 
   if (shortDate === shortenDate(yesterday)) return "Yesterday"
 
-  if (shortDate > shortenDate(weekAgo)) return daynames[date.getDay()]
+  if (shortDate > shortenDate(weekAgo))
+    return daynames[date.getDay()] + " " + date.getDate()
 
   return shortenDate(date)
 }
