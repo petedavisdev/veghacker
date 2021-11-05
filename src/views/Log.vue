@@ -39,12 +39,12 @@
 							<span class="count">
 								{{ day.data.length }}
 							</span>
-							<span
+							<strong
 								v-for="(veg, index) in day.data.sort()"
 								:key="index"
-								class="veg"
+								class="code"
 								:style="{ color: `var(--${veg})` }"
-								>{{ veg }}</span
+								>{{ veg }}</strong
 							>
 						</router-link>
 					</td>
@@ -58,12 +58,12 @@
 							<span class="count">
 								{{ day.data.length }}
 							</span>
-							<span
+							<strong
 								v-for="(veg, index) in day.data.sort()"
 								:key="index"
-								class="veg"
+								class="code"
 								:style="{ color: `var(--${veg})` }"
-								>{{ veg }}</span
+								>{{ veg }}</strong
 							>
 						</router-link>
 					</td>
@@ -167,12 +167,8 @@ td {
 	pointer-events: none;
 }
 
-.veg {
+.code {
 	display: block;
-}
-
-.even {
-	background-color: #124;
 }
 
 .container {
