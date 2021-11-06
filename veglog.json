@@ -1138,5 +1138,18 @@
   "2021-10-21": ["CAR", "GAR", "ONI", "CAB", "RAD"],
   "2021-10-22": ["AVO", "CAR", "BEA", "GAR", "ONI", "MUS"],
   "2021-10-23": ["POT", "CAR", "AVO", "ONI", "GAR", "MUS"],
-  "2021-10-24": ["ONI", "SQU", "CAB", "CAR", "POT", "MUS"]
+  "2021-10-24": ["ONI", "SQU", "CAB", "CAR", "POT", "MUS"],
+  "2021-10-25": ["CAB", "CAR", "GAR", "ONI", "RAD", "TOM", "AVO"],
+  "2021-10-26": ["AVO", "GAR", "ONI", "TOM", "LET", "CAR"],
+  "2021-10-27": ["TOM", "GAR", "ONI", "LET", "CUC", "SON"],
+  "2021-10-28": ["ONI", "MUS"],
+  "2021-10-29": ["CAR", "CAB", "ONI", "MUS", "AVO", "CUC", "LET"],
+  "2021-10-30": ["LET", "PEA", "MUS", "PEP", "TOM", "PAR", "CAR", "AVO", "ONI"],
+  "2021-10-31": ["POT", "CAB", "SQU", "LEE", "TOM", "MUS", "ONI", "LET", "BRU"],
+  "2021-11-01": ["BEA", "POT", "CAB", "SQU", "LEE", "BRU"],
+  "2021-11-02": ["SQU", "CAR", "ONI", "COU"],
+  "2021-11-03": ["CAR", "CAB", "RAD", "AVO", "ONI", "SQU", "COU"],
+  "2021-11-04": ["COU", "ONI", "SQU"],
+  "2021-11-05": ["COU", "ONI"],
+  "2021-11-06": ["COU", "POT"]
 }

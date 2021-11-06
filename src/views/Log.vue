@@ -85,7 +85,7 @@
 					</th>
 					<th v-if="lastWeekTotal.length">
 						<h3>Want to see more than 2 weeks?</h3>
-						<p>
+						<p class="total">
 							Support the development of Veghacker -
 							<a href="https://www.buymeacoffee.com/veghacker">
 								buy me a coffee
@@ -165,7 +165,6 @@ td {
 }
 
 th {
-	min-width: 36ch;
 	vertical-align: top;
 	padding-bottom: 1em;
 	border-block: 2px solid #124;
@@ -193,5 +192,9 @@ th {
 
 p {
 	font-weight: normal;
+}
+
+.total {
+	width: 36ch;
 }
 </style>
