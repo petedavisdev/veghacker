@@ -23,7 +23,7 @@
 						</router-link>
 					</td>
 
-					<td v-for="(day, index) in lastWeek" :key="index">
+					<td v-for="(day, index) in lastWeekLog" :key="index">
 						<router-link :to="'/log/' + day.date">
 							<span class="count">
 								{{ day.data.length }}
@@ -49,7 +49,7 @@
 						</router-link>
 					</td>
 
-					<td v-for="(day, index) in lastWeek" :key="index">
+					<td v-for="(day, index) in lastWeekLog" :key="index">
 						<router-link :to="'/log/' + day.date">
 							{{ day.name }}
 						</router-link>
