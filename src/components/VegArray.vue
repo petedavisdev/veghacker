@@ -54,5 +54,6 @@ export default defineComponent({
 div {
 	color: silver;
 	margin-bottom: 1ch;
+	text-align: left;
 }
 </style>

@@ -5,7 +5,7 @@
 		<div class="container">
 			<table>
 				<tr>
-					<td v-for="(day, index) in thisWeek" :key="index">
+					<td v-for="(day, index) in thisWeekLog" :key="index">
 						<router-link
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
@@ -40,7 +40,7 @@
 				</tr>
 
 				<tr>
-					<td v-for="(day, index) in thisWeek" :key="index">
+					<td v-for="(day, index) in thisWeekLog" :key="index">
 						<router-link
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
@@ -57,8 +57,14 @@
 				</tr>
 
 				<tr>
-					<th colspan="7" scope="colgroup" class="week">This week</th>
-					<th colspan="7" scope="colgroup" class="week">Last week</th>
+					<th colspan="7" scope="colgroup" class="week">
+						<h3>This week</h3>
+						<VegArray :vegArray="thisWeekTotal" class="total" />
+					</th>
+					<th colspan="7" scope="colgroup" class="week">
+						<h3>Last week</h3>
+						<VegArray :vegArray="lastWeekTotal" class="total" />
+					</th>
 				</tr>
 			</table>
 		</div>
@@ -83,16 +89,18 @@ export default defineComponent({
 	setup() {
 		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
 		const today = new Date();
-		const thisWeek = createWeek(today, log);
+		const [thisWeekLog, thisWeekTotal] = createWeek(today, log);
 		const weekAgo = new Date(today.setDate(today.getDate() - 7));
-		const lastWeek = createWeek(weekAgo, log);
+		const [lastWeekLog, lastWeekTotal] = createWeek(weekAgo, log);
 
 		const nameDay = (date) => formatDate(new Date(date));
 
 		return {
 			nameDay,
-			thisWeek,
-			lastWeek,
+			thisWeekLog,
+			thisWeekTotal,
+			lastWeekLog,
+			lastWeekTotal,
 		};
 	},
 });
@@ -113,6 +121,10 @@ td {
 	padding: 1ch;
 	direction: ltr;
 	vertical-align: bottom;
+}
+
+th {
+	padding-inline: 2ch;
 }
 
 .count {
