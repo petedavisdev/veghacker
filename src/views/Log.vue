@@ -124,7 +124,8 @@ td {
 }
 
 th {
-	padding-inline: 2ch;
+	padding: 0 2ch 2ch;
+	vertical-align: top;
 }
 
 .count {
