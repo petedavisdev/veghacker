@@ -146,6 +146,8 @@ export default defineComponent({
 <style scoped>
 main {
 	direction: rtl;
+	display: grid;
+	place-content: center;
 }
 
 table {
@@ -186,8 +188,6 @@ th {
 }
 
 .container {
-	display: grid;
-	place-content: center;
 	overflow-x: auto;
 }
 
