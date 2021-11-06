@@ -10,9 +10,17 @@
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
 						>
-							<span class="count">
+							<span
+								v-if="day.data.length && !day.future"
+								class="count"
+							>
 								{{ day.data.length }}
 							</span>
+							<span
+								v-if="!day.data.length && !day.future"
+								class="count"
+								>+</span
+							>
 							<strong
 								v-for="(veg, index) in day.data.sort()"
 								:key="index"
@@ -37,6 +45,8 @@
 							>
 						</router-link>
 					</td>
+
+					<td></td>
 				</tr>
 
 				<tr>
@@ -55,6 +65,8 @@
 							{{ day.name }}
 						</router-link>
 					</td>
+
+					<td></td>
 				</tr>
 
 				<tr>
@@ -65,6 +77,16 @@
 					<th colspan="7" scope="colgroup" class="week">
 						<h2>Last week</h2>
 						<VegArray :vegArray="lastWeekTotal" class="total" />
+					</th>
+					<th>
+						<h3>Want to see more than 2 weeks?</h3>
+						<p>
+							Support the development of Veghacker -
+							<a href="https://www.buymeacoffee.com/veghacker">
+								buy me a coffee
+							</a>
+							😉
+						</p>
 					</th>
 				</tr>
 			</table>
@@ -135,6 +157,8 @@ th {
 }
 
 .count {
+	display: block;
+	padding-top: 2ch;
 	color: royalblue;
 }
 
@@ -150,5 +174,9 @@ th {
 
 .container {
 	overflow-x: auto;
+}
+
+p {
+	font-weight: normal;
 }
 </style>
