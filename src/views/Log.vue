@@ -46,7 +46,7 @@
 						</router-link>
 					</td>
 
-					<td></td>
+					<td v-if="lastWeekTotal.length"></td>
 				</tr>
 
 				<tr>
@@ -66,7 +66,7 @@
 						</router-link>
 					</td>
 
-					<td></td>
+					<td v-if="lastWeekTotal.length"></td>
 				</tr>
 
 				<tr>
@@ -74,11 +74,16 @@
 						<h2>This week</h2>
 						<VegArray :vegArray="thisWeekTotal" class="total" />
 					</th>
-					<th colspan="7" scope="colgroup" class="week">
+					<th
+						v-if="lastWeekTotal.length"
+						colspan="7"
+						scope="colgroup"
+						class="week"
+					>
 						<h2>Last week</h2>
 						<VegArray :vegArray="lastWeekTotal" class="total" />
 					</th>
-					<th>
+					<th v-if="lastWeekTotal.length">
 						<h3>Want to see more than 2 weeks?</h3>
 						<p>
 							Support the development of Veghacker -
@@ -113,8 +118,17 @@ export default defineComponent({
 		const log = JSON.parse(localStorage.getItem("vegLog")) || {};
 		const today = new Date();
 		const [thisWeekLog, thisWeekTotal] = createWeek(today, log);
-		const weekAgo = new Date(today.setDate(today.getDate() - 7));
-		const [lastWeekLog, lastWeekTotal] = createWeek(weekAgo, log);
+
+		const firstDateInLog = Object.keys(log).sort()[0];
+		const firstDateThisWeek = thisWeekLog[6].date;
+
+		let lastWeekLog = {};
+		let lastWeekTotal = [];
+
+		if (firstDateInLog < firstDateThisWeek) {
+			const weekAgo = new Date(today.setDate(today.getDate() - 7));
+			[lastWeekLog, lastWeekTotal] = createWeek(weekAgo, log);
+		}
 
 		const nameDay = (date) => formatDate(new Date(date));
 
@@ -135,7 +149,6 @@ main {
 }
 
 table {
-	min-width: 100%;
 	text-align: center;
 	border-spacing: 2ch;
 }
@@ -173,6 +186,8 @@ th {
 }
 
 .container {
+	display: grid;
+	place-content: center;
 	overflow-x: auto;
 }
 
