@@ -1,14 +1,16 @@
 <template>
 	<div>
-		<span class="count"> // {{ vegArray.length }}</span>
-
-		[<span
+		<span
 			v-for="(meta, code, index) in vegObj"
 			:key="index"
 			:style="{ color: `var(--${code})` }"
 			class="code"
 			>{{ code }}</span
-		>]
+		>
+
+		<span v-if="vegArray.length" class="count">
+			// {{ vegArray.length }}</span
+		>
 
 		<span class="search-input-target"></span>
 	</div>

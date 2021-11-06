@@ -44,13 +44,14 @@
 						<router-link
 							:to="'/log/' + day.date"
 							:class="day.future && 'future'"
+							class="date"
 						>
 							{{ day.name }}
 						</router-link>
 					</td>
 
 					<td v-for="(day, index) in lastWeekLog" :key="index">
-						<router-link :to="'/log/' + day.date">
+						<router-link :to="'/log/' + day.date" class="date">
 							{{ day.name }}
 						</router-link>
 					</td>
@@ -58,11 +59,11 @@
 
 				<tr>
 					<th colspan="7" scope="colgroup" class="week">
-						<h3>This week</h3>
+						<h2>This week</h2>
 						<VegArray :vegArray="thisWeekTotal" class="total" />
 					</th>
 					<th colspan="7" scope="colgroup" class="week">
-						<h3>Last week</h3>
+						<h2>Last week</h2>
 						<VegArray :vegArray="lastWeekTotal" class="total" />
 					</th>
 				</tr>
@@ -114,18 +115,23 @@ main {
 table {
 	min-width: 100%;
 	text-align: center;
+	border-spacing: 2ch;
 }
 
 th,
 td {
-	padding: 1ch;
 	direction: ltr;
+}
+
+td {
 	vertical-align: bottom;
 }
 
 th {
-	padding: 0 2ch 2ch;
+	min-width: 36ch;
 	vertical-align: top;
+	padding-bottom: 1em;
+	border-block: 2px solid #124;
 }
 
 .count {
@@ -144,10 +150,5 @@ th {
 
 .container {
 	overflow-x: auto;
-}
-
-.week {
-	background-color: #124;
-	border-radius: 1ch;
 }
 </style>

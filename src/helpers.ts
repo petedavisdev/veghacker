@@ -26,10 +26,9 @@ export function formatDate(date: Date): String {
 
   if (shortDate === shortenDate(yesterday)) return "Yesterday"
 
-  if (shortDate > shortenDate(weekAgo))
-    return daynames[date.getDay()] + " " + date.getDate()
+  if (shortDate > shortenDate(weekAgo)) return daynames[date.getDay()]
 
-  return shortenDate(date)
+  return daynames[date.getDay()] + " " + shortenDate(date)
 }
 
 export function createWeek(currentDate: Date, log: {}) {
