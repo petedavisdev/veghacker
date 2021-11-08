@@ -23,13 +23,13 @@
 			<button type="submit">Send me a magic login link ✨</button>
 		</form>
 
-		<template v-else-if="submitted && !userSession">
+		<article v-else-if="submitted && !userSession">
 			<p>Magic login link sent to {{ email }}</p>
 			<p>Check your inbox and spam folder 😉</p>
 			<button type="button" @click="submitted = false">
 				&lt; Try again
 			</button>
-		</template>
+		</article>
 
 		<template v-else>
 			<Suspense>
@@ -59,7 +59,7 @@
 				</template>
 
 				<template #fallback>
-					<p>Loading...</p>
+					<article>Loading...</article>
 				</template>
 			</Suspense>
 		</template>
@@ -112,6 +112,8 @@ export default defineComponent({
 
 <style scoped>
 main {
+    display: grid;
+    place-content: center;
     padding: 1rem;
 }
 
@@ -130,5 +132,10 @@ button {
     border-color: deepskyblue;
     border-width: 2px;
     padding: 0.5em;
+}
+
+article,
+form {
+    max-width: 60ch;
 }
 </style>
