@@ -21,12 +21,12 @@
                                 class="count"
                                 >+</span
                             >
-                            <strong
+                            <code
                                 v-for="(veg, index) in day.data.sort()"
                                 :key="index"
                                 class="code"
                                 :style="{ color: `var(--${veg})` }"
-                                >{{ veg }}</strong
+                                >{{ veg }}</code
                             >
                         </router-link>
                     </td>
@@ -36,12 +36,12 @@
                             <span class="count">
                                 {{ day.data.length }}
                             </span>
-                            <strong
+                            <code
                                 v-for="(veg, index) in day.data.sort()"
                                 :key="index"
                                 class="code"
                                 :style="{ color: `var(--${veg})` }"
-                                >{{ veg }}</strong
+                                >{{ veg }}</code
                             >
                         </router-link>
                     </td>
@@ -84,7 +84,7 @@
                         <VegArray :vegArray="lastWeekTotal" class="total" />
                     </th>
                     <th v-if="lastWeekLog.length">
-                        <h3>Want to see more than 2 weeks?</h3>
+                        <h4>Want to see more than 2 weeks?</h4>
                         <p class="total">
                             Support the development of Veghacker -
                             <template v-if="!userSession"
@@ -172,8 +172,7 @@ td {
 
 th {
     vertical-align: top;
-    padding-bottom: 1em;
-    border-block: 2px solid #124;
+    border-top: 2px solid #124;
 }
 
 .count {
@@ -201,6 +200,6 @@ p {
 }
 
 .total {
-    width: 36ch;
+    width: 35ch;
 }
 </style>
