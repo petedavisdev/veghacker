@@ -1,17 +1,17 @@
 <template>
-	<header>
-		<router-link to="log">
-			<strong>➔</strong>
-			<span>VEG</span><span>HAC</span><span>KER</span>
-			0.2-alpha
-		</router-link>
+    <header>
+        <router-link to="log">
+            <strong>➔</strong>
+            <span>VEG</span><span>HAC</span><span>KER</span>
+            0.3-alpha
+        </router-link>
 
-		<router-link to="account" class="fl-r">{{
-			userSession ? "😃" : "👋"
-		}}</router-link>
+        <router-link to="account" class="fl-r">{{
+            userSession ? "😃" : "👋"
+        }}</router-link>
 
-		<a href="/guide" class="fl-r">📖</a>
-	</header>
+        <a href="/guide" class="fl-r">📖</a>
+    </header>
 </template>
 
 <script lang="ts">
