@@ -44,6 +44,7 @@ export default defineComponent({
     float: right;
     color: royalblue;
     margin-right: 1ch;
+    font-weight: normal;
 }
 
 div {

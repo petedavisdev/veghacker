@@ -1,8 +1,8 @@
 <template>
     <header>
-        <h1>
-            {{ dayName }}
+        <h1 :class="{ home: isHome }">
             <router-link to="/log" class="fl-r icon">➔</router-link>
+            {{ isHome ? "What veg have you eaten today?" : dayName }}
         </h1>
 
         <VegArray :vegArray="dayLog.sort()" class="total" />
@@ -58,6 +58,8 @@ export default defineComponent({
     },
     setup() {
         const route = useRoute();
+
+        const isHome = route.path === "/";
 
         const routeDay = route.params.date?.toString();
 
@@ -151,6 +153,7 @@ export default defineComponent({
             dayLog,
             dayName,
             filteredVeg,
+            isHome,
             keyword,
             updateDayLog,
             searchinput,
