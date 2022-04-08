@@ -91,7 +91,7 @@
                                 ><router-link to="/account">Log in</router-link>
                                 and
                             </template>
-                            <a href="https://www.buymeacoffee.com/veghacker">
+                            <a href="https://www.buymeacoffee.com/petedavis">
                                 buy me a coffee
                             </a>
                             😉
