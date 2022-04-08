@@ -46,7 +46,7 @@
 						<p>
 							If you would like to encourage me to take the app to
 							the next level, you can
-							<a href="https://www.buymeacoffee.com/veghacker">
+							<a href="https://www.buymeacoffee.com/petedavis">
 								buy me a coffee
 							</a>
 							😉
